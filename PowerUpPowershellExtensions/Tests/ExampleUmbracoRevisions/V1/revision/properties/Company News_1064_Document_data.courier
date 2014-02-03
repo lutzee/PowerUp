@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPropertyData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Company News_1064_Document_data</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>501c614a-050a-4530-b900-74d138537e4e</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Node: 501c614a-050a-4530-b900-74d138537e4e</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>501c614a-050a-4530-b900-74d138537e4e</Id>
+    <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Document Company News Property Data</Name>
+  <ItemType>Dependency</ItemType>
+  <Resources />
+  <ContentID>1064</ContentID>
+  <ContentUniqueId>501c614a-050a-4530-b900-74d138537e4e</ContentUniqueId>
+  <ContentPath>-1,1063,1064</ContentPath>
+  <Data />
+  <NodeObjectType>c66ba18e-eaf3-4cff-8a22-41b16d66a972</NodeObjectType>
+</ContentPropertyData>

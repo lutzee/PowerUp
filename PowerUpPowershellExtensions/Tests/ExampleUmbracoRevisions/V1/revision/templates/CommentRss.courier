@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>CommentRss</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>BlogRss</Id>
+        <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Macro: BlogRss</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>CommentRss</Id>
+    <ProviderId>25867200-e67e-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>CommentRss</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/masterpages/CommentRss.master</ExtractToPath>
+      <Hash>2f53b24909288c1de22ef09e4669cc6a</Hash>
+      <Name>/masterpages/CommentRss.master</Name>
+      <PackageFromPath>/masterpages/CommentRss.master</PackageFromPath>
+      <ResourceContents>77u/PCVAIE1hc3RlciBMYW5ndWFnZT0iQyMiIE1hc3RlclBhZ2VGaWxlPSJ+L3VtYnJhY28vbWFzdGVycGFnZXMvZGVmYXVsdC5tYXN0ZXIiIEF1dG9FdmVudFdpcmV1cD0idHJ1ZSIgJT4NCjxhc3A6Q29udGVudCBDb250ZW50UGxhY2VIb2xkZXJJRD0iQ29udGVudFBsYWNlSG9sZGVyRGVmYXVsdCIgcnVuYXQ9InNlcnZlciI+PHVtYnJhY286bWFjcm8gaXNjb21tZW50ZmVlZD0iMSIgQWxpYXM9IkJsb2dSc3MiIHJ1bmF0PSJzZXJ2ZXIiPjwvdW1icmFjbzpNYWNybz48L2FzcDpDb250ZW50Pg==</ResourceContents>
+      <TemporaryStoragePath>/masterpages/CommentRss.master</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>CommentRss</Alias>
+  <Design>&lt;%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %&gt;
+&lt;asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server"&gt;&lt;umbraco:Macro iscommentfeed="1" Alias="BlogRss" runat="server"&gt;&lt;/umbraco:Macro&gt;&lt;/asp:Content&gt;</Design>
+  <MasterPagePath>~/masterpages/CommentRss.master</MasterPagePath>
+  <ParentTemplateId>0</ParentTemplateId>
+  <Id>1047</Id>
+</Template>

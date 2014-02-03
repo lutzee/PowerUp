@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Rss</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>BlogRss</Id>
+        <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Macro: BlogRss</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>Rss</Id>
+    <ProviderId>25867200-e67e-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Rss</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/masterpages/Rss.master</ExtractToPath>
+      <Hash>6d7b3557624c15cfef208b1d1985cfde</Hash>
+      <Name>/masterpages/Rss.master</Name>
+      <PackageFromPath>/masterpages/Rss.master</PackageFromPath>
+      <ResourceContents>77u/PCVAIE1hc3RlciBMYW5ndWFnZT0iQyMiIE1hc3RlclBhZ2VGaWxlPSJ+L3VtYnJhY28vbWFzdGVycGFnZXMvZGVmYXVsdC5tYXN0ZXIiIEF1dG9FdmVudFdpcmV1cD0idHJ1ZSIgJT4NCjxhc3A6Q29udGVudCBDb250ZW50UGxhY2VIb2xkZXJJRD0iQ29udGVudFBsYWNlSG9sZGVyRGVmYXVsdCIgcnVuYXQ9InNlcnZlciI+PHVtYnJhY286bWFjcm8gQWxpYXM9IkJsb2dSc3MiIHJ1bmF0PSJzZXJ2ZXIiPjwvdW1icmFjbzpNYWNybz4NCjwvYXNwOkNvbnRlbnQ+</ResourceContents>
+      <TemporaryStoragePath>/masterpages/Rss.master</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>Rss</Alias>
+  <Design>&lt;%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %&gt;
+&lt;asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server"&gt;&lt;umbraco:Macro Alias="BlogRss" runat="server"&gt;&lt;/umbraco:Macro&gt;
+&lt;/asp:Content&gt;</Design>
+  <MasterPagePath>~/masterpages/Rss.master</MasterPagePath>
+  <ParentTemplateId>0</ParentTemplateId>
+  <Id>1052</Id>
+</Template>

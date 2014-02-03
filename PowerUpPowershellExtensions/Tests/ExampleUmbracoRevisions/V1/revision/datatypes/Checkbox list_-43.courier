@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Checkbox list_-43</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>fbaf13a8-4036-41f2-93a3-974f678c312a</Id>
+    <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Checkbox list</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <Assembly>umbraco.editorControls</Assembly>
+  <DataBaseDataType>Nvarchar</DataBaseDataType>
+  <DataEditorId>b4471851-82b6-4c75-afa4-39fa9c6a75e9</DataEditorId>
+  <NodeId>-43</NodeId>
+  <Prevalues />
+  <Type>umbraco.editorControls.checkboxlist.checkboxListDataType</Type>
+  <UniqueID>fbaf13a8-4036-41f2-93a3-974f678c312a</UniqueID>
+</DataType>

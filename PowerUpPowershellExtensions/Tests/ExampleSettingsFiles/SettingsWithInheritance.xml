@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <section name="Default">
+    <setting name="Wotsit" value="1"/>
+    <setting name="Thing" value="2"/>
+  </section>
+  <section name="Dev">
+    <setting name="Wotsit" value="10"/>
+    <setting name="Thing" value="20"/>
+  </section>
+  <section name="Live" inherits="Dev">
+    <setting name="Thing" value="30"/>
+    <setting name="Other" value="2"/>
+  </section>
+  <section name="Prod" inherits="Live">
+    <setting name="Thing" value="30"/>
+    <setting name="Other" value="200"/>
+  </section>
+</settings>

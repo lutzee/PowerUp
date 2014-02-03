@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>umbTopNavigation</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>umbTopNavigation</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Top Navigation</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/xslt/umbTopNavigation.xslt</ExtractToPath>
+      <Hash>d00689fcd9d1e480bc20fe33b083ef5a</Hash>
+      <Name>/xslt/umbTopNavigation.xslt</Name>
+      <PackageFromPath>/xslt/umbTopNavigation.xslt</PackageFromPath>
+      <ResourceContents>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHhzbDpzdHlsZXNoZWV0IFsKICAgIDwhRU5USVRZIG5ic3AgIiYjeDAwQTA7Ij4KXT4KPHhzbDpzdHlsZXNoZWV0CiAgdmVyc2lvbj0iMS4wIgogIHhtbG5zOnhzbD0iaHR0cDovL3d3dy53My5vcmcvMTk5OS9YU0wvVHJhbnNmb3JtIgogIHhtbG5zOm1zeG1sPSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOnhzbHQiCiAgeG1sbnM6dW1icmFjby5saWJyYXJ5PSJ1cm46dW1icmFjby5saWJyYXJ5IgogIGV4Y2x1ZGUtcmVzdWx0LXByZWZpeGVzPSJtc3htbCB1bWJyYWNvLmxpYnJhcnkiPgoKCiAgICA8eHNsOm91dHB1dCBtZXRob2Q9InhtbCIgb21pdC14bWwtZGVjbGFyYXRpb249InllcyIgLz4KCiAgICA8eHNsOnBhcmFtIG5hbWU9ImN1cnJlbnRQYWdlIi8+CgogICAgPCEtLSBJbnB1dCB0aGUgZG9jdW1lbnR0eXBlIHlvdSB3YW50IGhlcmUgLS0+CiAgICA8eHNsOnZhcmlhYmxlIG5hbWU9ImxldmVsIiBzZWxlY3Q9IjEiLz4KCiAgICA8eHNsOnRlbXBsYXRlIG1hdGNoPSIvIj4KCiAgICAgIAogPHVsIGlkPSJ0b3BOYXZpZ2F0aW9uIj4KICAgICAgIDxsaSBjbGFzcz0iaG9tZSI+CiAgICAgICAgIDx4c2w6aWYgdGVzdD0iJGN1cnJlbnRQYWdlL0BpZCA9ICRjdXJyZW50UGFnZS9hbmNlc3Rvci1vci1zZWxmOjoqIFtAbGV2ZWw9JGxldmVsXS9AaWQiPgogICAgICAgICAgICAgPHhzbDphdHRyaWJ1dGUgbmFtZT0iY2xhc3MiPmhvbWUgY3VycmVudDwveHNsOmF0dHJpYnV0ZT4KICAgICAgICAgPC94c2w6aWY+CiAgICAgICAgIDxhIGhyZWY9Ii8iPkhvbWU8L2E+CiAgICAgICA8L2xpPgogICAgICA8eHNsOmZvci1lYWNoIHNlbGVjdD0iJGN1cnJlbnRQYWdlL2FuY2VzdG9yLW9yLXNlbGY6OiogW0BsZXZlbD0kbGV2ZWxdLyogW0Bpc0RvYyBhbmQgc3RyaW5nKHVtYnJhY29OYXZpSGlkZSkgIT0gJzEnXSI+CiAgPGxpPgogICAgIDx4c2w6aWYgdGVzdD0iQGlkID0gJGN1cnJlbnRQYWdlL0BpZCI+CiAgICAgICAgPHhzbDphdHRyaWJ1dGUgbmFtZT0iY2xhc3MiPmN1cnJlbnQ8L3hzbDphdHRyaWJ1dGU+CiAgICAgIDwveHNsOmlmPgogICAgPGEgY2xhc3M9Im5hdmlnYXRpb24iIGhyZWY9Int1bWJyYWNvLmxpYnJhcnk6TmljZVVybChAaWQpfSI+CiAgICAgIDxzcGFuPjx4c2w6dmFsdWUtb2Ygc2VsZWN0PSJAbm9kZU5hbWUiLz48L3NwYW4+CiAgICA8L2E+CiAgPC9saT4KICAKICAKPC94c2w6Zm9yLWVhY2g+CjwvdWw+CgogICAgPC94c2w6dGVtcGxhdGU+Cgo8L3hzbDpzdHlsZXNoZWV0Pg==</ResourceContents>
+      <TemporaryStoragePath>/xslt/umbTopNavigation.xslt</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>umbTopNavigation</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties />
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>false</UseInEditor>
+  <UserControl />
+  <Xslt>umbTopNavigation.xslt</Xslt>
+</Macro>

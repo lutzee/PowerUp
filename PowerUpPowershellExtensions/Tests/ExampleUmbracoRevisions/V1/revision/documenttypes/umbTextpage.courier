@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DocumentType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>umbTextpage</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>ca90c950-0aff-4e72-b976-a30b1ac57dad</Id>
+        <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Datatype: ca90c950-0aff-4e72-b976-a30b1ac57dad</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</Id>
+        <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Datatype: 92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umbTextpage</Id>
+        <ProviderId>25867200-e67e-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Template: umbTextpage</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umbTextpage</Id>
+        <ProviderId>d8e6ad84-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document type: umbTextpage</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>umbTextpage</Id>
+    <ProviderId>d8e6ad84-e73a-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Textpage</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/umbraco/images/thumbnails/doc.png</ExtractToPath>
+      <Hash>62d8e00a78d9feb3a9476ce533909497</Hash>
+      <Name>/umbraco/images/thumbnails/doc.png</Name>
+      <PackageFromPath>/umbraco/images/thumbnails/doc.png</PackageFromPath>
+      <ResourceContents>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</ResourceContents>
+      <TemporaryStoragePath>/umbraco/images/thumbnails/doc.png</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>umbTextpage</Alias>
+  <AllowedChildDocumentTypes>
+    <string>umbTextpage</string>
+  </AllowedChildDocumentTypes>
+  <AllowedTemplates>
+    <string>umbTextpage</string>
+  </AllowedTemplates>
+  <DefaultTemplate>umbTextpage</DefaultTemplate>
+  <Description>This is the standard content page for a starter kit website.</Description>
+  <Icon>.sprTreeDoc</Icon>
+  <Properties>
+    <ContentTypeProperty>
+      <Alias>bodyText</Alias>
+      <DataTypeDefinitionId>ca90c950-0aff-4e72-b976-a30b1ac57dad</DataTypeDefinitionId>
+      <DataTypeNodeId>-87</DataTypeNodeId>
+      <Description />
+      <Id>45</Id>
+      <Mandatory>false</Mandatory>
+      <Name>Body Text</Name>
+      <SortOrder>0</SortOrder>
+      <TabCaption>Content</TabCaption>
+      <Validation />
+    </ContentTypeProperty>
+    <ContentTypeProperty>
+      <Alias>umbracoNaviHide</Alias>
+      <DataTypeDefinitionId>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</DataTypeDefinitionId>
+      <DataTypeNodeId>-49</DataTypeNodeId>
+      <Description />
+      <Id>46</Id>
+      <Mandatory>false</Mandatory>
+      <Name>Hide in navigation</Name>
+      <SortOrder>0</SortOrder>
+      <Validation />
+    </ContentTypeProperty>
+  </Properties>
+  <Tabs>
+    <Tab>
+      <ContentTypeId>1061</ContentTypeId>
+      <ContentTypeAlias>umbTextpage</ContentTypeAlias>
+      <Id>17</Id>
+      <SortOrder>1</SortOrder>
+      <Text>Content</Text>
+    </Tab>
+  </Tabs>
+  <Thumbnail>doc.png</Thumbnail>
+</DocumentType>

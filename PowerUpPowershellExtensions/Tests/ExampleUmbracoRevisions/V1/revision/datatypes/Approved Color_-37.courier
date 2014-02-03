@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Approved Color_-37</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>0225af17-b302-49cb-9176-b9f35cab9c17</Id>
+    <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Approved Color</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <Assembly>umbraco.editorControls</Assembly>
+  <DataBaseDataType>Nvarchar</DataBaseDataType>
+  <DataEditorId>f8d60f68-ec59-4974-b43b-c46eb5677985</DataEditorId>
+  <NodeId>-37</NodeId>
+  <Prevalues />
+  <Type>umbraco.editorControls.colorpicker.ColorPickerDataType</Type>
+  <UniqueID>0225af17-b302-49cb-9176-b9f35cab9c17</UniqueID>
+</DataType>

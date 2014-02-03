@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>BlogpostRelatedPages</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>BlogpostRelatedPages</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Blogpost Related Pages</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/xslt/umbBlogpostRelatedPages.xslt</ExtractToPath>
+      <Hash>ab35ac391d420c58985564b8df923fd4</Hash>
+      <Name>/xslt/umbBlogpostRelatedPages.xslt</Name>
+      <PackageFromPath>/xslt/umbBlogpostRelatedPages.xslt</PackageFromPath>
+      <ResourceContents>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHhzbDpzdHlsZXNoZWV0IFsKICA8IUVOVElUWSBuYnNwICImI3gwMEEwOyI+Cl0+Cjx4c2w6c3R5bGVzaGVldAogIHZlcnNpb249IjEuMCIKICB4bWxuczp4c2w9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvWFNML1RyYW5zZm9ybSIKICB4bWxuczptc3htbD0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTp4c2x0IgogIHhtbG5zOnVtYnJhY28ubGlicmFyeT0idXJuOnVtYnJhY28ubGlicmFyeSIKICB4bWxuczpCbG9nTGlicmFyeT0idXJuOkJsb2dMaWJyYXJ5IgogIHhtbG5zOnRhZ3NMaWI9InVybjp0YWdzTGliIgogIGV4Y2x1ZGUtcmVzdWx0LXByZWZpeGVzPSJtc3htbCB1bWJyYWNvLmxpYnJhcnkgQmxvZ0xpYnJhcnkiPgoKCiAgPHhzbDpvdXRwdXQgbWV0aG9kPSJodG1sIiBvbWl0LXhtbC1kZWNsYXJhdGlvbj0ieWVzIi8+CgogIDx4c2w6cGFyYW0gbmFtZT0iY3VycmVudFBhZ2UiLz4KCgogICAgPHhzbDp0ZW1wbGF0ZSBtYXRjaD0iLyI+CiAgICAgICAgPHhzbDppZiB0ZXN0PSJzdHJpbmctbGVuZ3RoKCRjdXJyZW50UGFnZS90YWdzKSAmZ3Q7IDAiPgoKICAgICAgICAgICAgPHhzbDp2YXJpYWJsZSBuYW1lPSJyZWxhdGVkcG9zdHMiIHNlbGVjdD0idGFnc0xpYjpnZXRDb250ZW50c1dpdGhUYWdzKCRjdXJyZW50UGFnZS90YWdzKS9yb290L3VtYkJsb2dQb3N0IFtAaWQgIT0gJGN1cnJlbnRQYWdlL0BpZF0iIC8+CgogICAgICAgICAgICA8eHNsOmlmIHRlc3Q9ImNvdW50KCRyZWxhdGVkcG9zdHMpICZndDsgMCI+CgogICAgICAgICAgICAgICAgPGgzIGNsYXNzPSJjb21tZW50c2hlYWRlciI+UmVsYXRlZCBwb3N0czwvaDM+CgogICAgICAgICAgICAgICAgPHVsIGNsYXNzPSJyZWxhdGVkUG9zdHNMaXN0Ij4KICAgICAgICAgICAgICAgICAgICA8eHNsOmZvci1lYWNoIHNlbGVjdD0iJHJlbGF0ZWRwb3N0cyI+CiAgICAgICAgICAgICAgICAgICAgIDx4c2w6c29ydCBzZWxlY3Q9IkJsb2dMaWJyYXJ5OkNvdW50U2VwYXJhdGVkU3RyaW5nTWF0Y2hlcygkY3VycmVudFBhZ2UvdGFncywgJywnLCB0YWdzLCAnLCcpIiBvcmRlcj0iZGVzY2VuZGluZyIgZGF0YS10eXBlPSJudW1iZXIiLz4KICAgICAgICAgICAgICAgICAgICAgPHhzbDpzb3J0IHNlbGVjdD0iQGNyZWF0ZURhdGUiIG9yZGVyPSJkZXNjZW5kaW5nIiBkYXRhLXR5cGU9InRleHQiLz4KICAgICAgICAgICAgICAgICAgICAgICAgPHhzbDppZiB0ZXN0PSJwb3NpdGlvbigpICZsdDsgNiI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8bGk+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGEgaHJlZj0ie3VtYnJhY28ubGlicmFyeTpOaWNlVXJsKEBpZCl9Ij4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHhzbDp2YWx1ZS1vZiBzZWxlY3Q9IkBub2RlTmFtZSIvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvbGk+CiAgICAgICAgICAgICAgICAgICAgICAgIDwveHNsOmlmPgogICAgICAgICAgICAgICAgICAgIDwveHNsOmZvci1lYWNoPgogICAgICAgICAgICAgICAgPC91bD4KICAgICAgICAgICAgPC94c2w6aWY+CiAgICAgICAgPC94c2w6aWY+CiAgICA8L3hzbDp0ZW1wbGF0ZT4KCjwveHNsOnN0eWxlc2hlZXQ+</ResourceContents>
+      <TemporaryStoragePath>/xslt/umbBlogpostRelatedPages.xslt</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>BlogpostRelatedPages</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties />
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>false</UseInEditor>
+  <UserControl />
+  <Xslt>umbBlogpostRelatedPages.xslt</Xslt>
+</Macro>

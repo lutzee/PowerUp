@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <section name="Live">
+    <setting name="Thing" value="1 ${Other}&amp;amp;"/>
+    <setting name="Other" value="2"/>
+  </section>
+  <section name="Dev">
+    <setting name="Wotsit" value="${Thing} 5 "/>
+    <setting name="Thing" value="3 ${Other}"/>
+    <setting name="Other" value="4"/>
+  </section>
+</settings>

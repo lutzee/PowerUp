@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>umbNewsListItems</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>umbNewsListItems</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>News List Items</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/xslt/umbNewsListItems.xslt</ExtractToPath>
+      <Hash>ae95f4662bafa496d5a387334271d5db</Hash>
+      <Name>/xslt/umbNewsListItems.xslt</Name>
+      <PackageFromPath>/xslt/umbNewsListItems.xslt</PackageFromPath>
+      <ResourceContents>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHhzbDpzdHlsZXNoZWV0IFsgPCFFTlRJVFkgbmJzcCAiJiN4MDBBMDsiPiBdPgo8eHNsOnN0eWxlc2hlZXQgCiAgdmVyc2lvbj0iMS4wIiAKICB4bWxuczp4c2w9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvWFNML1RyYW5zZm9ybSIgCiAgeG1sbnM6bXN4bWw9InVybjpzY2hlbWFzLW1pY3Jvc29mdC1jb206eHNsdCIgCiAgeG1sbnM6dW1icmFjby5saWJyYXJ5PSJ1cm46dW1icmFjby5saWJyYXJ5IiB4bWxuczpFeHNsdC5FeHNsdENvbW1vbj0idXJuOkV4c2x0LkV4c2x0Q29tbW9uIiB4bWxuczpFeHNsdC5FeHNsdERhdGVzQW5kVGltZXM9InVybjpFeHNsdC5FeHNsdERhdGVzQW5kVGltZXMiIHhtbG5zOkV4c2x0LkV4c2x0TWF0aD0idXJuOkV4c2x0LkV4c2x0TWF0aCIgeG1sbnM6RXhzbHQuRXhzbHRSZWd1bGFyRXhwcmVzc2lvbnM9InVybjpFeHNsdC5FeHNsdFJlZ3VsYXJFeHByZXNzaW9ucyIgeG1sbnM6RXhzbHQuRXhzbHRTdHJpbmdzPSJ1cm46RXhzbHQuRXhzbHRTdHJpbmdzIiB4bWxuczpFeHNsdC5FeHNsdFNldHM9InVybjpFeHNsdC5FeHNsdFNldHMiIHhtbG5zOnVtYnJhY28uY29udG91cj0idXJuOnVtYnJhY28uY29udG91ciIgeG1sbnM6dGFnc0xpYj0idXJuOnRhZ3NMaWIiIHhtbG5zOkJsb2dMaWJyYXJ5PSJ1cm46QmxvZ0xpYnJhcnkiIAogIGV4Y2x1ZGUtcmVzdWx0LXByZWZpeGVzPSJtc3htbCB1bWJyYWNvLmxpYnJhcnkgRXhzbHQuRXhzbHRDb21tb24gRXhzbHQuRXhzbHREYXRlc0FuZFRpbWVzIEV4c2x0LkV4c2x0TWF0aCBFeHNsdC5FeHNsdFJlZ3VsYXJFeHByZXNzaW9ucyBFeHNsdC5FeHNsdFN0cmluZ3MgRXhzbHQuRXhzbHRTZXRzIHVtYnJhY28uY29udG91ciB0YWdzTGliIEJsb2dMaWJyYXJ5ICI+Cgo8eHNsOm91dHB1dCBtZXRob2Q9InhtbCIgb21pdC14bWwtZGVjbGFyYXRpb249InllcyIvPgoKPHhzbDpwYXJhbSBuYW1lPSJjdXJyZW50UGFnZSIvPgoKPHhzbDp0ZW1wbGF0ZSBtYXRjaD0iLyI+Cgo8IS0tIFRoZSBmdW4gc3RhcnRzIGhlcmUgLS0+Cgo8ZGl2IGNsYXNzPSJuZXdzTGlzdCI+Cjx4c2w6Zm9yLWVhY2ggc2VsZWN0PSIkY3VycmVudFBhZ2UvKiBbQGlzRG9jIGFuZCBzdHJpbmcodW1icmFjb05hdmlIaWRlKSAhPSAnMSddIj4KICA8eHNsOnNvcnQgc2VsZWN0PSJAdXBkYXRlRGF0ZSIgb3JkZXI9ImFzY2VuZGluZyIgLz4KICAgPGgzIGNsYXNzPSJoZWFkbGluZSI+IDxhIGhyZWY9Int1bWJyYWNvLmxpYnJhcnk6TmljZVVybChAaWQpfSI+CiAgICAgIDx4c2w6dmFsdWUtb2Ygc2VsZWN0PSJAbm9kZU5hbWUiLz4KICAgIDwvYT4KICA8L2gzPgogIDxzbWFsbCBjbGFzcz0ibWV0YSI+UG9zdGVkOiA8eHNsOnZhbHVlLW9mIHNlbGVjdD0idW1icmFjby5saWJyYXJ5OkxvbmdEYXRlKEB1cGRhdGVEYXRlLCB0cnVlKCksICcgLSAnKSIvPjwvc21hbGw+PGJyLz4KICA8cCBjbGFzcz0iaW50cm9kdWN0aW9uIj4KICAgIDx4c2w6dmFsdWUtb2Ygc2VsZWN0PSJ1bWJyYWNvLmxpYnJhcnk6UmVwbGFjZUxpbmVCcmVha3MoaW50cm9kdWN0aW9uKSIgZGlzYWJsZS1vdXRwdXQtZXNjYXBpbmc9InllcyIvPgogIDwvcD4KICAKPC94c2w6Zm9yLWVhY2g+CiAgPC9kaXY+Cgo8L3hzbDp0ZW1wbGF0ZT4KCjwveHNsOnN0eWxlc2hlZXQ+</ResourceContents>
+      <TemporaryStoragePath>/xslt/umbNewsListItems.xslt</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>umbNewsListItems</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties />
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>false</UseInEditor>
+  <UserControl />
+  <Xslt>umbNewsListItems.xslt</Xslt>
+</Macro>

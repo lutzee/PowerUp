@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPropertyData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Stocks are up_1067_Document_data</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>1c774c18-9e9b-4495-9619-b13fab01f0bf</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Node: 1c774c18-9e9b-4495-9619-b13fab01f0bf</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>1c774c18-9e9b-4495-9619-b13fab01f0bf</Id>
+    <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Document Stocks are up Property Data</Name>
+  <ItemType>Dependency</ItemType>
+  <Resources />
+  <ContentID>1067</ContentID>
+  <ContentUniqueId>1c774c18-9e9b-4495-9619-b13fab01f0bf</ContentUniqueId>
+  <ContentPath>-1,1063,1064,1067</ContentPath>
+  <Data>
+    <ContentProperty>
+      <Alias>introduction</Alias>
+      <DataType>c6bac0dd-4ab9-45b1-8e30-e4b619ee5da3</DataType>
+      <DataTypeEditor>67db8357-ef57-493e-91ac-936d305e0f2a</DataTypeEditor>
+      <DBType>Ntext</DBType>
+      <PreValueEditor>umbraco.editorControls.DefaultPrevalueEditor</PreValueEditor>
+      <Value xsi:type="xsd:string">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc rhoncus neque pellentesque urna sodales quis rutrum sapien consectetur. Nam consectetur semper augue sit amet fringilla. Curabitur vel magna rhoncus ipsum pharetra aliquet.</Value>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>bodyText</Alias>
+      <DataType>ca90c950-0aff-4e72-b976-a30b1ac57dad</DataType>
+      <DataTypeEditor>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</DataTypeEditor>
+      <DBType>Ntext</DBType>
+      <PreValueEditor>umbraco.editorControls.tinymce.tinyMCEPreValueConfigurator</PreValueEditor>
+      <Value xsi:type="xsd:string">
+&lt;p&gt;Duis tempor scelerisque condimentum. Proin convallis placerat
+odio, at dictum risus tempor id. Maecenas vel erat ac enim
+convallis vehicula at et mi. Fusce ut faucibus odio. Vestibulum
+pharetra mollis sem, at viverra nunc facilisis non. Vivamus
+vulputate nibh et ligula dictum interdum. Aenean at libero et quam
+ultricies dignissim in id tellus. Curabitur tincidunt nibh
+ullamcorper ligula dapibus volutpat. Vestibulum neque augue,
+blandit vitae ornare at, facilisis at sapien. Lorem ipsum dolor sit
+amet, consectetur adipiscing elit. Curabitur non mollis lacus. Ut
+sed pulvinar nulla.&lt;/p&gt;
+
+&lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et
+malesuada fames ac turpis egestas. Nunc rhoncus neque pellentesque
+urna sodales quis rutrum sapien consectetur. Nam consectetur semper
+augue sit amet fringilla. Curabitur vel magna rhoncus ipsum
+pharetra aliquet. Morbi et molestie justo. Fusce congue tellus
+aliquam leo sollicitudin nec bibendum sapien egestas. Pellentesque
+nec sapien enim. Phasellus justo leo, congue dapibus euismod id,
+luctus ut ante. Curabitur justo metus, faucibus eget placerat sit
+amet, fringilla eget urna. Aliquam a leo ipsum.&lt;/p&gt;
+
+&lt;p&gt;In nec tristique odio. Proin fringilla lobortis neque sit amet
+dapibus. Maecenas mollis tempor lacus, ac commodo sem condimentum
+ac. Nulla facilisi. Duis eleifend placerat laoreet. In fringilla
+accumsan leo a laoreet. Sed tincidunt nisl a risus blandit
+pellentesque. Mauris in ante ac sapien semper sagittis. Etiam
+luctus posuere pulvinar. Sed eros sem, sollicitudin a laoreet non,
+ultrices nec nulla. Morbi tempus, nunc ac malesuada tempus, ipsum
+neque sodales ipsum, et lacinia libero tellus a risus. Integer sit
+amet purus nibh, in aliquam nisi. Curabitur non imperdiet libero.
+Quisque magna massa, vestibulum vitae laoreet sit amet, luctus eu
+elit. Nam eros mi, consectetur a eleifend sed, tincidunt id
+odio.&lt;/p&gt;
+</Value>
+    </ContentProperty>
+  </Data>
+  <NodeObjectType>c66ba18e-eaf3-4cff-8a22-41b16d66a972</NodeObjectType>
+</ContentPropertyData>

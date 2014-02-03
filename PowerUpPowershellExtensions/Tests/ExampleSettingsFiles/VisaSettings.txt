@@ -1,0 +1,25 @@
+﻿#comment
+Default
+	ProjectName						VisaDebitMicroSiteAU
+
+Test
+	DeployServer		 			\\reliant
+	DeploymentPath		 			e:\temp
+	RemoteReleaseWorkingFolder	 	${DeployServer}\e$\releasetemp
+	LocalReleaseWorkingFolder	 	e:\releasetemp
+	AdminSiteFolder					${ProjectName}admin
+	AdminSiteUrl					${ProjectName}admin.dev.work
+	WebSiteFolder					${ProjectName}web
+	WebSiteUrl						${ProjectName}.dev.work
+	#A comment
+#Another comment	
+			
+Staging
+	DeploymentPath		\\closerweb1\webroot
+	AdminSiteFolder		${ProjectName}admin.view2.comps.co.nz
+#Comment
+	#comment
+	WebSiteFolder		${ProjectName}web.view2.comps.co.nz
+	
+Production
+	DeploymentPath		\\sharon\webroot

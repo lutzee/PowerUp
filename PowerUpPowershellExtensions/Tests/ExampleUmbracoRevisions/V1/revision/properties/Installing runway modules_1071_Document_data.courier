@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPropertyData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Installing runway modules_1071_Document_data</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>c560dc5c-cd30-4afb-9cb6-7d13abd272ed</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Node: c560dc5c-cd30-4afb-9cb6-7d13abd272ed</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>c560dc5c-cd30-4afb-9cb6-7d13abd272ed</Id>
+    <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Document Installing runway modules Property Data</Name>
+  <ItemType>Dependency</ItemType>
+  <Resources />
+  <ContentID>1071</ContentID>
+  <ContentUniqueId>c560dc5c-cd30-4afb-9cb6-7d13abd272ed</ContentUniqueId>
+  <ContentPath>-1,1063,1070,1071</ContentPath>
+  <Data>
+    <ContentProperty>
+      <Alias>bodyText</Alias>
+      <DataType>ca90c950-0aff-4e72-b976-a30b1ac57dad</DataType>
+      <DataTypeEditor>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</DataTypeEditor>
+      <DBType>Ntext</DBType>
+      <PreValueEditor>umbraco.editorControls.tinymce.tinyMCEPreValueConfigurator</PreValueEditor>
+      <Value xsi:type="xsd:string">&lt;p&gt;Umbraco modules encapsulate specific bits of advanced functionality that are easily added to your website.&lt;/p&gt;
+&lt;p&gt;Once installed, Umbraco modules are open source and easy to customize if you want to modify the behavior for your specific needs.&lt;br /&gt; Because Umbraco modules are provided under the MIT license you are free to use and modify them any way you want, with no strings attached.&lt;/p&gt;
+&lt;p&gt;To add Umbraco modules to your website, go to the &lt;strong&gt;Settings&lt;/strong&gt; section, expand the &lt;strong&gt;Templates&lt;/strong&gt; item, select the &lt;strong&gt;Starterkit Master&lt;/strong&gt; template, then click the &lt;strong&gt;Customize Skin&lt;/strong&gt; button on the toolbar.&lt;/p&gt;
+&lt;p&gt;Umbraco modules are available for various kinds of navigation, a sitemap, social media feeds, and a contact form. The list of available Umbraco modules is growing rapidly and is automatically updated from a central source, always fresh and current.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://umbraco.org/get-started" title="Get Started with Umbraco"&gt;Get more information&lt;/a&gt; about the umbraco way.&lt;/p&gt;</Value>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>umbracoNaviHide</Alias>
+      <DataType>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</DataType>
+      <DataTypeEditor>38b352c1-e9f8-4fd8-9324-9a2eab06d97a</DataTypeEditor>
+      <DBType>Integer</DBType>
+      <PreValueEditor>umbraco.editorControls.DefaultPrevalueEditor</PreValueEditor>
+      <Value xsi:type="xsd:int">0</Value>
+    </ContentProperty>
+  </Data>
+  <NodeObjectType>c66ba18e-eaf3-4cff-8a22-41b16d66a972</NodeObjectType>
+</ContentPropertyData>

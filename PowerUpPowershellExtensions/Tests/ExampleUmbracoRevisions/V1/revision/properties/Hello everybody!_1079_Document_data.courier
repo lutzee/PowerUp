@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPropertyData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Hello everybody!_1079_Document_data</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>2ca9cb32-c136-4061-a2a8-fa84a451bebc</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Node: 2ca9cb32-c136-4061-a2a8-fa84a451bebc</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>2ca9cb32-c136-4061-a2a8-fa84a451bebc</Id>
+    <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Document Hello everybody! Property Data</Name>
+  <ItemType>Dependency</ItemType>
+  <Resources />
+  <ContentID>1079</ContentID>
+  <ContentUniqueId>2ca9cb32-c136-4061-a2a8-fa84a451bebc</ContentUniqueId>
+  <ContentPath>-1,1078,1079</ContentPath>
+  <Data>
+    <ContentProperty>
+      <Alias>umbracoFile</Alias>
+      <DataType>84c6b441-31df-4ffe-b67e-67d5bc3ae65a</DataType>
+      <DataTypeEditor>5032a6e6-69e3-491d-bb28-cd31cd11086c</DataTypeEditor>
+      <DBType>Nvarchar</DBType>
+      <PreValueEditor>umbraco.editorControls.uploadfield.uploadFieldPreValue</PreValueEditor>
+      <Value xsi:type="xsd:string">/media/74/tmp_img.jpg</Value>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>teaserText</Alias>
+      <DataType>ca90c950-0aff-4e72-b976-a30b1ac57dad</DataType>
+      <DataTypeEditor>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</DataTypeEditor>
+      <DBType>Ntext</DBType>
+      <PreValueEditor>umbraco.editorControls.tinymce.tinyMCEPreValueConfigurator</PreValueEditor>
+      <Value xsi:type="xsd:string">
+&lt;p&gt;Sed quia non numquam eius modi tempora incidunt ut labore et
+dolore magnam aliquam quaerat voluptatem. Neque porro quisquam est,
+qui dolorem ipsum quia dolor sit amet.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="#" class="ui-btn ui-btn-big"&gt;About us&lt;/a&gt;&lt;/p&gt;
+</Value>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>link</Alias>
+      <DataType>a6857c73-d6e9-480c-b6e6-f15f6ad11125</DataType>
+      <DataTypeEditor>158aa029-24ed-4948-939e-c3da209e5fba</DataTypeEditor>
+      <DBType>Integer</DBType>
+      <PreValueEditor>umbraco.editorControls.DefaultPrevalueEditor</PreValueEditor>
+    </ContentProperty>
+  </Data>
+  <NodeObjectType>c66ba18e-eaf3-4cff-8a22-41b16d66a972</NodeObjectType>
+</ContentPropertyData>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPropertyData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>About_1070_Document_data</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>3108e99d-f508-4ee0-be8c-e4dab3b3f0c9</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Node: 3108e99d-f508-4ee0-be8c-e4dab3b3f0c9</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>3108e99d-f508-4ee0-be8c-e4dab3b3f0c9</Id>
+    <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Document About Property Data</Name>
+  <ItemType>Dependency</ItemType>
+  <Resources />
+  <ContentID>1070</ContentID>
+  <ContentUniqueId>3108e99d-f508-4ee0-be8c-e4dab3b3f0c9</ContentUniqueId>
+  <ContentPath>-1,1063,1070</ContentPath>
+  <Data>
+    <ContentProperty>
+      <Alias>bodyText</Alias>
+      <DataType>ca90c950-0aff-4e72-b976-a30b1ac57dad</DataType>
+      <DataTypeEditor>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</DataTypeEditor>
+      <DBType>Ntext</DBType>
+      <PreValueEditor>umbraco.editorControls.tinymce.tinyMCEPreValueConfigurator</PreValueEditor>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>umbracoNaviHide</Alias>
+      <DataType>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</DataType>
+      <DataTypeEditor>38b352c1-e9f8-4fd8-9324-9a2eab06d97a</DataTypeEditor>
+      <DBType>Integer</DBType>
+      <PreValueEditor>umbraco.editorControls.DefaultPrevalueEditor</PreValueEditor>
+    </ContentProperty>
+  </Data>
+  <NodeObjectType>c66ba18e-eaf3-4cff-8a22-41b16d66a972</NodeObjectType>
+</ContentPropertyData>

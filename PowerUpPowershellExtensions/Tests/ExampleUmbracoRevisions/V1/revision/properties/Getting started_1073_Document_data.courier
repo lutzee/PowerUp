@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPropertyData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Getting started_1073_Document_data</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>38af216f-4631-4b64-acf5-3989e2f64639</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Node: 38af216f-4631-4b64-acf5-3989e2f64639</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>38af216f-4631-4b64-acf5-3989e2f64639</Id>
+    <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Document Getting started Property Data</Name>
+  <ItemType>Dependency</ItemType>
+  <Resources />
+  <ContentID>1073</ContentID>
+  <ContentUniqueId>38af216f-4631-4b64-acf5-3989e2f64639</ContentUniqueId>
+  <ContentPath>-1,1063,1070,1073</ContentPath>
+  <Data>
+    <ContentProperty>
+      <Alias>bodyText</Alias>
+      <DataType>ca90c950-0aff-4e72-b976-a30b1ac57dad</DataType>
+      <DataTypeEditor>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</DataTypeEditor>
+      <DBType>Ntext</DBType>
+      <PreValueEditor>umbraco.editorControls.tinymce.tinyMCEPreValueConfigurator</PreValueEditor>
+      <Value xsi:type="xsd:string">&lt;p&gt;You've installed Umbraco and the basic Simple website.&lt;/p&gt;
+&lt;p&gt;Edit the text on the homepage and create a site structure by adding new texpages to your site. This is all done in the &lt;strong&gt;Content&lt;/strong&gt; section.&lt;/p&gt;
+&lt;p&gt;If you find the editing options provided by the Simple site too limited for you needs, simply add more properties to the page by going to the &lt;strong&gt;Settings&lt;/strong&gt; section, expanding the &lt;strong&gt;Document Types&lt;/strong&gt; item and adding new properties on the &lt;strong&gt;Generic Properties&lt;/strong&gt; tab. You can find more information about &lt;a href="http://umbraco.org/help-and-support/video-tutorials/introduction-to-umbraco/sitebuilder-introduction/document-types" title="About Umbraco Document Types"&gt;document types and properties&lt;/a&gt; at the &lt;a href="http://umbraco.org" title="The Umbraco Website"&gt;Umbraco website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You'll probably want to personalize your site by changing the current design. This is also done in the &lt;strong&gt;Settings&lt;/strong&gt; section, either by editing the CSS styles and HTML templates or by selecting and applying a Skin. Umbraco uses master templates, so the main, common markup is placed in the &lt;strong&gt;Starterkit Master&lt;/strong&gt; template, while the Homeage and Textpage have separate templates for their unique layouts. You can find more information about &lt;a href="http://umbraco.org/help-and-support/video-tutorials/introduction-to-umbraco/sitebuilder-introduction/templates" title="Umbraco Templates and Stylesheets"&gt;templates and css&lt;/a&gt; in umbraco at the umbraco website.&lt;/p&gt;
+&lt;p&gt;Once you're happy with your site's design, you might want to add more functionality, such as automated navigation. This is done by &lt;a href="http://umbraco.org/help-and-support/video-tutorials/getting-started" title="Umbraco Modules"&gt;installing Umbraco modules&lt;/a&gt;.&lt;/p&gt;</Value>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>umbracoNaviHide</Alias>
+      <DataType>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</DataType>
+      <DataTypeEditor>38b352c1-e9f8-4fd8-9324-9a2eab06d97a</DataTypeEditor>
+      <DBType>Integer</DBType>
+      <PreValueEditor>umbraco.editorControls.DefaultPrevalueEditor</PreValueEditor>
+      <Value xsi:type="xsd:int">0</Value>
+    </ContentProperty>
+  </Data>
+  <NodeObjectType>c66ba18e-eaf3-4cff-8a22-41b16d66a972</NodeObjectType>
+</ContentPropertyData>

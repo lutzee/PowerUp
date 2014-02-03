@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPropertyData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Go further_1072_Document_data</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>9144492f-bed8-46bc-80e9-a2a393ca351e</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Node: 9144492f-bed8-46bc-80e9-a2a393ca351e</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>9144492f-bed8-46bc-80e9-a2a393ca351e</Id>
+    <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Document Go further Property Data</Name>
+  <ItemType>Dependency</ItemType>
+  <Resources />
+  <ContentID>1072</ContentID>
+  <ContentUniqueId>9144492f-bed8-46bc-80e9-a2a393ca351e</ContentUniqueId>
+  <ContentPath>-1,1063,1070,1072</ContentPath>
+  <Data>
+    <ContentProperty>
+      <Alias>bodyText</Alias>
+      <DataType>ca90c950-0aff-4e72-b976-a30b1ac57dad</DataType>
+      <DataTypeEditor>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</DataTypeEditor>
+      <DBType>Ntext</DBType>
+      <PreValueEditor>umbraco.editorControls.tinymce.tinyMCEPreValueConfigurator</PreValueEditor>
+      <Value xsi:type="xsd:string">&lt;p&gt;The Simple Starter Kit only scratches the surface of what's possible with Umbraco. Below the Simple Starter Kit and its modules lies a great architecture that lets you implement whatever you need.&lt;/p&gt;
+&lt;p&gt;With Umbraco you've finally got a solid, open and reliable platform for websites as basic as the Simple site, and Umbraco can be rapidly expanded to support multi-language websites, collaboration platforms and intra/extranets, to name just a few.&lt;/p&gt;
+&lt;p&gt;Advanced functionality is created with Umbraco macros, built with XSLT and Umbraco's award-winning .NET integration, including full support for any .NET User or Custom control. Create and integrate your own .NET macros in mere minutes with point and click simplicity. Simply copy your controls to the Umbraco website, go to the &lt;strong&gt;Developer&lt;/strong&gt; section and create a new macro, selecting your control from the list.&lt;/p&gt;
+&lt;p&gt;You can also use &lt;a href="http://umbraco.org/help-and-support/video-tutorials/getting-started/working-with-webmatrix" title="Working with Razor"&gt;Microsoft's Razor&lt;/a&gt; syntax to quickly add dynamic functionality to your site.&lt;/p&gt;
+&lt;p&gt;We've also gathered the best community macros into a repository that's also accessed from the &lt;strong&gt;Developer&lt;/strong&gt; section, in the &lt;strong&gt;Packages&lt;/strong&gt; area. You can find more information &lt;a href="http://umbraco.org/help-and-support/video-tutorials/introduction-to-umbraco/sitebuilder-introduction/what-are-macros" title="About creating Umbraco macros"&gt;about creating macros&lt;/a&gt;, on the Umbraco website.&lt;/p&gt;
+&lt;p&gt;The sky is the limit with Umbraco, and you have the benefit a friendly community, training, and guaranteed support. Find out how to &lt;a href="http://umbraco.org/help-and-support" title="Get Umbraco Support"&gt;get help&lt;/a&gt;.&lt;/p&gt;</Value>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>umbracoNaviHide</Alias>
+      <DataType>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</DataType>
+      <DataTypeEditor>38b352c1-e9f8-4fd8-9324-9a2eab06d97a</DataTypeEditor>
+      <DBType>Integer</DBType>
+      <PreValueEditor>umbraco.editorControls.DefaultPrevalueEditor</PreValueEditor>
+      <Value xsi:type="xsd:int">0</Value>
+    </ContentProperty>
+  </Data>
+  <NodeObjectType>c66ba18e-eaf3-4cff-8a22-41b16d66a972</NodeObjectType>
+</ContentPropertyData>

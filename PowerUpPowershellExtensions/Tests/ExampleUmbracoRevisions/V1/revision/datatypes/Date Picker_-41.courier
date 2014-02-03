@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Date Picker_-41</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>5046194e-4237-453c-a547-15db3a07c4e1</Id>
+    <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Date Picker</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <Assembly>umbraco.editorControls</Assembly>
+  <DataBaseDataType>Date</DataBaseDataType>
+  <DataEditorId>23e93522-3200-44e2-9f29-e61a6fcbb79a</DataEditorId>
+  <NodeId>-41</NodeId>
+  <Prevalues />
+  <Type>umbraco.editorControls.datepicker.DateDataType</Type>
+  <UniqueID>5046194e-4237-453c-a547-15db3a07c4e1</UniqueID>
+</DataType>

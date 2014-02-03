@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>BlogBlogroll</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>BlogBlogroll</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Blog Blogroll</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/xslt/umbBlogroll.xslt</ExtractToPath>
+      <Hash>1a554ea071a8b176737bde374a47502f</Hash>
+      <Name>/xslt/umbBlogroll.xslt</Name>
+      <PackageFromPath>/xslt/umbBlogroll.xslt</PackageFromPath>
+      <ResourceContents>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHhzbDpzdHlsZXNoZWV0IFsKICA8IUVOVElUWSBuYnNwICImI3gwMEEwOyI+Cl0+Cjx4c2w6c3R5bGVzaGVldAogIHZlcnNpb249IjEuMCIKICB4bWxuczp4c2w9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvWFNML1RyYW5zZm9ybSIKICB4bWxuczptc3htbD0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTp4c2x0IgogIHhtbG5zOnVtYnJhY28ubGlicmFyeT0idXJuOnVtYnJhY28ubGlicmFyeSIKICBleGNsdWRlLXJlc3VsdC1wcmVmaXhlcz0ibXN4bWwgdW1icmFjby5saWJyYXJ5Ij4KCgogIDx4c2w6b3V0cHV0IG1ldGhvZD0iaHRtbCIgb21pdC14bWwtZGVjbGFyYXRpb249InllcyIgLz4KCiAgPHhzbDpwYXJhbSBuYW1lPSJjdXJyZW50UGFnZSIvPgogIAogIDwhLS0gSW5wdXQgdGhlIHJlbGF0ZWQgbGlua3MgcHJvcGVydHkgYWxpYXMgaGVyZSAtLT4KICA8eHNsOnZhcmlhYmxlIG5hbWU9InByb3BlcnR5QWxpYXMiIHNlbGVjdD0ic3RyaW5nKCdibG9ncm9sbCcpIi8+CiAgCiAgPHhzbDp0ZW1wbGF0ZSBtYXRjaD0iLyI+CiAgICA8IS0tIFRoZSBmdW4gc3RhcnRzIGhlcmUgLS0+CiAgICA8eHNsOmlmIHRlc3Q9ImNvdW50KCRjdXJyZW50UGFnZS9hbmNlc3Rvci1vci1zZWxmOjp1bWJCbG9nLyogW25hbWUoKSA9ICRwcm9wZXJ0eUFsaWFzXS9saW5rcy9saW5rKSAmZ3Q7IDAiPgogICAgICA8bGkgaWQ9ImxpbmtjYXQtMiIgY2xhc3M9ImxpbmtjYXQiPgogICAgICAgIDxoMz5CbG9ncm9sbDwvaDM+CiAgICAgICAgCiAgICAgICAgPHVsPgogICAgICAgICAgPHhzbDpmb3ItZWFjaCBzZWxlY3Q9IiRjdXJyZW50UGFnZS9hbmNlc3Rvci1vci1zZWxmOjp1bWJCbG9nLyogW25hbWUoKSA9ICRwcm9wZXJ0eUFsaWFzXS9saW5rcy9saW5rIj4KICAgICAgICAgICAgPGxpPgogICAgICAgICAgICAgIDx4c2w6ZWxlbWVudCBuYW1lPSJhIj4KICAgICAgICAgICAgICAgIDx4c2w6aWYgdGVzdD0iLi9AbmV3d2luZG93ID0gJzEnIj4KICAgICAgICAgICAgICAgICAgPHhzbDphdHRyaWJ1dGUgbmFtZT0idGFyZ2V0Ij5fYmxhbms8L3hzbDphdHRyaWJ1dGU+CiAgICAgICAgICAgICAgICA8L3hzbDppZj4KICAgICAgICAgICAgICAgIDx4c2w6Y2hvb3NlPgogICAgICAgICAgICAgICAgICA8eHNsOndoZW4gdGVzdD0iLi9AdHlwZSA9ICdleHRlcm5hbCciPgogICAgICAgICAgICAgICAgICAgIDx4c2w6YXR0cmlidXRlIG5hbWU9ImhyZWYiPgogICAgICAgICAgICAgICAgICAgICAgPHhzbDp2YWx1ZS1vZiBzZWxlY3Q9Ii4vQGxpbmsiLz4KICAgICAgICAgICAgICAgICAgICA8L3hzbDphdHRyaWJ1dGU+CiAgICAgICAgICAgICAgICAgIDwveHNsOndoZW4+CiAgICAgICAgICAgICAgICAgIDx4c2w6b3RoZXJ3aXNlPgogICAgICAgICAgICAgICAgICAgIDx4c2w6YXR0cmlidXRlIG5hbWU9ImhyZWYiPgogICAgICAgICAgICAgICAgICAgICAgPHhzbDp2YWx1ZS1vZiBzZWxlY3Q9InVtYnJhY28ubGlicmFyeTpOaWNlVXJsKC4vQGxpbmspIi8+CiAgICAgICAgICAgICAgICAgICAgPC94c2w6YXR0cmlidXRlPgogICAgICAgICAgICAgICAgICA8L3hzbDpvdGhlcndpc2U+CiAgICAgICAgICAgICAgICA8L3hzbDpjaG9vc2U+CiAgICAgICAgICAgICAgICA8eHNsOnZhbHVlLW9mIHNlbGVjdD0iLi9AdGl0bGUiLz4KICAgICAgICAgICAgICA8L3hzbDplbGVtZW50PgogICAgICAgICAgICA8L2xpPgogICAgICAgICAgPC94c2w6Zm9yLWVhY2g+CiAgICAgICAgPC91bD4KCiAgICAgIDwvbGk+CiAgICA8L3hzbDppZj4KICAgIAogIDwveHNsOnRlbXBsYXRlPgoKPC94c2w6c3R5bGVzaGVldD4=</ResourceContents>
+      <TemporaryStoragePath>/xslt/umbBlogroll.xslt</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>BlogBlogroll</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties />
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>false</UseInEditor>
+  <UserControl />
+  <Xslt>umbBlogroll.xslt</Xslt>
+</Macro>

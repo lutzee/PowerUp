@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>umediaSliderImages</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>umediaSliderImages</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>u.media Slider Images</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/xslt/u.mediaSliderImages.xslt</ExtractToPath>
+      <Hash>3bf18bd321ae09a26d3975dd4c8ae930</Hash>
+      <Name>/xslt/u.mediaSliderImages.xslt</Name>
+      <PackageFromPath>/xslt/u.mediaSliderImages.xslt</PackageFromPath>
+      <ResourceContents>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHhzbDpzdHlsZXNoZWV0IFsgPCFFTlRJVFkgbmJzcCAiJiN4MDBBMDsiPiBdPgo8eHNsOnN0eWxlc2hlZXQgCiAgdmVyc2lvbj0iMS4wIiAKICB4bWxuczp4c2w9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvWFNML1RyYW5zZm9ybSIgCiAgeG1sbnM6bXN4bWw9InVybjpzY2hlbWFzLW1pY3Jvc29mdC1jb206eHNsdCIKICB4bWxuczp1bWJyYWNvLmxpYnJhcnk9InVybjp1bWJyYWNvLmxpYnJhcnkiIHhtbG5zOkV4c2x0LkV4c2x0Q29tbW9uPSJ1cm46RXhzbHQuRXhzbHRDb21tb24iIHhtbG5zOkV4c2x0LkV4c2x0RGF0ZXNBbmRUaW1lcz0idXJuOkV4c2x0LkV4c2x0RGF0ZXNBbmRUaW1lcyIgeG1sbnM6RXhzbHQuRXhzbHRNYXRoPSJ1cm46RXhzbHQuRXhzbHRNYXRoIiB4bWxuczpFeHNsdC5FeHNsdFJlZ3VsYXJFeHByZXNzaW9ucz0idXJuOkV4c2x0LkV4c2x0UmVndWxhckV4cHJlc3Npb25zIiB4bWxuczpFeHNsdC5FeHNsdFN0cmluZ3M9InVybjpFeHNsdC5FeHNsdFN0cmluZ3MiIHhtbG5zOkV4c2x0LkV4c2x0U2V0cz0idXJuOkV4c2x0LkV4c2x0U2V0cyIgeG1sbnM6dGFnc0xpYj0idXJuOnRhZ3NMaWIiIHhtbG5zOkJsb2dMaWJyYXJ5PSJ1cm46QmxvZ0xpYnJhcnkiIAogIGV4Y2x1ZGUtcmVzdWx0LXByZWZpeGVzPSJtc3htbCB1bWJyYWNvLmxpYnJhcnkgRXhzbHQuRXhzbHRDb21tb24gRXhzbHQuRXhzbHREYXRlc0FuZFRpbWVzIEV4c2x0LkV4c2x0TWF0aCBFeHNsdC5FeHNsdFJlZ3VsYXJFeHByZXNzaW9ucyBFeHNsdC5FeHNsdFN0cmluZ3MgRXhzbHQuRXhzbHRTZXRzIHRhZ3NMaWIgQmxvZ0xpYnJhcnkgIj4KCgo8eHNsOm91dHB1dCBtZXRob2Q9InhtbCIgb21pdC14bWwtZGVjbGFyYXRpb249InllcyIvPgoKPHhzbDpwYXJhbSBuYW1lPSJjdXJyZW50UGFnZSIvPgoKPHhzbDp0ZW1wbGF0ZSBtYXRjaD0iLyI+Cgo8IS0tIHN0YXJ0IHdyaXRpbmcgWFNMVCAtLT4KICA8eHNsOnZhcmlhYmxlIG5hbWU9InNsaWRlck5vZGUiIHNlbGVjdD0iJGN1cnJlbnRQYWdlL3BhcmVudDo6Ki9jaGlsZDo6KltAbGV2ZWw9MV0iLz4KCiA8ZGl2IGlkPSJzbGlkZXIiPgogICAgPGRpdiBpZD0iaW1hZ2VTbGlkZXIiPgogICAgICA8eHNsOmZvci1lYWNoIHNlbGVjdD0iJHNsaWRlck5vZGUvY2hpbGQ6OnVtZWRpYVNsaWRlciI+CiAgICAgICAgICAgPGRpdiBjbGFzcz0iaW1hZ2VTbGlkZSI+CiAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iaW1hZ2VTbGlkZXJJbmZvIj4KICAgICAgICAgICAgICAgICAgPGgyPiA8eHNsOnZhbHVlLW9mIHNlbGVjdD0iQG5vZGVOYW1lIi8+PC9oMj4KICAgICAgICAgICAgICAgICAgPHhzbDp2YWx1ZS1vZiBzZWxlY3Q9InRlYXNlclRleHQiIGRpc2FibGUtb3V0cHV0LWVzY2FwaW5nPSJ5ZXMiLz4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iaW1hZ2VTbGlkZXJJbWFnZSI+CiAgICAgICAgICAgICAgICAgIDxpbWcgc3JjPSJ7dW1icmFjb0ZpbGV9IiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMyMCIgLz4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8L2Rpdj4KICAgICAgIAogICAgICA8L3hzbDpmb3ItZWFjaD4KICAgPC9kaXY+CjwvZGl2Pgo8L3hzbDp0ZW1wbGF0ZT4KCjwveHNsOnN0eWxlc2hlZXQ+</ResourceContents>
+      <TemporaryStoragePath>/xslt/u.mediaSliderImages.xslt</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>umediaSliderImages</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties />
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>false</UseInEditor>
+  <UserControl />
+  <Xslt>u.mediaSliderImages.xslt</Xslt>
+</Macro>

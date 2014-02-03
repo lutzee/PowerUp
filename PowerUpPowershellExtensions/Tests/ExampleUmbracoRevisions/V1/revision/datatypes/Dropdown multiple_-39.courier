@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Dropdown multiple_-39</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>f38f0ac7-1d27-439c-9f3f-089cd8825a53</Id>
+    <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Dropdown multiple</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <Assembly>umbraco.editorControls</Assembly>
+  <DataBaseDataType>Nvarchar</DataBaseDataType>
+  <DataEditorId>928639ed-9c73-4028-920c-1e55dbb68783</DataEditorId>
+  <NodeId>-39</NodeId>
+  <Prevalues />
+  <Type>umbraco.editorControls.listbox.ListBoxDataType</Type>
+  <UniqueID>f38f0ac7-1d27-439c-9f3f-089cd8825a53</UniqueID>
+</DataType>

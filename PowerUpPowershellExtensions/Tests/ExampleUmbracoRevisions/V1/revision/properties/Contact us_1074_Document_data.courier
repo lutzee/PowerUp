@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPropertyData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Contact us_1074_Document_data</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>708d1f77-41ba-4481-9b22-84a6bc11fc92</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Node: 708d1f77-41ba-4481-9b22-84a6bc11fc92</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>RunwayContactForm</Id>
+        <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+      </ItemId>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>708d1f77-41ba-4481-9b22-84a6bc11fc92</Id>
+    <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Document Contact us Property Data</Name>
+  <ItemType>Dependency</ItemType>
+  <Resources />
+  <ContentID>1074</ContentID>
+  <ContentUniqueId>708d1f77-41ba-4481-9b22-84a6bc11fc92</ContentUniqueId>
+  <ContentPath>-1,1063,1074</ContentPath>
+  <Data>
+    <ContentProperty>
+      <Alias>bodyText</Alias>
+      <DataType>ca90c950-0aff-4e72-b976-a30b1ac57dad</DataType>
+      <DataTypeEditor>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</DataTypeEditor>
+      <DBType>Ntext</DBType>
+      <PreValueEditor>umbraco.editorControls.tinymce.tinyMCEPreValueConfigurator</PreValueEditor>
+      <Value xsi:type="xsd:string">
+&lt;h3&gt;Office address&lt;/h3&gt;
+
+&lt;p&gt;Company Name!&lt;br /&gt;
+Streetname 3432&lt;br /&gt;
+DK-9872 City Name&lt;/p&gt;
+
+&lt;p&gt;Country&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Phone&lt;/strong&gt;: +45 3728-282-829&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fax&lt;/strong&gt;: &amp;nbsp;+45 3728-282-829&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h3&gt;Send us an email&lt;/h3&gt;
+
+&lt;p&gt;This contact form sends email to the addresse configured on the
+macro itself, edit the page in umbraco to change the addresse&lt;/p&gt;
+
+&lt;p&gt;Also ensure that your smtp email settings are correct, these are
+set in the &lt;strong&gt;web.config&lt;/strong&gt; file located in the root of
+your website.&lt;/p&gt;
+
+&lt;?umbraco_macro subject="Email from your website"
+youremail="name@domain.com" macroAlias="RunwayContactForm"
+/&gt;
+</Value>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>umbracoNaviHide</Alias>
+      <DataType>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</DataType>
+      <DataTypeEditor>38b352c1-e9f8-4fd8-9324-9a2eab06d97a</DataTypeEditor>
+      <DBType>Integer</DBType>
+      <PreValueEditor>umbraco.editorControls.DefaultPrevalueEditor</PreValueEditor>
+      <Value xsi:type="xsd:int">0</Value>
+    </ContentProperty>
+  </Data>
+  <NodeObjectType>c66ba18e-eaf3-4cff-8a22-41b16d66a972</NodeObjectType>
+</ContentPropertyData>

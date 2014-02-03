@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Textstring_-88</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Id>
+    <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Textstring</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <Assembly>umbraco.editorControls</Assembly>
+  <DataBaseDataType>Nvarchar</DataBaseDataType>
+  <DataEditorId>ec15c1e5-9d90-422a-aa52-4f7622c63bea</DataEditorId>
+  <NodeId>-88</NodeId>
+  <Prevalues />
+  <Type>umbraco.editorControls.textfield.TextFieldDataType</Type>
+  <UniqueID>0cc0eba1-9960-42c9-bf9b-60e150b429ae</UniqueID>
+</DataType>

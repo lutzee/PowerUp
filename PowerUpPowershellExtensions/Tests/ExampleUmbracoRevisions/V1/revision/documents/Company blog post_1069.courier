@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Company blog post_1069</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>true</IsChild>
+      <ItemId>
+        <Id>f4e4dfc6-4311-41fc-9fdc-1cca7118ecb6</Id>
+        <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document Property data</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umbBlogPost</Id>
+        <ProviderId>d8e6ad84-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document type: umbBlogPost</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>aa68328d-5749-435c-8d0a-44e4e6994de0</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Parent Document: aa68328d-5749-435c-8d0a-44e4e6994de0</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>f4e4dfc6-4311-41fc-9fdc-1cca7118ecb6</Id>
+    <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Company blog post</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <DocumentTypeAlias>umbBlogPost</DocumentTypeAlias>
+  <Id>1069</Id>
+  <ParentId>1068</ParentId>
+  <ParentUniqueId>aa68328d-5749-435c-8d0a-44e4e6994de0</ParentUniqueId>
+  <UniqueId>f4e4dfc6-4311-41fc-9fdc-1cca7118ecb6</UniqueId>
+  <SortOrder>1</SortOrder>
+  <Level>3</Level>
+  <Template>umbBlogpost</Template>
+  <Published>true</Published>
+  <CreateDate>2010-09-07T13:31:05</CreateDate>
+  <ExpireDate>0001-01-01T00:00:00</ExpireDate>
+  <ReleaseDate>0001-01-01T00:00:00</ReleaseDate>
+  <UpdateDate>2011-07-05T16:01:45</UpdateDate>
+  <PublishDate>2011-07-05T16:01:45</PublishDate>
+</Document>

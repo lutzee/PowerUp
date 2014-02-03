@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>umbBlogDatefolder</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>BlogListPosts</Id>
+        <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Macro: BlogListPosts</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umbMaster</Id>
+        <ProviderId>25867200-e67e-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Master template: umbMaster</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>umbBlogDatefolder</Id>
+    <ProviderId>25867200-e67e-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Blog Datefolder</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/masterpages/umbBlogDatefolder.master</ExtractToPath>
+      <Hash>57f9ed97031f57bccbe19a697000570d</Hash>
+      <Name>/masterpages/umbBlogDatefolder.master</Name>
+      <PackageFromPath>/masterpages/umbBlogDatefolder.master</PackageFromPath>
+      <ResourceContents>77u/PCVAIE1hc3RlciBMYW5ndWFnZT0iQyMiIE1hc3RlclBhZ2VGaWxlPSJ+L21hc3RlcnBhZ2VzL3VtYk1hc3Rlci5tYXN0ZXIiIEF1dG9FdmVudFdpcmV1cD0idHJ1ZSIgJT4NCg0KPGFzcDpDb250ZW50IENvbnRlbnRQbGFjZUhvbGRlcklEPSJjcF9jb250ZW50IiBydW5hdD0ic2VydmVyIj4NCg0KPGRpdiBpZD0icGFnZS1iZ3RvcCI+DQogICAgICA8ZGl2IGlkPSJjb250ZW50Ij4NCiAgICAgICAgIDx1bWJyYWNvOm1hY3JvIElEPSJNYWNybzIiIEFsaWFzPSJCbG9nTGlzdFBvc3RzIiBydW5hdD0ic2VydmVyIj48L3VtYnJhY286TWFjcm8+DQogICAgICA8L2Rpdj4NCiAgICAgIDwhLS0gZW5kIGRpdiNjb250ZW50IC0tPiAgDQogIA0KDQogICAgICA8ZGl2IHN0eWxlPSJjbGVhcjogYm90aDsgaGVpZ2h0OiAxcHgiPjwvZGl2Pg0KICAgIDwvZGl2Pg0KICANCg0KDQo8L2FzcDpDb250ZW50Pg==</ResourceContents>
+      <TemporaryStoragePath>/masterpages/umbBlogDatefolder.master</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>umbBlogDatefolder</Alias>
+  <Design>&lt;%@ Master Language="C#" MasterPageFile="~/masterpages/umbMaster.master" AutoEventWireup="true" %&gt;
+
+&lt;asp:Content ContentPlaceHolderID="cp_content" runat="server"&gt;
+  &lt;div id="content" class="textpage"&gt;
+    &lt;umbraco:Macro Alias="BlogListPosts" runat="server"&gt;&lt;/umbraco:Macro&gt;
+  &lt;/div&gt;
+&lt;/asp:Content&gt;</Design>
+  <MasterPagePath>~/masterpages/umbBlogDatefolder.master</MasterPagePath>
+  <ParentTemplateAlias>umbMaster</ParentTemplateAlias>
+  <ParentTemplateId>1053</ParentTemplateId>
+  <Id>1045</Id>
+</Template>

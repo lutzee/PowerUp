@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>BlogArchive</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>BlogArchive</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Blog Archive</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/xslt/umbBlogArchive.xslt</ExtractToPath>
+      <Hash>805ec87d189a53d968cd1c49e7deb195</Hash>
+      <Name>/xslt/umbBlogArchive.xslt</Name>
+      <PackageFromPath>/xslt/umbBlogArchive.xslt</PackageFromPath>
+      <ResourceContents>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHhzbDpzdHlsZXNoZWV0IFsKICA8IUVOVElUWSBuYnNwICImI3gwMEEwOyI+Cl0+Cjx4c2w6c3R5bGVzaGVldAogIHZlcnNpb249IjEuMCIKICB4bWxuczp4c2w9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvWFNML1RyYW5zZm9ybSIKICB4bWxuczptc3htbD0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTp4c2x0IgogIHhtbG5zOnVtYnJhY28ubGlicmFyeT0idXJuOnVtYnJhY28ubGlicmFyeSIKICBleGNsdWRlLXJlc3VsdC1wcmVmaXhlcz0ibXN4bWwgdW1icmFjby5saWJyYXJ5Ij4KCgogIDx4c2w6b3V0cHV0IG1ldGhvZD0iaHRtbCIgb21pdC14bWwtZGVjbGFyYXRpb249InllcyIvPgoKICA8eHNsOnBhcmFtIG5hbWU9ImN1cnJlbnRQYWdlIi8+CgogIDx4c2w6dGVtcGxhdGUgbWF0Y2g9Ii8iPgoKICAgIDx1bCBjbGFzcz0iYXJjaGl2ZSI+CiAgICAgIDx4c2w6Zm9yLWVhY2ggc2VsZWN0PSIkY3VycmVudFBhZ2UvYW5jZXN0b3Itb3Itc2VsZjo6dW1iQmxvZy9EYXRlRm9sZGVyIj4KICAgICAgICA8eHNsOnNvcnQgc2VsZWN0PSJAbm9kZU5hbWUiIGRhdGEtdHlwZT0ibnVtYmVyIiBvcmRlcj0iZGVzY2VuZGluZyIgLz4KICAgICAgICAKICAgICAgICA8eHNsOmZvci1lYWNoIHNlbGVjdD0iLi9EYXRlRm9sZGVyIj4KICAgICAgICAgIDx4c2w6c29ydCBzZWxlY3Q9IkBub2RlTmFtZSIgZGF0YS10eXBlPSJudW1iZXIiIG9yZGVyPSJkZXNjZW5kaW5nIiAvPgogICAgICAgICAgPGxpIGNsYXNzPSJtb250aCI+CiAgICAgICAgICAgIDx4c2w6dmFyaWFibGUgbmFtZT0ibW9udGhuYW1lIiBzZWxlY3Q9InVtYnJhY28ubGlicmFyeTpGb3JtYXREYXRlVGltZShjb25jYXQoLi8uLi9Abm9kZU5hbWUsJy0nLEBub2RlTmFtZSwnLTExVDEwOjI0OjQ2JyksJ01NTU0geXl5eScpIiAvPgogICAgICAgICAgICA8YSBocmVmPSJ7dW1icmFjby5saWJyYXJ5Ok5pY2VVcmwoQGlkKX0iPgogICAgICAgICAgICAgIDx4c2w6dmFsdWUtb2Ygc2VsZWN0PSIkbW9udGhuYW1lIi8+CiAgICAgICAgICAgIDwvYT4mbmJzcDs8c3Bhbj4KICAgICAgICAgICAgICAoPHhzbDp2YWx1ZS1vZiBzZWxlY3Q9ImNvdW50KC4vL0Jsb2dQb3N0KSIvPikKICAgICAgICAgICAgPC9zcGFuPgogICAgICAgICAgPC9saT4KICAgICAgICA8L3hzbDpmb3ItZWFjaD4KICAgICAgPC94c2w6Zm9yLWVhY2g+CiAgICA8L3VsPgoKICA8L3hzbDp0ZW1wbGF0ZT4KCjwveHNsOnN0eWxlc2hlZXQ+</ResourceContents>
+      <TemporaryStoragePath>/xslt/umbBlogArchive.xslt</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>BlogArchive</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties />
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>false</UseInEditor>
+  <UserControl />
+  <Xslt>umbBlogArchive.xslt</Xslt>
+</Macro>

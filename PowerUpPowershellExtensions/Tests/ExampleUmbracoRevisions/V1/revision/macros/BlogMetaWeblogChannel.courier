@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>BlogMetaWeblogChannel</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>BlogMetaWeblogChannel</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Blog Meta Weblog Channel</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/xslt/umbBlogMetaWeblogChannel.xslt</ExtractToPath>
+      <Hash>55962594bd2a8574b103ff351a19dfd7</Hash>
+      <Name>/xslt/umbBlogMetaWeblogChannel.xslt</Name>
+      <PackageFromPath>/xslt/umbBlogMetaWeblogChannel.xslt</PackageFromPath>
+      <ResourceContents>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHhzbDpzdHlsZXNoZWV0IFsgPCFFTlRJVFkgbmJzcCAiJiN4MDBBMDsiPiBdPgo8eHNsOnN0eWxlc2hlZXQgCiAgdmVyc2lvbj0iMS4wIiAKICB4bWxuczp4c2w9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvWFNML1RyYW5zZm9ybSIgCiAgeG1sbnM6bXN4bWw9InVybjpzY2hlbWFzLW1pY3Jvc29mdC1jb206eHNsdCIKICB4bWxuczp1bWJyYWNvLmxpYnJhcnk9InVybjp1bWJyYWNvLmxpYnJhcnkiIHhtbG5zOkV4c2x0LkV4c2x0Q29tbW9uPSJ1cm46RXhzbHQuRXhzbHRDb21tb24iIHhtbG5zOkV4c2x0LkV4c2x0RGF0ZXNBbmRUaW1lcz0idXJuOkV4c2x0LkV4c2x0RGF0ZXNBbmRUaW1lcyIgeG1sbnM6RXhzbHQuRXhzbHRNYXRoPSJ1cm46RXhzbHQuRXhzbHRNYXRoIiB4bWxuczpFeHNsdC5FeHNsdFJlZ3VsYXJFeHByZXNzaW9ucz0idXJuOkV4c2x0LkV4c2x0UmVndWxhckV4cHJlc3Npb25zIiB4bWxuczpFeHNsdC5FeHNsdFN0cmluZ3M9InVybjpFeHNsdC5FeHNsdFN0cmluZ3MiIHhtbG5zOkV4c2x0LkV4c2x0U2V0cz0idXJuOkV4c2x0LkV4c2x0U2V0cyIgeG1sbnM6dGFnc0xpYj0idXJuOnRhZ3NMaWIiIHhtbG5zOkJsb2dMaWJyYXJ5PSJ1cm46QmxvZ0xpYnJhcnkiIAogIGV4Y2x1ZGUtcmVzdWx0LXByZWZpeGVzPSJtc3htbCB1bWJyYWNvLmxpYnJhcnkgRXhzbHQuRXhzbHRDb21tb24gRXhzbHQuRXhzbHREYXRlc0FuZFRpbWVzIEV4c2x0LkV4c2x0TWF0aCBFeHNsdC5FeHNsdFJlZ3VsYXJFeHByZXNzaW9ucyBFeHNsdC5FeHNsdFN0cmluZ3MgRXhzbHQuRXhzbHRTZXRzIHRhZ3NMaWIgQmxvZ0xpYnJhcnkgIj4KCgo8eHNsOm91dHB1dCBtZXRob2Q9InhtbCIgb21pdC14bWwtZGVjbGFyYXRpb249InllcyIvPgoKPHhzbDpwYXJhbSBuYW1lPSJjdXJyZW50UGFnZSIvPgoKPHhzbDp0ZW1wbGF0ZSBtYXRjaD0iLyI+Cgo8bGluayByZWw9IkVkaXRVUkkiIHR5cGU9ImFwcGxpY2F0aW9uL3JzZCt4bWwiIGhyZWY9Intjb25jYXQoJ2h0dHA6Ly8nLHN0cmluZyh1bWJyYWNvLmxpYnJhcnk6UmVxdWVzdFNlcnZlclZhcmlhYmxlcygnSFRUUF9IT1NUJykpLCAnL3VtYnJhY28vY2hhbm5lbHMvcnNkLmFzcHgnKX0iIC8+IAo8bGluayByZWw9Indsd21hbmlmZXN0IiB0eXBlPSJhcHBsaWNhdGlvbi93bHdtYW5pZmVzdCt4bWwiIGhyZWY9Intjb25jYXQoJ2h0dHA6Ly8nLHN0cmluZyh1bWJyYWNvLmxpYnJhcnk6UmVxdWVzdFNlcnZlclZhcmlhYmxlcygnSFRUUF9IT1NUJykpLCAnL3VtYnJhY28vY2hhbm5lbHMvd2x3bWFuaWZlc3QuYXNweCcpfSIgLz4gIAoKPC94c2w6dGVtcGxhdGU+Cgo8L3hzbDpzdHlsZXNoZWV0Pg==</ResourceContents>
+      <TemporaryStoragePath>/xslt/umbBlogMetaWeblogChannel.xslt</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>BlogMetaWeblogChannel</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties />
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>false</UseInEditor>
+  <UserControl />
+  <Xslt>umbBlogMetaWeblogChannel.xslt</Xslt>
+</Macro>

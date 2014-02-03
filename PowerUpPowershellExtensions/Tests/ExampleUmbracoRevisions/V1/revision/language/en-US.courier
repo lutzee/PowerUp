@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>en-US</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>en-US</Id>
+    <ProviderId>d8e6ad81-e73a-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>English (United States)</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <CultureAlias>en-US</CultureAlias>
+  <Id>1</Id>
+</Language>

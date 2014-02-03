@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPropertyData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Frontpage Sliders_1078_Document_data</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>742bffc8-3168-45a9-aec2-d8145bc8a9dc</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Node: 742bffc8-3168-45a9-aec2-d8145bc8a9dc</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>742bffc8-3168-45a9-aec2-d8145bc8a9dc</Id>
+    <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Document Frontpage Sliders Property Data</Name>
+  <ItemType>Dependency</ItemType>
+  <Resources />
+  <ContentID>1078</ContentID>
+  <ContentUniqueId>742bffc8-3168-45a9-aec2-d8145bc8a9dc</ContentUniqueId>
+  <ContentPath>-1,1078</ContentPath>
+  <Data />
+  <NodeObjectType>c66ba18e-eaf3-4cff-8a22-41b16d66a972</NodeObjectType>
+</ContentPropertyData>

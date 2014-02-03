@@ -1,0 +1,15 @@
+﻿Default
+	Wotsit	1
+	Thing	2
+
+Dev
+	Wotsit	10
+	Thing	20
+
+Live : Dev
+	Thing	30
+	Other	2
+
+Prod : Live
+	Thing	30
+	Other	200

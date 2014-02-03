@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Business Site_1063</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>true</IsChild>
+      <ItemId>
+        <Id>41f2c2cf-1c88-47f2-9759-3cdbc4a2cdb8</Id>
+        <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document Property data</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umbHomepage</Id>
+        <ProviderId>d8e6ad84-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document type: umbHomepage</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>41f2c2cf-1c88-47f2-9759-3cdbc4a2cdb8</Id>
+    <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Business Site</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <DocumentTypeAlias>umbHomepage</DocumentTypeAlias>
+  <Id>1063</Id>
+  <ParentId>-1</ParentId>
+  <ParentUniqueId>00000000-0000-0000-0000-000000000000</ParentUniqueId>
+  <UniqueId>41f2c2cf-1c88-47f2-9759-3cdbc4a2cdb8</UniqueId>
+  <SortOrder>2</SortOrder>
+  <Level>1</Level>
+  <Template>umbBusinessHomepage</Template>
+  <Published>true</Published>
+  <CreateDate>2010-09-07T13:19:39</CreateDate>
+  <ExpireDate>0001-01-01T00:00:00</ExpireDate>
+  <ReleaseDate>0001-01-01T00:00:00</ReleaseDate>
+  <UpdateDate>2011-07-05T16:11:50</UpdateDate>
+  <PublishDate>2011-07-05T16:11:50</PublishDate>
+</Document>

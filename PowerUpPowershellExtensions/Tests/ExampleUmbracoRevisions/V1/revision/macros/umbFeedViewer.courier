@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>umbFeedViewer</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>text</Id>
+        <ProviderId>d8e6ad85-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Macro property type: text</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>number</Id>
+        <ProviderId>d8e6ad85-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Macro property type: number</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>umbFeedViewer</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Feed Viewer</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/xslt/umbfeedViewer.xslt</ExtractToPath>
+      <Hash>dd5d554792d2575a530be3b10a3076f8</Hash>
+      <Name>/xslt/umbfeedViewer.xslt</Name>
+      <PackageFromPath>/xslt/umbfeedViewer.xslt</PackageFromPath>
+      <ResourceContents>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhRE9DVFlQRSB4c2w6c3R5bGVzaGVldCBbIDwhRU5USVRZIG5ic3AgIiYjeDAwQTA7Ij4gXT4NCjx4c2w6c3R5bGVzaGVldCANCgl2ZXJzaW9uPSIxLjAiIA0KCXhtbG5zOnhzbD0iaHR0cDovL3d3dy53My5vcmcvMTk5OS9YU0wvVHJhbnNmb3JtIiANCgl4bWxuczptc3htbD0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTp4c2x0Ig0KCXhtbG5zOnVtYnJhY28ubGlicmFyeT0idXJuOnVtYnJhY28ubGlicmFyeSINCglleGNsdWRlLXJlc3VsdC1wcmVmaXhlcz0ibXN4bWwgdW1icmFjby5saWJyYXJ5Ij4NCg0KDQo8eHNsOm91dHB1dCBtZXRob2Q9InhtbCIgb21pdC14bWwtZGVjbGFyYXRpb249InllcyIvPg0KDQo8eHNsOnBhcmFtIG5hbWU9ImN1cnJlbnRQYWdlIi8+DQoNCjx4c2w6dmFyaWFibGUgbmFtZT0ibnVtYmVyT2ZJdGVtcyI+DQoJPHhzbDpjaG9vc2U+DQoJCTx4c2w6d2hlbiB0ZXN0PSIvbWFjcm8vbnVtYmVyT2ZJdGVtcyAhPSAnJyI+DQoJCQk8eHNsOnZhbHVlLW9mIHNlbGVjdD0iL21hY3JvL251bWJlck9mSXRlbXMiLz4NCgkJPC94c2w6d2hlbj4NCgkJPHhzbDpvdGhlcndpc2U+MTA8L3hzbDpvdGhlcndpc2U+DQoJPC94c2w6Y2hvb3NlPg0KPC94c2w6dmFyaWFibGU+DQo8eHNsOnZhcmlhYmxlIG5hbWU9ImV4Y2VycHRMZW5ndGgiPg0KCTx4c2w6Y2hvb3NlPg0KCQk8eHNsOndoZW4gdGVzdD0ic3RyaW5nKC9tYWNyby9leGNlcnB0TGVuZ3RoKSAhPSAnJyI+DQoJCQk8eHNsOnZhbHVlLW9mIHNlbGVjdD0iL21hY3JvL2V4Y2VycHRMZW5ndGgiLz4NCgkJPC94c2w6d2hlbj4NCgkJPHhzbDpvdGhlcndpc2U+MDwveHNsOm90aGVyd2lzZT4NCgk8L3hzbDpjaG9vc2U+DQo8L3hzbDp2YXJpYWJsZT4NCg0KPHhzbDp2YXJpYWJsZSBuYW1lPSJmZWVkIiBzZWxlY3Q9Ii9tYWNyby9mZWVkVXJsIi8+DQo8IS0tIGNhY2hlIGZvciAzMCBtaW51dGVzICgxLjgwMCBzZWNvbmRzKSAtLT4NCjx4c2w6dmFyaWFibGUgbmFtZT0iY2FjaGVSYXRlIiBzZWxlY3Q9Im51bWJlcigxODAwKSIvPg0KDQo8eHNsOnRlbXBsYXRlIG1hdGNoPSIvIj4NCg0KPCEtLSBzdGFydCB3cml0aW5nIFhTTFQgLS0+DQo8eHNsOmNob29zZT4NCgk8eHNsOndoZW4gdGVzdD0iJGZlZWQgIT0gJyciPg0KCQk8eHNsOnZhcmlhYmxlIG5hbWU9ImZlZWRDb250ZW50IiBzZWxlY3Q9InVtYnJhY28ubGlicmFyeTpHZXRYbWxEb2N1bWVudEJ5VXJsKCRmZWVkLCBudW1iZXIoJGNhY2hlUmF0ZSkpIi8+DQoJCTx4c2w6Y2hvb3NlPg0KCQkJPHhzbDp3aGVuIHRlc3Q9IiRmZWVkQ29udGVudCAhPSAnZXJyb3InIj4NCgkJCQk8eHNsOmNhbGwtdGVtcGxhdGUgbmFtZT0icmVuZGVyRmVlZCI+DQoJCQkJCTx4c2w6d2l0aC1wYXJhbSBuYW1lPSJmZWVkQ29udGVudCIgc2VsZWN0PSIkZmVlZENvbnRlbnQiLz4NCgkJCQk8L3hzbDpjYWxsLXRlbXBsYXRlPg0KCQkJPC94c2w6d2hlbj4NCgkJCTx4c2w6b3RoZXJ3aXNlPg0KCQkJCTxwPg0KCQkJCQk8c3Ryb25nPkZlZWQgVmlld2VyIE1hY3JvIEVycm9yOiBFcnJvciBmZXRjaGluZyBmZWVkPC9zdHJvbmc+PGJyIC8+DQoJCQkJCVRoZSBmZWVkICc8eHNsOnZhbHVlLW9mIHNlbGVjdD0iJGZlZWQiLz4nIGNvdWxkIG5vdCBiZSBsb2FkZWQuIFZlcmlmeSB0aGF0IHRoZSBmZWVkIHVybCBleGlzdHMgYW5kIHRoYXQgeW91IGhhdmUgYW4NCgkJCQkJYWN0aXZlIGludGVybmV0IGNvbm5lY3Rpb24NCgkJCQk8L3A+DQoJCQk8L3hzbDpvdGhlcndpc2U+DQoJCTwveHNsOmNob29zZT4NCgk8L3hzbDp3aGVuPg0KCTx4c2w6b3RoZXJ3aXNlPg0KCQk8cD4NCgkJCTxzdHJvbmc+RmVlZCBWaWV3ZXIgTWFjcm8gRXJyb3I6IE5vIGZlZWQgY2hvc2VuPC9zdHJvbmc+PGJyIC8+DQoJCQlQbGVhc2UgbWFrZSBzdXJlIHRvIGFkZCBhIHZhbHVlIGluIHRoZSAiRmVlZCBVcmwiIHBhcmFtZXRlcg0KCQk8L3A+DQoJPC94c2w6b3RoZXJ3aXNlPg0KPC94c2w6Y2hvb3NlPg0KPC94c2w6dGVtcGxhdGU+DQoNCjx4c2w6dGVtcGxhdGUgbmFtZT0icmVuZGVyRmVlZCI+DQo8eHNsOnBhcmFtIG5hbWU9ImZlZWRDb250ZW50Ii8+DQo8eHNsOmlmIHRlc3Q9ImNvdW50KCRmZWVkQ29udGVudC8vaXRlbSkgJmd0OyAwIj4NCjx1bCBjbGFzcz0iZmVlZExpc3QiPg0KCTx4c2w6Zm9yLWVhY2ggc2VsZWN0PSIkZmVlZENvbnRlbnQvL2l0ZW0iPg0KCQk8eHNsOmlmIHRlc3Q9InBvc2l0aW9uKCkgJmx0Oz0gJG51bWJlck9mSXRlbXMiPg0KCQkJPGxpPg0KCQkJCTxoND4NCgkJCQkJPGEgaHJlZj0ie2xpbmt9Ij48eHNsOnZhbHVlLW9mIHNlbGVjdD0idGl0bGUiLz48L2E+DQoJCQkJPC9oND4NCgkJCQk8eHNsOmNob29zZT4NCgkJCQkJPHhzbDp3aGVuIHRlc3Q9InN0cmluZygkZXhjZXJwdExlbmd0aCkgIT0gJzAnIj4NCgkJCQkJCTxwPg0KCQkJCQkJCTx4c2w6dmFsdWUtb2Ygc2VsZWN0PSJ1bWJyYWNvLmxpYnJhcnk6VHJ1bmNhdGVTdHJpbmcodW1icmFjby5saWJyYXJ5OlN0cmlwSHRtbChkZXNjcmlwdGlvbiksIG51bWJlcigkZXhjZXJwdExlbmd0aCksICcuLi4nKSIgZGlzYWJsZS1vdXRwdXQtZXNjYXBpbmc9InllcyIvPg0KCQkJCQkJPC9wPg0KCQkJCQk8L3hzbDp3aGVuPg0KCQkJCQk8eHNsOm90aGVyd2lzZT4NCgkJCQkJCTx4c2w6dmFsdWUtb2Ygc2VsZWN0PSJkZXNjcmlwdGlvbiIgZGlzYWJsZS1vdXRwdXQtZXNjYXBpbmc9InllcyIvPg0KCQkJCQk8L3hzbDpvdGhlcndpc2U+DQoJCQkJPC94c2w6Y2hvb3NlPg0KCQkJCTxzbWFsbD48eHNsOnZhbHVlLW9mIHNlbGVjdD0idW1icmFjby5saWJyYXJ5OkxvbmdEYXRlKHB1YkRhdGUpIi8+PC9zbWFsbD4NCgkJCTwvbGk+DQoJCTwveHNsOmlmPg0KCTwveHNsOmZvci1lYWNoPg0KPC91bD4NCjwveHNsOmlmPg0KPC94c2w6dGVtcGxhdGU+DQoNCjwveHNsOnN0eWxlc2hlZXQ+</ResourceContents>
+      <TemporaryStoragePath>/xslt/umbfeedViewer.xslt</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>umbFeedViewer</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties>
+    <MacroProperty>
+      <Alias>feedUrl</Alias>
+      <Display>false</Display>
+      <Name>Url to feed (including http://)</Name>
+      <PropertyTypeAlias>text</PropertyTypeAlias>
+      <SortOrder>0</SortOrder>
+    </MacroProperty>
+    <MacroProperty>
+      <Alias>numberOfItems</Alias>
+      <Display>false</Display>
+      <Name>Number of Items to list</Name>
+      <PropertyTypeAlias>number</PropertyTypeAlias>
+      <SortOrder>0</SortOrder>
+    </MacroProperty>
+    <MacroProperty>
+      <Alias>excerptLength</Alias>
+      <Display>false</Display>
+      <Name>Excerpt Length (0 for full description)</Name>
+      <PropertyTypeAlias>number</PropertyTypeAlias>
+      <SortOrder>0</SortOrder>
+    </MacroProperty>
+  </Properties>
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>true</UseInEditor>
+  <UserControl />
+  <Xslt>umbfeedViewer.xslt</Xslt>
+</Macro>

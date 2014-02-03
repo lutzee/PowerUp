@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Another record year_1065</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>true</IsChild>
+      <ItemId>
+        <Id>d3d6bff6-0442-47ca-8e68-0a3d872744e0</Id>
+        <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document Property data</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umbNewsArticle</Id>
+        <ProviderId>d8e6ad84-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document type: umbNewsArticle</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>501c614a-050a-4530-b900-74d138537e4e</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Parent Document: 501c614a-050a-4530-b900-74d138537e4e</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>d3d6bff6-0442-47ca-8e68-0a3d872744e0</Id>
+    <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Another record year</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <DocumentTypeAlias>umbNewsArticle</DocumentTypeAlias>
+  <Id>1065</Id>
+  <ParentId>1064</ParentId>
+  <ParentUniqueId>501c614a-050a-4530-b900-74d138537e4e</ParentUniqueId>
+  <UniqueId>d3d6bff6-0442-47ca-8e68-0a3d872744e0</UniqueId>
+  <SortOrder>1</SortOrder>
+  <Level>3</Level>
+  <Template>umbNewsArticle</Template>
+  <Published>true</Published>
+  <CreateDate>2010-09-07T13:22:21</CreateDate>
+  <ExpireDate>0001-01-01T00:00:00</ExpireDate>
+  <ReleaseDate>0001-01-01T00:00:00</ReleaseDate>
+  <UpdateDate>2011-07-05T16:14:33</UpdateDate>
+  <PublishDate>2011-07-05T16:14:33</PublishDate>
+</Document>

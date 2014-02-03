@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>New type</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>New type</Id>
+    <ProviderId>25867200-e67e-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>New type</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/masterpages/Newtype.master</ExtractToPath>
+      <Hash>e17b94919dd62248780aa44c60d3e3ef</Hash>
+      <Name>/masterpages/Newtype.master</Name>
+      <PackageFromPath>/masterpages/Newtype.master</PackageFromPath>
+      <ResourceContents>77u/PCVAIE1hc3RlciBMYW5ndWFnZT0iQyMiIE1hc3RlclBhZ2VGaWxlPSJ+L3VtYnJhY28vbWFzdGVycGFnZXMvZGVmYXVsdC5tYXN0ZXIiIEF1dG9FdmVudFdpcmV1cD0idHJ1ZSIgJT4NCgo8YXNwOkNvbnRlbnQgQ29udGVudFBsYWNlSG9sZGVySUQ9IkNvbnRlbnRQbGFjZUhvbGRlckRlZmF1bHQiIHJ1bmF0PSJzZXJ2ZXIiPgogCjwvYXNwOkNvbnRlbnQ+DQo=</ResourceContents>
+      <TemporaryStoragePath>/masterpages/Newtype.master</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>New type</Alias>
+  <Design> </Design>
+  <MasterPagePath>~/masterpages/Newtype.master</MasterPagePath>
+  <ParentTemplateId>0</ParentTemplateId>
+  <Id>1084</Id>
+</Template>

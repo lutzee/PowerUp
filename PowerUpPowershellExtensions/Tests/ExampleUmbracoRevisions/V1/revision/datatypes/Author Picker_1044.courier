@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Author Picker_1044</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>~/bin/Runway.Blog.dll</Id>
+        <ProviderId>2ab3b250-e28d-11df-85ca-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>File:~/bin/Runway.Blog.dll</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>50d985c6-41fe-4bf2-90c1-e421907f54d2</Id>
+    <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Author Picker</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <Assembly>Runway.Blog</Assembly>
+  <DataBaseDataType>Ntext</DataBaseDataType>
+  <DataEditorId>e66af4a0-e8b4-11de-8a39-0800200c9a66</DataEditorId>
+  <NodeId>1044</NodeId>
+  <Prevalues />
+  <Type>Runway.Blog.DataTypes.UserPicker</Type>
+  <UniqueID>50d985c6-41fe-4bf2-90c1-e421907f54d2</UniqueID>
+</DataType>

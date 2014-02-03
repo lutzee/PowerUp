@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>BlogLatestComments</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>BlogLatestComments</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Blog Latest Comments</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/xslt/umbBlogLatestComments.xslt</ExtractToPath>
+      <Hash>e96120213af321fede1feeb8ecdab55d</Hash>
+      <Name>/xslt/umbBlogLatestComments.xslt</Name>
+      <PackageFromPath>/xslt/umbBlogLatestComments.xslt</PackageFromPath>
+      <ResourceContents>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHhzbDpzdHlsZXNoZWV0IFsKICA8IUVOVElUWSBuYnNwICImI3gwMEEwOyI+Cl0+Cjx4c2w6c3R5bGVzaGVldAogIHZlcnNpb249IjEuMCIKICB4bWxuczp4c2w9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvWFNML1RyYW5zZm9ybSIKICB4bWxuczptc3htbD0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTp4c2x0IgogIHhtbG5zOnVtYnJhY28ubGlicmFyeT0idXJuOnVtYnJhY28ubGlicmFyeSIKICB4bWxuczpCbG9nTGlicmFyeT0idXJuOkJsb2dMaWJyYXJ5IgogIGV4Y2x1ZGUtcmVzdWx0LXByZWZpeGVzPSJtc3htbCB1bWJyYWNvLmxpYnJhcnkgQmxvZ0xpYnJhcnkiPgoKCiAgPHhzbDpvdXRwdXQgbWV0aG9kPSJodG1sIiBvbWl0LXhtbC1kZWNsYXJhdGlvbj0ieWVzIi8+CgogIDx4c2w6cGFyYW0gbmFtZT0iY3VycmVudFBhZ2UiLz4KICA8eHNsOnZhcmlhYmxlIG5hbWU9Im51bWJlck9mQ29tbWVudHMiIHNlbGVjdD0iMTAiLz4KICA8eHNsOnZhcmlhYmxlIG5hbWU9ImNvbW1lbnRzIiBzZWxlY3Q9IkJsb2dMaWJyYXJ5OkdldENvbW1lbnRzRm9yQmxvZygkY3VycmVudFBhZ2UvYW5jZXN0b3Itb3Itc2VsZjo6dW1iQmxvZy9AaWQpLy9jb21tZW50IiAvPgogCiAgPHhzbDp0ZW1wbGF0ZSBtYXRjaD0iLyI+CiAgCjx4c2w6aWYgdGVzdD0iY291bnQoJGNvbW1lbnRzKSAmZ3Q7IDAiPgogICAgPHVsPgogICA8eHNsOmZvci1lYWNoIHNlbGVjdD0iJGNvbW1lbnRzIj4KICAgICAgICA8eHNsOnNvcnQgc2VsZWN0PSJAY3JlYXRlZCIgb3JkZXI9ImRlc2NlbmRpbmciIC8+CiAgICAgICAgPHhzbDppZiB0ZXN0PSJwb3NpdGlvbigpICZsdDsgJG51bWJlck9mQ29tbWVudHMgKzEiPgoKICAgICAgICAgIDxsaSBjbGFzcz0iY29tbWVudC1pdGVtIj4KICAgICAgICAgICAgPGEgaHJlZj0ie3VtYnJhY28ubGlicmFyeTpOaWNlVXJsKEBub2RlaWQpfSNjb21tZW50LXtAaWR9Ij4KICAgICAgICAgICAgICA8eHNsOnZhbHVlLW9mIHNlbGVjdD0iLi9uYW1lIi8+IG9uIDx4c2w6dmFsdWUtb2Ygc2VsZWN0PSJ1bWJyYWNvLmxpYnJhcnk6R2V0WG1sTm9kZUJ5SWQoQG5vZGVpZCkvQG5vZGVOYW1lIi8+CiAgICAgICAgICAgIDwvYT4KICAgICAgICAgIDwvbGk+CiAgICAgICAgPC94c2w6aWY+CiAgICAgIDwveHNsOmZvci1lYWNoPgogICAgPC91bD4KPC94c2w6aWY+CgogIDwveHNsOnRlbXBsYXRlPgoKPC94c2w6c3R5bGVzaGVldD4=</ResourceContents>
+      <TemporaryStoragePath>/xslt/umbBlogLatestComments.xslt</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>BlogLatestComments</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties />
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>false</UseInEditor>
+  <UserControl />
+  <Xslt>umbBlogLatestComments.xslt</Xslt>
+</Macro>

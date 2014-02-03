@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>umbNewsArticle</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umbMaster</Id>
+        <ProviderId>25867200-e67e-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Master template: umbMaster</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>umbNewsArticle</Id>
+    <ProviderId>25867200-e67e-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>News Article</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/masterpages/umbNewsArticle.master</ExtractToPath>
+      <Hash>eb74b95ac238ab7475d8374999b93bf0</Hash>
+      <Name>/masterpages/umbNewsArticle.master</Name>
+      <PackageFromPath>/masterpages/umbNewsArticle.master</PackageFromPath>
+      <ResourceContents>77u/PCVAIE1hc3RlciBMYW5ndWFnZT0iQyMiIE1hc3RlclBhZ2VGaWxlPSJ+L21hc3RlcnBhZ2VzL3VtYk1hc3Rlci5tYXN0ZXIiIEF1dG9FdmVudFdpcmV1cD0idHJ1ZSIgJT4NCg0KPGFzcDpDb250ZW50IENvbnRlbnRQbGFjZUhvbGRlcklEPSJjcF9jb250ZW50IiBydW5hdD0ic2VydmVyIj4NCiAgICA8ZGl2IGlkPSJwYWdlLWJndG9wIj4NCiAgICAgIDxkaXYgaWQ9ImNvbnRlbnQiPg0KICAgICAgICA8ZGl2IGNsYXNzPSJwb3N0Ij4NCiAgICAgICAgICA8aDIgY2xhc3M9InRpdGxlIj48c3Bhbj48dW1icmFjbzpJdGVtIElEPSJJdGVtMSIgcnVuYXQ9InNlcnZlciIgZmllbGQ9InBhZ2VOYW1lIi8+PC9zcGFuPjwvaDI+DQogICAgICAgICAgIDxkaXYgY2xhc3M9ImVudHJ5Ij4NCiAgICAgICAgICAgICAgPHVtYnJhY286SXRlbSBJRD0iSXRlbTIiIHJ1bmF0PSJzZXJ2ZXIiIGZpZWxkPSJib2R5VGV4dCIgLz4NCiAgICAgICAgICAgPC9kaXY+DQogICAgICAgIDwvZGl2Pg0KICAgICAgPC9kaXY+DQogICAgICA8IS0tIGVuZCBkaXYjY29udGVudCAtLT4gIA0KDQogICAgICA8IS0tIGVuZCBkaXYjc2lkZWJhciAtLT4NCiAgICAgIDxkaXYgc3R5bGU9ImNsZWFyOiBib3RoOyBoZWlnaHQ6IDFweCI+PC9kaXY+DQogICAgPC9kaXY+DQoNCjwvYXNwOkNvbnRlbnQ+</ResourceContents>
+      <TemporaryStoragePath>/masterpages/umbNewsArticle.master</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>umbNewsArticle</Alias>
+  <Design>&lt;%@ Master Language="C#" MasterPageFile="~/masterpages/umbMaster.master" AutoEventWireup="true" %&gt;
+
+&lt;asp:Content ContentPlaceHolderID="cp_content" runat="server"&gt;
+
+&lt;div id="content" class="textpage"&gt;
+  
+      &lt;div id="contentHeader"&gt;  
+          &lt;h2&gt;&lt;umbraco:Item runat="server" field="pageName"/&gt;&lt;/h2&gt;
+      &lt;/div&gt;
+        
+      &lt;h4&gt;&lt;umbraco:Item field="introduction" convertLineBreaks="true" runat="server"&gt;&lt;/umbraco:Item&gt;&lt;/h4&gt;
+  
+      &lt;umbraco:Item runat="server" field="bodyText" /&gt;
+&lt;/div&gt;
+
+
+&lt;/asp:Content&gt;</Design>
+  <MasterPagePath>~/masterpages/umbNewsArticle.master</MasterPagePath>
+  <ParentTemplateAlias>umbMaster</ParentTemplateAlias>
+  <ParentTemplateId>1053</ParentTemplateId>
+  <Id>1051</Id>
+</Template>

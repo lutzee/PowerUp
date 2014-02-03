@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPropertyData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Company blog post_1069_Document_data</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>f4e4dfc6-4311-41fc-9fdc-1cca7118ecb6</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Node: f4e4dfc6-4311-41fc-9fdc-1cca7118ecb6</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>f4e4dfc6-4311-41fc-9fdc-1cca7118ecb6</Id>
+    <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Document Company blog post Property Data</Name>
+  <ItemType>Dependency</ItemType>
+  <Resources />
+  <ContentID>1069</ContentID>
+  <ContentUniqueId>f4e4dfc6-4311-41fc-9fdc-1cca7118ecb6</ContentUniqueId>
+  <ContentPath>-1,1063,1068,1069</ContentPath>
+  <Data>
+    <ContentProperty>
+      <Alias>bodyText</Alias>
+      <DataType>ca90c950-0aff-4e72-b976-a30b1ac57dad</DataType>
+      <DataTypeEditor>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</DataTypeEditor>
+      <DBType>Ntext</DBType>
+      <PreValueEditor>umbraco.editorControls.tinymce.tinyMCEPreValueConfigurator</PreValueEditor>
+      <Value xsi:type="xsd:string">
+&lt;p&gt;&lt;strong&gt;Hi there!&lt;/strong&gt; , welcome to your new Umbraco powered
+blog. Before you start posting away, there's a handful of things we
+thought you should know:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;There is a comprehensive and detailed usage and configuration
+manual, which covers everything about setting up this blog and
+about blogging in general&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="http://our.umbraco.org/FileDownload?id=498"&gt;Download the
+usage guide&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;This package is open source and developement is community
+driven. So if you have an idea for improvement or wish to be a part
+of developing this package you should join the conversaion.&lt;/p&gt;
+
+&lt;p&gt;&lt;a
+href="http://our.umbraco.org/projects/blog-4-umbraco"&gt;&lt;strong&gt;Go to
+the Blog 4 Umbraco project page on our.umbraco.org&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;You can change the appearance of this blog by changing the skin
+in the umbraco back-end. The skins are powered by the umbraco
+community. If you wish to do your own skin or just want to tweak
+the current one, you can find guidance in the skinners guide&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="http://our.umbraco.org/FileDownload?id=498"&gt;Download the
+skinners manual&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Chainging the skin is just the first step, everything is
+extendable and hackable. This blog uses open standards and follows
+umbraco best practices, so everything can be tweaked. Want to know
+how to get started? Ask the friendly community at
+our.umbraco.org&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href="http://our.umbraco.org"&gt;Go to our.umbraco.org
+community&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</Value>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>tags</Alias>
+      <DataType>b6b73142-b9c1-4bf8-a16d-e1c23320b549</DataType>
+      <DataTypeEditor>4023e540-92f5-11dd-ad8b-0800200c9a66</DataTypeEditor>
+      <DBType>Ntext</DBType>
+      <PreValueEditor>umbraco.editorControls.tags.PrevalueEditor</PreValueEditor>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>closeComments</Alias>
+      <DataType>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</DataType>
+      <DataTypeEditor>38b352c1-e9f8-4fd8-9324-9a2eab06d97a</DataTypeEditor>
+      <DBType>Integer</DBType>
+      <PreValueEditor>umbraco.editorControls.DefaultPrevalueEditor</PreValueEditor>
+      <Value xsi:type="xsd:int">1</Value>
+    </ContentProperty>
+    <ContentProperty>
+      <Alias>PostDate</Alias>
+      <DataType>5046194e-4237-453c-a547-15db3a07c4e1</DataType>
+      <DataTypeEditor>23e93522-3200-44e2-9f29-e61a6fcbb79a</DataTypeEditor>
+      <DBType>Date</DBType>
+      <PreValueEditor>umbraco.editorControls.DefaultPrevalueEditor</PreValueEditor>
+      <Value xsi:type="xsd:dateTime">2010-09-07T00:00:00</Value>
+    </ContentProperty>
+  </Data>
+  <NodeObjectType>c66ba18e-eaf3-4cff-8a22-41b16d66a972</NodeObjectType>
+</ContentPropertyData>

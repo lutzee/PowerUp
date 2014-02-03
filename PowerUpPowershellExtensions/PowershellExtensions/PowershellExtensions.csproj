@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43EF3D43-907F-4BBB-9184-3A382B453451}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Id.PowershellExtensions</RootNamespace>
+    <AssemblyName>Id.PowershellExtensions</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK, Version=1.3.8.0, Culture=neutral, PublicKeyToken=cd2d24cd2bace800, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\AWSSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="businesslogic">
+      <HintPath>..\Lib\businesslogic.dll</HintPath>
+    </Reference>
+    <Reference Include="cms">
+      <HintPath>..\Lib\cms.dll</HintPath>
+    </Reference>
+    <Reference Include="EncodingTools">
+      <HintPath>..\Lib\EncodingTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Id.DatabaseMigration">
+      <HintPath>..\Lib\Id.DatabaseMigration.dll</HintPath>
+    </Reference>
+    <Reference Include="interfaces">
+      <HintPath>..\Lib\interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Migrator">
+      <HintPath>..\Lib\Migrator.dll</HintPath>
+    </Reference>
+    <Reference Include="Migrator.Framework">
+      <HintPath>..\Lib\Migrator.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Migrator.Providers">
+      <HintPath>..\Lib\Migrator.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management.Automation" />
+    <Reference Include="System.Xml" />
+    <Reference Include="SystemWrapper">
+      <HintPath>..\Lib\SystemWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco">
+      <HintPath>..\Lib\umbraco.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Courier.Core">
+      <HintPath>..\Lib\Umbraco.Courier.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Courier.RepositoryProviders, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Umbraco.Courier.RepositoryProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco.DataLayer">
+      <HintPath>..\Lib\umbraco.DataLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Licensing">
+      <HintPath>..\Lib\Umbraco.Licensing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="ParsedSettings\ISettingsReader.cs" />
+    <Compile Include="ParsedSettings\OverrideSettingsReader.cs" />
+    <Compile Include="TraceLogger.cs" />
+    <Compile Include="CopyFilesToS3.cs" />
+    <Compile Include="DatabaseMigrations\NewWindowsLogin.cs" />
+    <Compile Include="NewDatabaseWindowsLogin.cs" />
+    <Compile Include="DatabaseMigrations\NewUserAndLogin.cs" />
+    <Compile Include="NewDatabaseUserAndLogin.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="S3\S3FileSystem.cs" />
+    <Compile Include="UmbracoResources\CourierWebServiceInitializer.cs" />
+    <Compile Include="InitializeCourierWebService.cs" />
+    <Compile Include="IPSCmdletLogger.cs" />
+    <Compile Include="PSCmdletLogger.cs" />
+    <Compile Include="PublishUmbracoResources.cs" />
+    <Compile Include="PushDatabaseMigrations.cs" />
+    <Compile Include="CopySubstitutedSettingFiles.cs" />
+    <Compile Include="GetParsedSettings.cs" />
+    <Compile Include="ParsedSettings\SettingsFileReader.cs" />
+    <Compile Include="ParsedSettings\SettingsParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DatabaseMigrations\BaseLogger.cs" />
+    <Compile Include="DatabaseMigrations\DatabaseMigrator.cs" />
+    <Compile Include="DatabaseMigrations\StringLogger.cs" />
+    <Compile Include="DatabaseMigrations\TaskLogger.cs" />
+    <Compile Include="SubstitutedSettingFiles\ISettingsSubstitutor.cs" />
+    <Compile Include="SubstitutedSettingFiles\SettingsSubstitutor.cs" />
+    <Compile Include="UmbracoResources\ResourcePublisher.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UmbracoResources\plugins\Umbraco.Courier.DataResolvers.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UmbracoResources\plugins\Umbraco.Courier.Providers.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

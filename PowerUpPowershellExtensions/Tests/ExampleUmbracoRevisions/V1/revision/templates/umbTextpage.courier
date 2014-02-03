@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>umbTextpage</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umb2ndLevelNavigation</Id>
+        <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Macro: umb2ndLevelNavigation</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umbMaster</Id>
+        <ProviderId>25867200-e67e-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Master template: umbMaster</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>umbTextpage</Id>
+    <ProviderId>25867200-e67e-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Textpage</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/masterpages/umbTextpage.master</ExtractToPath>
+      <Hash>e3d49e5267ec6da7a8318f21c442c542</Hash>
+      <Name>/masterpages/umbTextpage.master</Name>
+      <PackageFromPath>/masterpages/umbTextpage.master</PackageFromPath>
+      <ResourceContents>77u/PCVAIE1hc3RlciBMYW5ndWFnZT0iQyMiIE1hc3RlclBhZ2VGaWxlPSJ+L21hc3RlcnBhZ2VzL3VtYk1hc3Rlci5tYXN0ZXIiIEF1dG9FdmVudFdpcmV1cD0idHJ1ZSIgJT4KPGFzcDpjb250ZW50IGNvbnRlbnRwbGFjZWhvbGRlcmlkPSJjcF9jb250ZW50IiBydW5hdD0ic2VydmVyIj4KCiAgICA8ZGl2IGlkPSJwYWdlLWJndG9wIj4KICAgICAgPGRpdiBpZD0iY29udGVudCI+CiAgICAgICAgPGRpdiBjbGFzcz0icG9zdCI+CiAgICAgICAgICA8aDIgY2xhc3M9InRpdGxlIj48c3Bhbj48dW1icmFjbzppdGVtIHJ1bmF0PSJzZXJ2ZXIiIGZpZWxkPSJwYWdlTmFtZSI+PC91bWJyYWNvOml0ZW0+PC9zcGFuPjwvaDI+CiAgICAgICAgICA8ZGl2IGlkPSJ0ZXN0IiBzdHlsZT0iY29sb3I6d2hpdGU7Ij53b29wIHdvb3AgaGVqaGplPC9kaXY+CiAgICAgICAgICAgPGRpdiBjbGFzcz0iZW50cnkiPgogICAgICAgICAgICAgIDx1bWJyYWNvOml0ZW0gcnVuYXQ9InNlcnZlciIgZmllbGQ9ImJvZHlUZXh0Ij48L3VtYnJhY286aXRlbT4KICAgICAgICAgCiAgICAgICAgICAgPC9kaXY+CiAgICAgICAgPC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8IS0tIGVuZCBkaXYjY29udGVudCAtLT4gIAogIAogICAgICA8ZGl2IGlkPSJzaWRlYmFyIj4KICAgICAgICAgIDx1bWJyYWNvOm1hY3JvIGFsaWFzPSJ1bWIybmRMZXZlbE5hdmlnYXRpb24iIHJ1bmF0PSJzZXJ2ZXIiPjwvdW1icmFjbzptYWNybz4KICAgICAgPC9kaXY+CiAgICAgIDwhLS0gZW5kIGRpdiNzaWRlYmFyIC0tPgogICAgICA8ZGl2IHN0eWxlPSJjbGVhcjogYm90aDsgaGVpZ2h0OiAxcHgiPjwvZGl2PgogICAgPC9kaXY+CiAgCgoKPC9hc3A6Y29udGVudD4=</ResourceContents>
+      <TemporaryStoragePath>/masterpages/umbTextpage.master</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>umbTextpage</Alias>
+  <Design>&lt;%@ Master Language="C#" MasterPageFile="~/masterpages/umbMaster.master" AutoEventWireup="true" %&gt;
+&lt;asp:Content ContentPlaceHolderID="cp_content" runat="server"&gt;
+
+&lt;div id="content" class="textpage"&gt;
+  
+      &lt;div id="contentHeader"&gt;  
+          &lt;h2&gt;&lt;umbraco:Item runat="server" field="pageName"/&gt;&lt;/h2&gt;
+      &lt;/div&gt;
+      
+      &lt;umbraco:Item runat="server" field="bodyText" /&gt;
+&lt;/div&gt;
+
+&lt;div id="subNavigation"&gt;
+      &lt;umbraco:Macro Alias="umb2ndLevelNavigation" runat="server"&gt;&lt;/umbraco:Macro&gt;
+&lt;/div&gt;
+  
+
+&lt;/asp:Content&gt;</Design>
+  <MasterPagePath>~/masterpages/umbTextpage.master</MasterPagePath>
+  <ParentTemplateAlias>umbMaster</ParentTemplateAlias>
+  <ParentTemplateId>1053</ParentTemplateId>
+  <Id>1054</Id>
+</Template>

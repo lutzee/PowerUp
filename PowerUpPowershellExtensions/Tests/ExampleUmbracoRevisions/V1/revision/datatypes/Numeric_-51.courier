@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Numeric_-51</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>2e6d3631-066e-44b8-aec4-96f09099b2b5</Id>
+    <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Numeric</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <Assembly>umbraco.editorControls</Assembly>
+  <DataBaseDataType>Integer</DataBaseDataType>
+  <DataEditorId>1413afcb-d19a-4173-8e9a-68288d2a73b8</DataEditorId>
+  <NodeId>-51</NodeId>
+  <Prevalues />
+  <Type>umbraco.editorControls.numberfield.IDataTypenteger</Type>
+  <UniqueID>2e6d3631-066e-44b8-aec4-96f09099b2b5</UniqueID>
+</DataType>

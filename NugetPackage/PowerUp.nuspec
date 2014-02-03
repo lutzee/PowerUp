@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>PowerUp</id>
+    <version>1.0.0</version>
+    <authors>Paul Suart, Andrew Revell</authors>
+    <owners>Wynyward Group</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>PowerUp!</description>    
+    <copyright>Copyright 2013</copyright>
+  </metadata>
+  <files>
+  <file src="_powerup\**\*.*" target="_powerup" />
+  <file src="_packageupdate\**\*.*" target="_packageupdate" />
+  <file src="_bootstrapper\**\*.*" target="_bootstrapper" />
+  <file src="Tools\**\*.*" target="Tools" />
+  <file src="runonce.bat" target="\" />
+</files>
+</package>

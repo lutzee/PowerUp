@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Company News_1064</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>true</IsChild>
+      <ItemId>
+        <Id>501c614a-050a-4530-b900-74d138537e4e</Id>
+        <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document Property data</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umbNewsArea</Id>
+        <ProviderId>d8e6ad84-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document type: umbNewsArea</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>41f2c2cf-1c88-47f2-9759-3cdbc4a2cdb8</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Parent Document: 41f2c2cf-1c88-47f2-9759-3cdbc4a2cdb8</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>501c614a-050a-4530-b900-74d138537e4e</Id>
+    <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Company News</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <DocumentTypeAlias>umbNewsArea</DocumentTypeAlias>
+  <Id>1064</Id>
+  <ParentId>1063</ParentId>
+  <ParentUniqueId>41f2c2cf-1c88-47f2-9759-3cdbc4a2cdb8</ParentUniqueId>
+  <UniqueId>501c614a-050a-4530-b900-74d138537e4e</UniqueId>
+  <SortOrder>1</SortOrder>
+  <Level>2</Level>
+  <Template>umbNews</Template>
+  <Published>true</Published>
+  <CreateDate>2010-09-07T13:22:05</CreateDate>
+  <ExpireDate>0001-01-01T00:00:00</ExpireDate>
+  <ReleaseDate>0001-01-01T00:00:00</ReleaseDate>
+  <UpdateDate>2011-07-05T16:01:45</UpdateDate>
+  <PublishDate>2011-07-05T16:01:45</PublishDate>
+</Document>

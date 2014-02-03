@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>New to Umbraco?_1082</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>true</IsChild>
+      <ItemId>
+        <Id>f1cb7aa6-1d6a-45c2-b653-78fd277e3e9c</Id>
+        <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document Property data</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umediaSlider</Id>
+        <ProviderId>d8e6ad84-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document type: umediaSlider</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>742bffc8-3168-45a9-aec2-d8145bc8a9dc</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Parent Document: 742bffc8-3168-45a9-aec2-d8145bc8a9dc</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>f1cb7aa6-1d6a-45c2-b653-78fd277e3e9c</Id>
+    <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>New to Umbraco?</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <DocumentTypeAlias>umediaSlider</DocumentTypeAlias>
+  <Id>1082</Id>
+  <ParentId>1078</ParentId>
+  <ParentUniqueId>742bffc8-3168-45a9-aec2-d8145bc8a9dc</ParentUniqueId>
+  <UniqueId>f1cb7aa6-1d6a-45c2-b653-78fd277e3e9c</UniqueId>
+  <SortOrder>4</SortOrder>
+  <Level>2</Level>
+  <Published>true</Published>
+  <CreateDate>2010-12-06T14:48:40</CreateDate>
+  <ExpireDate>0001-01-01T00:00:00</ExpireDate>
+  <ReleaseDate>0001-01-01T00:00:00</ReleaseDate>
+  <UpdateDate>2011-07-05T16:12:52</UpdateDate>
+  <PublishDate>2011-07-05T16:12:52</PublishDate>
+</Document>

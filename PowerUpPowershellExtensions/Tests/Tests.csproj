@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{65B515C2-3910-4BBE-8B29-37B99524EC83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK, Version=1.4.6.3, Culture=neutral, PublicKeyToken=cd2d24cd2bace800, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\AWSSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="businesslogic">
+      <HintPath>..\Lib\businesslogic.dll</HintPath>
+    </Reference>
+    <Reference Include="cms">
+      <HintPath>..\Lib\cms.dll</HintPath>
+    </Reference>
+    <Reference Include="EncodingTools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\EncodingTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Id.DatabaseMigration">
+      <HintPath>..\Lib\Id.DatabaseMigration.dll</HintPath>
+    </Reference>
+    <Reference Include="interfaces">
+      <HintPath>..\Lib\interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Migrator">
+      <HintPath>..\Lib\Migrator.dll</HintPath>
+    </Reference>
+    <Reference Include="Migrator.Framework">
+      <HintPath>..\Lib\Migrator.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Migrator.Providers">
+      <HintPath>..\Lib\Migrator.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>lib\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management.Automation" />
+    <Reference Include="System.Xml" />
+    <Reference Include="SystemWrapper">
+      <HintPath>..\Lib\SystemWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco">
+      <HintPath>..\Lib\umbraco.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Courier.Core, Version=1.0.4196.22759, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Umbraco.Courier.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Courier.RepositoryProviders, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Umbraco.Courier.RepositoryProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Licensing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Umbraco.Licensing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NewDatabaseWindowsLoginTests.cs" />
+    <Compile Include="NewDatabaseUserAndLoginTests.cs" />
+    <Compile Include="CourierWebServiceInitializerTests.cs" />
+    <Compile Include="DatabaseMigratorTests.cs" />
+    <Compile Include="Doubles\PsCmdletLoggerDouble.cs" />
+    <Compile Include="Doubles\RepositoryProviderDouble.cs" />
+    <Compile Include="Helpers\ResourceHelpers.cs" />
+    <Compile Include="Integration\PublishUmbracoResourcesTests.cs" />
+    <Compile Include="Integration\SubstituteSettingsTests.cs" />
+    <Compile Include="S3\S3FileSystemTests.cs" />
+    <Compile Include="OverrideSettingsReaderTests.cs" />
+    <Compile Include="UmbracoResourcePublisherTests.cs" />
+    <Compile Include="SettingsFileReaderTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsParserTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ExampleSettingsFiles\Settings.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PowershellExtensions\PowershellExtensions.csproj">
+      <Project>{43EF3D43-907F-4BBB-9184-3A382B453451}</Project>
+      <Name>PowershellExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ExampleSettingsFiles\AdvancedSettings.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ExampleSettingsFiles\InvalidSettings.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ExampleMigrationAssemblies\Id.VisaDebitMicrositeAU.DatabaseMigrations.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="ExampleSettingsFiles\Servers.txt" />
+    <EmbeddedResource Include="ExampleSettingsFiles\MultipleSettings.txt" />
+    <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithInheritance.txt" />
+    <EmbeddedResource Include="ExampleSettingsFiles\Settings.xml" />
+    <EmbeddedResource Include="ExampleSettingsFiles\AdvancedSettings.xml" />
+    <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithInheritance.xml" />
+    <EmbeddedResource Include="ExampleSettingsFiles\RepeatSectionSettings.txt" />
+    <Content Include="ExampleUmbracoRevisions\V1\manifest.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\resources\bin\Runway.Blog.dll" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\css\Custom.css" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\css\Starterkit.css" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\icons\dezinerfolio\info.png" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\icons\social_facebook.png" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\icons\social_linkedin.png" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\icons\social_su.png" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\icons\social_twitter.png" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\logo.gif" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\tmp_img.jpg" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\tmp_img2.jpg" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\umedia_defaultimages\tmp_img.jpg" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\umedia_defaultimages\tmp_img2.jpg" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\umedia_defaultimages\tmp_img2_thumb.jpg" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\images\umedia_defaultimages\tmp_img_thumb.jpg" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\scripts\jquery-1.4.4.min.js" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\scripts\jquery.cycle.all.min.js" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\umbraco\images\thumbnails\doc.png" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\umbraco\images\thumbnails\docWithImage.png" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\umbraco\images\thumbnails\folder.png" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\umbraco\images\umbraco\folder.gif" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\umbraco\images\umbraco\mediaMulti.gif" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\umbraco\images\umbraco\mediaPhoto.gif" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\umbraco_client\ui\jquery.js" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\usercontrols\Blog\AjaxCommentForm.ascx" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\usercontrols\RunwayContactForm\Contact.ascx" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\u.mediaSliderImages.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umb2ndLevelNavigation.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogArchive.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogCategories.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogFullArchive.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogLatestComments.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogListPosts.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogMetaWeblogChannel.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogpages.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogPostListComments.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogpostRelatedPages.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogroll.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogRss.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogRssFeedLink.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBlogTagcloud.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBusinessFrontpageBlog.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbBusinessFrontpageNews.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbfeedViewer.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbNewsListItems.xslt" />
+    <Content Include="ExampleUmbracoRevisions\V1\resources\xslt\umbTopNavigation.xslt" />
+    <Content Include="Integration\_templates\sample3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Integration\_templates\sample.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Integration\_templates\subfolder\sample2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Resources\kitten.jpg" />
+    <Content Include="TestFiles\TextFile2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestXml.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="ExampleSettingsFiles\TGSettings.txt" />
+    <EmbeddedResource Include="ExampleSettingsFiles\VisaSettings.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="exampleDosFormatConfig.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="ExampleMigrationAssemblies\migrations.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ExampleMigrationAssemblies\migrations.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\799c37b65f0960c11b7a175a70e1f42b.md5">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Approved Color_-37.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Author Picker_1044.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Checkbox list_-43.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Content Picker_1034.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Date Picker with time_-36.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Date Picker_-41.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Dropdown multiple_-39.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Dropdown_-42.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Folder Browser_-38.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Image Cropper_1043.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Label_-92.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Macro Container_1042.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Media Picker_1035.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Member Picker_1036.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Numeric_-51.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Radiobox_-40.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Related Links_1040.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Richtext editor_-87.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Simple Editor_1038.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Tags_1041.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Test 2_1085.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Textbox multiple_-89.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Textstring_-88.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Truefalse_-49.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Ultimate Picker_1039.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\datatypes\Upload_-90.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\About_1070.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\And changing the colors is easy as well!_1081.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Another record year_1065.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Business Site_1063.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Company blog post_1069.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Company Blog_1068.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Company News_1064.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Contact us_1074.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Finance department news_1066.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Frontpage Sliders_1078.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Getting started_1073.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Go further_1072.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Hello everybody!_1079.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Installing runway modules_1071.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\New to Umbraco_1082.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\Stocks are up_1067.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documents\You can %28of course%29 change these images!_1080.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documenttypes\DateFolder.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documenttypes\NewType.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documenttypes\umbBlog.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documenttypes\umbBlogPost.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documenttypes\umbHomepage.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documenttypes\umbNewsArea.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documenttypes\umbNewsArticle.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documenttypes\umbTextpage.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documenttypes\umediaSlider.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\documenttypes\umediaSliders.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\files\binRunway.Blog.dll.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\language\en-US.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macropropertytypes\bool.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macropropertytypes\number.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macropropertytypes\text.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogArchive.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogBlogroll.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogCategories.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogFullArchive.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogLatestComments.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogListPosts.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogMetaWeblogChannel.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\Blogpages.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogPostListComments.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogpostRelatedPages.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogRss.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogRssFeedLink.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\BlogTagcloud.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\frmBlogComment.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\RunwayContactForm.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\umb2ndLevelNavigation.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\umbBusinessFrontpageBlog.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\umbBusinessFrontpageNews.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\umbFeedViewer.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\umbNewsListItems.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\umbTopNavigation.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\macros\umediaSliderImages.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\mediatypes\File.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\mediatypes\Folder.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\mediatypes\Image.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\About_1070_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\And changing the colors is easy as well!_1081_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Another record year_1065_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Business Site_1063_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Company blog post_1069_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Company Blog_1068_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Company News_1064_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Contact us_1074_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Finance department news_1066_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Frontpage Sliders_1078_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Getting started_1073_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Go further_1072_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Hello everybody!_1079_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Installing runway modules_1071_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\New to Umbraco_1082_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\Stocks are up_1067_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\properties\You can %28of course%29 change these images!_1080_Document_data.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\stylesheets\Custom.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\stylesheets\Starterkit.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\CommentRss.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\New type.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\Rss.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\umbBlogDatefolder.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\umbBlogpost.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\umbBusinessHomepage.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\umbHomepage.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\umbMaster.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\umbNews.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\umbNewsArticle.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleUmbracoRevisions\V1\revision\templates\umbTextpage.courier">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\CommentRss.master" />
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\Newtype.master" />
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\Rss.master" />
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\umbBlogDatefolder.master" />
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\umbBlogpost.master" />
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\umbBusinessHomepage.master" />
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\umbHomepage.master" />
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\umbMaster.master" />
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\umbNews.master" />
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\umbNewsArticle.master" />
+    <None Include="ExampleUmbracoRevisions\V1\resources\masterpages\umbTextpage.master" />
+    <None Include="Integration\exampleDosFormatConfig.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExampleUmbracoRevisions\V1\settings\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

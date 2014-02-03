@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Stylesheet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Starterkit</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>Starterkit</Id>
+    <ProviderId>e0472596-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Starterkit</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/css/Starterkit.css</ExtractToPath>
+      <Hash>797ceb2d7368722066d37642664a6364</Hash>
+      <Name>/css/Starterkit.css</Name>
+      <PackageFromPath>/css/Starterkit.css</PackageFromPath>
+      <ResourceContents>LypMQVlPVVQqLw0KDQpib2R5e3RleHQtYWxpZ246IGxlZnQ7IHBhZGRpbmc6IDBweDsgbWFyZ2luOiAwcHg7IGJhY2tncm91bmQ6ICNGNkY3Rjk7fQ0KDQojbWFpbnttYXJnaW46IGF1dG87IG1hcmdpbi10b3A6IDIwcHg7IHRleHQtYWxpZ246IGxlZnQ7IHdpZHRoOiA4NzBweDt9DQoNCiN0b3B7Ym9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNDRUQ3REU7fQ0KDQojdG9wIHVse2xpc3Qtc3R5bGU6IG5vbmU7IHBhZGRpbmc6IDBweCAwcHggMTVweCAwcHg7IG1hcmdpbjogMHB4O30NCiN0b3AgdWwgbGl7ZGlzcGxheTogaW5saW5lOyBtYXJnaW46IDBweDsgcGFkZGluZzogMHhwO30NCiN0b3AgdWwgbGkgYXtwYWRkaW5nOiAxMHB4IDIwcHggMTBweCAwcHg7IGNvbG9yOiAjMDAwfQ0KDQojdG9wIHVsIGxpLmN1cnJlbnQgYXtmb250LXdlaWdodDogYm9sZH0NCg0KI2JvZHl7bWFyZ2luOiBhdXRvOyBwYWRkaW5nOiAyZW0gMGVtIDJlbSAwZW07fQ0KI2Zvb3RlcntwYWRkaW5nLXRvcDogNXB4OyBjbGVhcjogYm90aDt9DQoNCi8qIFN1YnBhZ2VzIGxheW91dCAqLw0KI2NvbnRlbnQudGV4dHBhZ2V7dGV4dC1hbGlnbjogbGVmdDsgZmxvYXQ6IGxlZnQ7IHdpZHRoOiA3NSU7fQ0KI3N1Yk5hdmlnYXRpb257bWFyZ2luLXRvcDogNDBweDsgd2lkdGg6IDIyJTsgZmxvYXQ6IHJpZ2h0O30gDQojc3ViTmF2aWdhdGlvbiB1bHtsaXN0LXN0eWxlOiBub25lOyBib3JkZXI6IDFweCBzb2xpZCAjRkZFOENEOyBiYWNrZ3JvdW5kOiAjRkZGOUQ4OyBkaXNwbGF5OiBibG9jazsgcGFkZGluZzogMTBweDsgcGFkZGluZy1sZWZ0OiAwcHg7fQ0KI3N1Yk5hdmlnYXRpb24gdWwgbGl7bWFyZ2luOiAwOyBwYWRkaW5nOiAwcHg7IHBhZGRpbmctcmlnaHQ6IDEwcHg7fQ0KDQovKiBGT05UUyBzdGFuZGFyZHMgKi8NCmJvZHkge2ZvbnQtc2l6ZTogMTRweDsgYmFja2dyb3VuZDojZmZmOyBmb250LWZhbWlseTogIkx1Y2lkYSBHcmFuZGUiLCBBcmlhbCwgc2Fucy1zZXJpZjt9DQoNCmgxLCBoMiwgaDMsIGg0LCBoNSwgaDYge2NvbG9yOiAjNDI2RkM4OyBmb250LXdlaWdodDogNTAwO30NCmgxIHtmb250LXNpemU6NjBweDsgbGluZS1oZWlnaHQ6IDE7IG1hcmdpbi1ib3R0b206MC41ZW07IGZvbnQtd2VpZ2h0OiBib2xkOyBsZXR0ZXItc3BhY2luZzogLTFweDsgd2lkdGg6IGF1dG87IGNvbG9yOiAjNjY2O30NCmgyIHtmb250LXNpemU6MjVweDsgbWFyZ2luLWJvdHRvbTowLjc1ZW07fQ0KDQpoMyB7Zm9udC1zaXplOiAxOHB4O2xpbmUtaGVpZ2h0OjE7bWFyZ2luLWJvdHRvbToxZW07fQ0KaDQge2ZvbnQtc2l6ZToxLjJlbTtsaW5lLWhlaWdodDoxLjI1O21hcmdpbi1ib3R0b206MS4yNWVtO30NCmg1IHtmb250LXNpemU6MWVtO2ZvbnQtd2VpZ2h0OmJvbGQ7bWFyZ2luLWJvdHRvbToxLjVlbTt9DQpoNiB7Zm9udC1zaXplOjFlbTtmb250LXdlaWdodDpib2xkO30NCmgxIGltZywgaDIgaW1nLCBoMyBpbWcsIGg0IGltZywgaDUgaW1nLCBoNiBpbWcge21hcmdpbjowO30NCg0KcCB7bWFyZ2luOjAgMCAxLjVlbTsgZm9udC1zaXplOiAxNnB4O30NCnAgaW1nIHtmbG9hdDpsZWZ0O21hcmdpbjoxLjVlbSAxLjVlbSAxLjVlbSAwO3BhZGRpbmc6MDt9DQpwIGltZy5yaWdodCB7ZmxvYXQ6cmlnaHQ7bWFyZ2luOjEuNWVtIDAgMS41ZW0gMS41ZW07fQ0KDQovKiBMSU5LUyBzdGFuZGFyZHMgKi8NCmE6aG92ZXIge2NvbG9yOiMwMDA7fQ0KYSB7Y29sb3I6ICM0MjZGQzg7IHRleHQtZGVjb3JhdGlvbjp1bmRlcmxpbmU7fQ0KaDEgYXtjb2xvcjogIzY2NjsgdGV4dC1kZWNvcmF0aW9uOiBub25lO30NCg0KLyogRUxFTUVOVFMgc3RhbmRhcmRzICovDQpibG9ja3F1b3RlIHttYXJnaW46MS41ZW07Y29sb3I6IzY2Njtmb250LXN0eWxlOml0YWxpYzt9DQpzdHJvbmcge2ZvbnQtd2VpZ2h0OmJvbGQ7fQ0KZW0sIGRmbiB7Zm9udC1zdHlsZTppdGFsaWM7fQ0KZGZuIHtmb250LXdlaWdodDpib2xkO30NCnN1cCwgc3ViIHtsaW5lLWhlaWdodDowO30NCmFiYnIsIGFjcm9ueW0ge2JvcmRlci1ib3R0b206MXB4IGRvdHRlZCAjNjY2O30NCmFkZHJlc3Mge21hcmdpbjowIDAgMS41ZW07Zm9udC1zdHlsZTppdGFsaWM7fQ0KZGVsIHtjb2xvcjojNjY2O30NCnByZSwgY29kZSB7bWFyZ2luOjEuNWVtIDA7d2hpdGUtc3BhY2U6cHJlO30NCnByZSwgY29kZSwgdHQge2ZvbnQ6MWVtICdhbmRhbGUgbW9ubycsICdsdWNpZGEgY29uc29sZScsIG1vbm9zcGFjZTtsaW5lLWhlaWdodDoxLjU7fQ0KbGkgdWwsIGxpIG9sIHttYXJnaW46MCAxLjVlbTt9DQp1bCwgb2wge21hcmdpbjowIDEuNWVtIDEuNWVtIDEuNWVtO30NCnVsIHtsaXN0LXN0eWxlLXR5cGU6ZGlzYzt9DQpvbCB7bGlzdC1zdHlsZS10eXBlOmRlY2ltYWw7fQ0KZGwge21hcmdpbjowIDAgMS41ZW0gMDt9DQpkbCBkdCB7Zm9udC13ZWlnaHQ6Ym9sZDt9DQpkZCB7bWFyZ2luLWxlZnQ6MS41ZW07fQ0KdGFibGUge21hcmdpbi1ib3R0b206MS40ZW07d2lkdGg6MTAwJTt9DQp0aCB7Zm9udC13ZWlnaHQ6Ym9sZDtiYWNrZ3JvdW5kOiNDM0Q5RkY7fQ0KdGgsIHRkIHtwYWRkaW5nOjRweCAxMHB4IDRweCA1cHg7fQ0KdHIuZXZlbiB0ZCB7YmFja2dyb3VuZDojRTVFQ0Y5O30NCnRmb290IHtmb250LXN0eWxlOml0YWxpYzt9DQpjYXB0aW9uIHtiYWNrZ3JvdW5kOiNlZWU7fQ0KDQovKiBGT1JNIEVMRU1FTlRTICovDQpsYWJlbCB7Zm9udC13ZWlnaHQ6Ym9sZDt9DQpmaWVsZHNldCB7cGFkZGluZzoxLjRlbTttYXJnaW46MCAwIDEuNWVtIDA7Ym9yZGVyOjFweCBzb2xpZCAjY2NjO30NCmxlZ2VuZCB7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6MS4yZW07fQ0KaW5wdXQudGV4dCwgaW5wdXQudGl0bGUsIHRleHRhcmVhLCBzZWxlY3Qge21hcmdpbjowLjVlbSAwO2JvcmRlcjoxcHggc29saWQgI2JiYjt9DQppbnB1dC50ZXh0OmZvY3VzLCBpbnB1dC50aXRsZTpmb2N1cywgdGV4dGFyZWE6Zm9jdXMsIHNlbGVjdDpmb2N1cyB7Ym9yZGVyOjFweCBzb2xpZCAjNjY2O30NCmlucHV0LnRleHQsIGlucHV0LnRpdGxlIHt3aWR0aDozMDBweDtwYWRkaW5nOjVweDt9DQppbnB1dC50aXRsZSB7Zm9udC1zaXplOjEuNWVtO30NCnRleHRhcmVhIHt3aWR0aDozMDBweDtoZWlnaHQ6MjUwcHg7cGFkZGluZzo1cHg7fQ0KLmVycm9yLCAubm90aWNlLCAuc3VjY2VzcyB7cGFkZGluZzouOGVtO21hcmdpbi1ib3R0b206MWVtO2JvcmRlcjoycHggc29saWQgI2RkZDt9DQouZXJyb3Ige2JhY2tncm91bmQ6I0ZCRTNFNDtjb2xvcjojOGExZjExO2JvcmRlci1jb2xvcjojRkJDMkM0O30NCi5ub3RpY2Uge2JhY2tncm91bmQ6I0ZGRjZCRjtjb2xvcjojNTE0NzIxO2JvcmRlci1jb2xvcjojRkZEMzI0O30NCi5zdWNjZXNzIHtiYWNrZ3JvdW5kOiNFNkVGQzI7Y29sb3I6IzI2NDQwOTtib3JkZXItY29sb3I6I0M2RDg4MDt9DQouZXJyb3IgYSB7Y29sb3I6IzhhMWYxMTt9DQoubm90aWNlIGEge2NvbG9yOiM1MTQ3MjE7fQ0KLnN1Y2Nlc3MgYSB7Y29sb3I6IzI2NDQwOTt9DQoNCi5lcnJvciB1bHttYXJnaW4tYm90dG9tOiAwOyBwYWRkaW5nLWJvdHRvbTogMDt9DQoNCg0KLypCTE9HIFNUWUxFUyAqLw0KI2NvbnRlbnQgLnBvc3R7dGV4dC1hbGlnbjogbGVmdDt9DQoNCi8qIENsZWFyIGZpeCB0byByZXBsZWFjZSBiciBjbGVhcjpib3RoICovIA0KLmNsZWFyZml4OmFmdGVyIHsNCiAgY29udGVudDogIi4iOw0KICBkaXNwbGF5OiBibG9jazsNCiAgY2xlYXI6IGJvdGg7DQogIHZpc2liaWxpdHk6IGhpZGRlbjsNCiAgbGluZS1oZWlnaHQ6IDA7DQogIGhlaWdodDogMDsNCn0NCiANCi5jbGVhcmZpeCB7DQogIGRpc3BsYXk6IGlubGluZS1ibG9jazsNCn0NCiANCmh0bWxbeG1sbnNdIC5jbGVhcmZpeCB7DQogIGRpc3BsYXk6IGJsb2NrOw0KfQ0KIA0KKiBodG1sIC5jbGVhcmZpeCB7DQogIGhlaWdodDogMSU7DQp9DQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoKCi8qIEVESVRPUiBQUk9QRVJUSUVTIC0gUExFQVNFIERPTidUIERFTEVURSBUSElTIExJTkUgVE8gQVZPSUQgRFVQTElDQVRFIFBST1BFUlRJRVMgKi8K</ResourceContents>
+      <TemporaryStoragePath>/css/Starterkit.css</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>Starterkit</Alias>
+  <Content>/*LAYOUT*/
+
+body{text-align: left; padding: 0px; margin: 0px; background: #F6F7F9;}
+
+#main{margin: auto; margin-top: 20px; text-align: left; width: 870px;}
+
+#top{border-bottom: 1px solid #CED7DE;}
+
+#top ul{list-style: none; padding: 0px 0px 15px 0px; margin: 0px;}
+#top ul li{display: inline; margin: 0px; padding: 0xp;}
+#top ul li a{padding: 10px 20px 10px 0px; color: #000}
+
+#top ul li.current a{font-weight: bold}
+
+#body{margin: auto; padding: 2em 0em 2em 0em;}
+#footer{padding-top: 5px; clear: both;}
+
+/* Subpages layout */
+#content.textpage{text-align: left; float: left; width: 75%;}
+#subNavigation{margin-top: 40px; width: 22%; float: right;} 
+#subNavigation ul{list-style: none; border: 1px solid #FFE8CD; background: #FFF9D8; display: block; padding: 10px; padding-left: 0px;}
+#subNavigation ul li{margin: 0; padding: 0px; padding-right: 10px;}
+
+/* FONTS standards */
+body {font-size: 14px; background:#fff; font-family: "Lucida Grande", Arial, sans-serif;}
+
+h1, h2, h3, h4, h5, h6 {color: #426FC8; font-weight: 500;}
+h1 {font-size:60px; line-height: 1; margin-bottom:0.5em; font-weight: bold; letter-spacing: -1px; width: auto; color: #666;}
+h2 {font-size:25px; margin-bottom:0.75em;}
+
+h3 {font-size: 18px;line-height:1;margin-bottom:1em;}
+h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
+h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
+h6 {font-size:1em;font-weight:bold;}
+h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
+
+p {margin:0 0 1.5em; font-size: 16px;}
+p img {float:left;margin:1.5em 1.5em 1.5em 0;padding:0;}
+p img.right {float:right;margin:1.5em 0 1.5em 1.5em;}
+
+/* LINKS standards */
+a:hover {color:#000;}
+a {color: #426FC8; text-decoration:underline;}
+h1 a{color: #666; text-decoration: none;}
+
+/* ELEMENTS standards */
+blockquote {margin:1.5em;color:#666;font-style:italic;}
+strong {font-weight:bold;}
+em, dfn {font-style:italic;}
+dfn {font-weight:bold;}
+sup, sub {line-height:0;}
+abbr, acronym {border-bottom:1px dotted #666;}
+address {margin:0 0 1.5em;font-style:italic;}
+del {color:#666;}
+pre, code {margin:1.5em 0;white-space:pre;}
+pre, code, tt {font:1em 'andale mono', 'lucida console', monospace;line-height:1.5;}
+li ul, li ol {margin:0 1.5em;}
+ul, ol {margin:0 1.5em 1.5em 1.5em;}
+ul {list-style-type:disc;}
+ol {list-style-type:decimal;}
+dl {margin:0 0 1.5em 0;}
+dl dt {font-weight:bold;}
+dd {margin-left:1.5em;}
+table {margin-bottom:1.4em;width:100%;}
+th {font-weight:bold;background:#C3D9FF;}
+th, td {padding:4px 10px 4px 5px;}
+tr.even td {background:#E5ECF9;}
+tfoot {font-style:italic;}
+caption {background:#eee;}
+
+/* FORM ELEMENTS */
+label {font-weight:bold;}
+fieldset {padding:1.4em;margin:0 0 1.5em 0;border:1px solid #ccc;}
+legend {font-weight:bold;font-size:1.2em;}
+input.text, input.title, textarea, select {margin:0.5em 0;border:1px solid #bbb;}
+input.text:focus, input.title:focus, textarea:focus, select:focus {border:1px solid #666;}
+input.text, input.title {width:300px;padding:5px;}
+input.title {font-size:1.5em;}
+textarea {width:300px;height:250px;padding:5px;}
+.error, .notice, .success {padding:.8em;margin-bottom:1em;border:2px solid #ddd;}
+.error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+.notice {background:#FFF6BF;color:#514721;border-color:#FFD324;}
+.success {background:#E6EFC2;color:#264409;border-color:#C6D880;}
+.error a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+
+.error ul{margin-bottom: 0; padding-bottom: 0;}
+
+
+/*BLOG STYLES */
+#content .post{text-align: left;}
+
+/* Clear fix to repleace br clear:both */ 
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+ 
+.clearfix {
+  display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+  display: block;
+}
+ 
+* html .clearfix {
+  height: 1%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</Content>
+  <FileName>/css/Starterkit.css</FileName>
+  <Id>1062</Id>
+  <Properties />
+</Stylesheet>

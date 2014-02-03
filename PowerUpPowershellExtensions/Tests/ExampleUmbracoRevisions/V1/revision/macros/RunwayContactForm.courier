@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>RunwayContactForm</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>text</Id>
+        <ProviderId>d8e6ad85-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Macro property type: text</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>RunwayContactForm</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Contact Form</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/usercontrols/RunwayContactForm/Contact.ascx</ExtractToPath>
+      <Hash>3244096d1aefd3ef412107b5d41d86dd</Hash>
+      <Name>/usercontrols/RunwayContactForm/Contact.ascx</Name>
+      <PackageFromPath>/usercontrols/RunwayContactForm/Contact.ascx</PackageFromPath>
+      <ResourceContents>PCVAIENvbnRyb2wgTGFuZ3VhZ2U9IkMjIiBBdXRvRXZlbnRXaXJldXA9InRydWUiIENvZGVCZWhpbmQ9IkNvbnRhY3QuYXNjeC5jcyIgSW5oZXJpdHM9IlVtYnJhY29TaG9wLkNvbnRyb2xzLkNvbnRhY3QiICU+DQoNCjxhc3A6VmFsaWRhdGlvblN1bW1hcnkgaWQ9InZhbFN1bSIgcnVuYXQ9InNlcnZlciIgQ3NzQ2xhc3M9ImVycm9yIiBEaXNwbGF5TW9kZT0iQnVsbGV0TGlzdCIgLz4NCg0KPGZpZWxkc2V0Pg0KPGxlZ2VuZD5Zb3VyIGRldGFpbHM8L2xlZ2VuZD4NCjxwPjxhc3A6TGFiZWwgaWQ9ImxiX25hbWUiIHJ1bmF0PSJzZXJ2ZXIiIEFzc29jaWF0ZWRDb250cm9sSUQ9InRiX25hbWUiIFRleHQ9Ik5hbWUiIC8+PGFzcDpUZXh0Qm94IElEPSJ0Yl9uYW1lIiBjc3NjbGFzcz0idGV4dCIgcnVuYXQ9InNlcnZlciIgLz48L3A+DQo8cD48YXNwOkxhYmVsIGlkPSJsYl9lbWFpbCIgcnVuYXQ9InNlcnZlciIgQXNzb2NpYXRlZENvbnRyb2xJRD0idGJfZW1haWwiIFRleHQ9IkVtYWlsIiAvPjxhc3A6VGV4dEJveCBJRD0idGJfZW1haWwiIGNzc2NsYXNzPSJ0ZXh0IiBydW5hdD0ic2VydmVyIiAvPjwvcD4NCjxwPjxhc3A6TGFiZWwgaWQ9ImxiX2NvbXBhbnkiIHJ1bmF0PSJzZXJ2ZXIiIEFzc29jaWF0ZWRDb250cm9sSUQ9InRiX2NvbXBhbnkiIFRleHQ9IkNvbXBhbnkiIC8+PGFzcDpUZXh0Qm94IElEPSJ0Yl9jb21wYW55IiBjc3NjbGFzcz0idGV4dCIgcnVuYXQ9InNlcnZlciIgLz48L3A+DQo8L2ZpZWxkc2V0Pg0KPGZpZWxkc2V0Pg0KPGxlZ2VuZD5NZXNzYWdlPC9sZWdlbmQ+DQo8cD48YXNwOkxhYmVsIGlkPSJMYWJlbDEiIHJ1bmF0PSJzZXJ2ZXIiIEFzc29jaWF0ZWRDb250cm9sSUQ9InRiX21zZyIgVGV4dD0iTWVzc2FnZSIgLz4gPGFzcDp0ZXh0Ym94IElEPSJ0Yl9tc2ciIHJ1bmF0PSJzZXJ2ZXIiIGNzc2NsYXNzPSJ0ZXh0IiB0ZXh0bW9kZT0iTXVsdGlMaW5lIi8+PC9wPg0KPHA+PGFzcDpCdXR0b24gSUQ9ImJ0X3N1Ym1pdCIgT25DbGljaz0ic2VuZE1haWwiIHJ1bmF0PSJzZXJ2ZXIiIFRleHQ9IlNlbmQgZW1haWwiIC8+IDxhc3A6TGFiZWwgQ3NzQ2xhc3M9InN1Y2Nlc3MiIGlkPSJsYl9zdWNjZXNzIiBydW5hdD0ic2VydmVyIiBWaXNpYmxlPSJmYWxzZSI+RW1haWwgc2VuZDwvYXNwOkxhYmVsPjwvcD4NCjwvZmllbGRzZXQ+DQoNCjxhc3A6UmVxdWlyZWRGaWVsZFZhbGlkYXRvciBEaXNwbGF5PSJOb25lIiBJRD0iUmVxdWlyZWRGaWVsZFZhbGlkYXRvcjAiIENvbnRyb2xUb1ZhbGlkYXRlPSJ0Yl9uYW1lIiBydW5hdD0ic2VydmVyIiBFcnJvck1lc3NhZ2U9Ik5hbWUgaXMgbWFuZGF0b3J5IiAvPg0KPGFzcDpSZXF1aXJlZEZpZWxkVmFsaWRhdG9yIERpc3BsYXk9Ik5vbmUiIElEPSJSZXF1aXJlZEZpZWxkVmFsaWRhdG9yMSIgQ29udHJvbFRvVmFsaWRhdGU9InRiX2VtYWlsIiBydW5hdD0ic2VydmVyIiBFcnJvck1lc3NhZ2U9IkVtYWlsIGlzIG1hbmRhdG9yeSIgLz4NCjxhc3A6UmVxdWlyZWRGaWVsZFZhbGlkYXRvciBEaXNwbGF5PSJOb25lIiBJRD0iUmVxdWlyZWRGaWVsZFZhbGlkYXRvcjIiIENvbnRyb2xUb1ZhbGlkYXRlPSJ0Yl9tc2ciIHJ1bmF0PSJzZXJ2ZXIiIEVycm9yTWVzc2FnZT0iTWVzc2FnZSBpcyBtYW5kYXRvcnkiIC8+DQoNCjxhc3A6UmVndWxhckV4cHJlc3Npb25WYWxpZGF0b3IgRGlzcGxheT0iTm9uZSIgSUQ9IlJlZ3VsYXJFeHByZXNzaW9uVmFsaWRhdG9yMCIgcnVuYXQ9InNlcnZlciIgVmFsaWRhdGlvbkV4cHJlc3Npb249Il4oP2k6KD88bG9jYWxfcGFydD5bYS16MC05ISMkJV4mKnt9J2ArPS1ffC8/XSsoPzpcLlthLXowLTkhIyQlXiYqe30nYCs9LV98Lz9dKykqKUAoPzxsYWJlbHM+W2EtejAtOV0rXHo/LipbYS16MC05LV9dKykqKD88dGxkPlwuW2EtejAtOV17Mix9KSkkIiBDb250cm9sVG9WYWxpZGF0ZT0idGJfZW1haWwiIEVycm9yTWVzc2FnZT0iRW1haWwgaXMgbm90IHZhbGlkIiAvPg0K</ResourceContents>
+      <TemporaryStoragePath>/usercontrols/RunwayContactForm/Contact.ascx</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>RunwayContactForm</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties>
+    <MacroProperty>
+      <Alias>Subject</Alias>
+      <Display>false</Display>
+      <Name>Subject</Name>
+      <PropertyTypeAlias>text</PropertyTypeAlias>
+      <SortOrder>0</SortOrder>
+    </MacroProperty>
+    <MacroProperty>
+      <Alias>YourEmail</Alias>
+      <Display>false</Display>
+      <Name>Your Email</Name>
+      <PropertyTypeAlias>text</PropertyTypeAlias>
+      <SortOrder>0</SortOrder>
+    </MacroProperty>
+  </Properties>
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>true</UseInEditor>
+  <UserControl>usercontrols/RunwayContactForm/Contact.ascx</UserControl>
+  <Xslt />
+</Macro>

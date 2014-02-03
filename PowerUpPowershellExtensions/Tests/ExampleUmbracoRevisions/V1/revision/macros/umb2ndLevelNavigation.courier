@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>umb2ndLevelNavigation</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>umb2ndLevelNavigation</Id>
+    <ProviderId>2ab40e30-e292-11df-85ca-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>2nd Level Navigation</Name>
+  <ItemType>Item</ItemType>
+  <Resources>
+    <Resource>
+      <ExtractToPath>/xslt/umb2ndLevelNavigation.xslt</ExtractToPath>
+      <Hash>3b4a582351ee2dc8c14c82a54d6e4667</Hash>
+      <Name>/xslt/umb2ndLevelNavigation.xslt</Name>
+      <PackageFromPath>/xslt/umb2ndLevelNavigation.xslt</PackageFromPath>
+      <ResourceContents>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHhzbDpzdHlsZXNoZWV0IFsgPCFFTlRJVFkgbmJzcCAiJiN4MDBBMDsiPiBdPgo8eHNsOnN0eWxlc2hlZXQgCiAgdmVyc2lvbj0iMS4wIiAKICB4bWxuczp4c2w9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvWFNML1RyYW5zZm9ybSIgCiAgeG1sbnM6bXN4bWw9InVybjpzY2hlbWFzLW1pY3Jvc29mdC1jb206eHNsdCIgCiAgeG1sbnM6dW1icmFjby5saWJyYXJ5PSJ1cm46dW1icmFjby5saWJyYXJ5IgogIGV4Y2x1ZGUtcmVzdWx0LXByZWZpeGVzPSJtc3htbCB1bWJyYWNvLmxpYnJhcnkiPgogICAgCjx4c2w6b3V0cHV0IG1ldGhvZD0ieG1sIiBvbWl0LXhtbC1kZWNsYXJhdGlvbj0ieWVzIi8+Cgo8eHNsOnBhcmFtIG5hbWU9ImN1cnJlbnRQYWdlIi8+Cgo8eHNsOnRlbXBsYXRlIG1hdGNoPSIvIj4KCiAgPHhzbDp2YXJpYWJsZSBuYW1lPSJpdGVtcyIgc2VsZWN0PSIkY3VycmVudFBhZ2UvYW5jZXN0b3Itb3Itc2VsZjo6KiBbQGlzRG9jIGFuZCBAbGV2ZWwgPSAyXS8qIFtAaXNEb2MgYW5kIHN0cmluZyh1bWJyYWNvTmF2aUhpZGUpICE9ICcxJ10iLz4KICAKPCEtLSBUaGUgZnVuIHN0YXJ0cyBoZXJlIC0tPgogICAgCjx4c2w6aWYgdGVzdD0iY291bnQoJGl0ZW1zKSAmZ3Q7IDAiPgo8dWw+Cjx4c2w6Zm9yLWVhY2ggc2VsZWN0PSIkaXRlbXMiPgogIDxsaT4KICAgIDxhIGhyZWY9Int1bWJyYWNvLmxpYnJhcnk6TmljZVVybChAaWQpfSI+CiAgICAgIDx4c2w6dmFsdWUtb2Ygc2VsZWN0PSJAbm9kZU5hbWUiLz4KICAgIDwvYT4KICA8L2xpPgo8L3hzbDpmb3ItZWFjaD4KPC91bD4KICAgIDwveHNsOmlmPgoKPC94c2w6dGVtcGxhdGU+Cgo8L3hzbDpzdHlsZXNoZWV0Pg==</ResourceContents>
+      <TemporaryStoragePath>/xslt/umb2ndLevelNavigation.xslt</TemporaryStoragePath>
+      <VirtualResource>false</VirtualResource>
+    </Resource>
+  </Resources>
+  <Alias>umb2ndLevelNavigation</Alias>
+  <CacheByPage>true</CacheByPage>
+  <CachePersonalized>false</CachePersonalized>
+  <DLRScript />
+  <Properties />
+  <RefreshRate>0</RefreshRate>
+  <RenderContent>true</RenderContent>
+  <UseInEditor>false</UseInEditor>
+  <UserControl />
+  <Xslt>umb2ndLevelNavigation.xslt</Xslt>
+</Macro>

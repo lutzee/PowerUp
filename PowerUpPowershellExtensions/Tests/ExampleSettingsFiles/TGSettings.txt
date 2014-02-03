@@ -1,0 +1,472 @@
+﻿default
+	project.name							TopGear
+	restore-pickup-location					\\pc-41233\c$\databasebackups\liveminimised
+	create-websites					false
+	behind-CDN						false
+	is-primary-node							false
+    website.accessFlags         513
+    website.authAnonymous    true
+    website.authNTLM            	true
+    website.authBasic           	false
+	website.ipAddress
+    website.port						80
+	au.website.ipAddress
+    au.website.port					80
+	root.website.ipAddress
+    root.website.port					80
+	cms.website.ipAddress
+	cms.website.port				80
+	cs.website.ipAddress
+	cs.website.port					80
+	aucs.website.ipAddress
+	aucs.website.port				80
+	preview.website.ipAddress
+	preview.website.port			80
+	au.cmsconsumer.website.ipAddress
+	au.cmsconsumer.website.port				80
+	load-balanced											false
+	database-backup-require						false
+	scheduled-task-timing-offset			0
+	website.name                			${project.name} UK - Origin
+	applicationPool.name				${project.name} UK - Origin
+	website.hostheader				topgear-ui-dev
+	au.website.name                	${project.name} AU - Origin
+	au.applicationPool.name		${project.name} AU - Origin
+	root.website.name                	${project.name} - Origin
+	root.applicationPool.name		${project.name} - Origin
+	cms.website.name					${project.name} - CMS
+	cms.applicationPool.name		${project.name} - CMS
+	cs.website.name					${project.name} UK - CS
+	cs.applicationPool.name		${project.name} UK - CS
+	aucs.website.name					${project.name} AU - CS
+	aucs.applicationPool.name		${project.name} AU - CS
+	preview.website.name								${project.name} - Preview
+	preview.applicationPool.name 					${project.name} - Preview
+	au.cmsconsumer.website.name				${project.name} AU - CMS Consumer
+	au.cmsconsumer.applicationPool.name 	${project.name} AU - CMS Consumer
+	secure.website.name											${project.name} - Secure
+	secure.applicationPool.name								${project.name} - Secure
+	cms.assets.vdir.folder					${DeploymentDirectory}\assets\published\cms
+	au.cms.assets.vdir.folder				${DeploymentDirectory}AU\assets\published\cms
+	cs.assets.vdir.folder					${DeploymentDirectory}\assets\upload\contentserver\TopGear\VideoAsset\File
+	au.cs.assets.vdir.folder				${DeploymentDirectory}AU\assets\upload\contentserver\TopGear\VideoAsset\File
+	
+DEV
+	deploy.servers							127.0.0.1
+	deploy.unc.path							\\${deploy.servers}\c$\Install\${project.name}\
+	deploy.local.path						c:\Install\${project.name}\
+	DeploymentDirectory						C:\Deployments\topgear
+	CmsDeploymentDirectory					C:\Deployments\topgear
+	VechicleDataImportDeploymentDirectory	C:\Deployments\topgear\
+	environment.for.cms.overlay				DEV
+	database.file.path						C:\Databases
+	database.log.path						C:\TransactionLogs	
+	database-server							TOPGEAR
+	database-name							TopGear
+	topgear-au-database-name				TopGearAU
+	topgear-preview-database-name			TopGearPreview
+	topgear-au-preview-database-name		TopGearAuPreview
+	cms-auth-database-name					TopGear.Cms.Auth
+	service-account							WORLDWIDE\WWIT-SVC-TopGear
+	network-service-account1				NT AUTHORITY\NETWORK SERVICE
+	network-service-account2				NT AUTHORITY\NETWORK SERVICE
+	staging-database-name					TopGearStaging
+	staging-database-name-au				TopGearAUStaging
+	create-websites					true
+	behind-CDN						false
+	au.cmsconsumer.website.port				1001
+	is-primary-node							true
+	website.hostheader				topgear-ui-dev
+	au.website.hostheader			topgearau-ui-dev
+	root.website.hostheader			topgearroot-ui-dev
+	cms.website.hostheader		topgearcms-ui-dev
+	cs.website.hostheader			topgearcs-uk-ui-dev	
+	aucs.website.hostheader			topgearcs-au-ui-dev	
+	preview.website.hostheader    					topgearpreview-ui-dev
+	au.cmsconsumer.website.hostheader    	topgearcms-ui-dev
+	secure.website.port											80
+	secure.website.ipAddress	
+	secure.website.hostheader								topgearsecure-ui-dev	
+	
+DEV-BRANCH
+	project.name							TopGearBranch
+	deploy.servers							127.0.0.1
+	deploy.unc.path							\\${deploy.servers}\c$\Install\${project.name}\
+	deploy.local.path						c:\Install\${project.name}\
+	DeploymentDirectory						C:\Deployments\${project.name}
+	CmsDeploymentDirectory					C:\Deployments\${project.name}
+	VechicleDataImportDeploymentDirectory	C:\Deployments\${project.name}\
+	environment.for.cms.overlay				DEV
+	database.file.path						C:\Databases
+	database.log.path						C:\TransactionLogs	
+	database-server							TOPGEAR
+	database-name							TopGearBranch
+	topgear-au-database-name				TopGearBranchAU
+	topgear-preview-database-name			TopGearBranchPreview
+	topgear-au-preview-database-name		TopGearBranchAUPreview
+	cms-auth-database-name					TopGearBranch.Cms.Auth
+	service-account							WORLDWIDE\WWIT-SVC-TopGear
+	network-service-account1				NT AUTHORITY\NETWORK SERVICE
+	network-service-account2				NT AUTHORITY\NETWORK SERVICE
+	staging-database-name					TopGearBranchStaging
+	staging-database-name-au				TopGearBranchAUStaging
+	create-websites					true
+	behind-CDN						false
+	is-primary-node							true
+	website.port						2000
+    au.website.port					2000
+    root.website.port					2000
+	cms.website.port				2000
+	cs.website.port					2000
+	aucs.website.port				2000
+	preview.website.port			2000
+	au.cmsconsumer.website.port				2001
+	website.hostheader				topgear-ui-dev
+	au.website.hostheader			topgearau-ui-dev
+	root.website.hostheader			topgearroot-ui-dev
+	cms.website.hostheader		topgearcms-ui-dev
+	cs.website.hostheader			topgearcs-uk-ui-dev	
+	aucs.website.hostheader			topgearcs-au-ui-dev	
+	preview.website.hostheader    					topgearpreview-ui-dev
+	au.cmsconsumer.website.hostheader    	topgearcms-ui-dev
+	scheduled-task-timing-offset			2
+
+	
+SYSTEST
+	deploy.servers							pc-41233
+	deploy.unc.path							\\${deploy.servers}\c$\Install\${project.name}\
+	deploy.local.path						c:\Install\${project.name}\
+	DeploymentDirectory						C:\Projects\topgear
+	CmsDeploymentDirectory					C:\Projects\topgear
+	VechicleDataImportDeploymentDirectory	C:\Projects\topgear\
+	environment.for.cms.overlay				SYSTEST
+	database.file.path						C:\Databases
+	database.log.path						C:\TransactionLogs	
+	database-server							PC-41233
+	database-name							TopGear
+	topgear-au-database-name				TopGearAU
+	topgear-preview-database-name			TopGearPreview
+	topgear-au-preview-database-name		TopGearAuPreview
+	cms-auth-database-name					TopGear.Cms.Auth
+	network-service-account1				NT AUTHORITY\NETWORK SERVICE
+	network-service-account2				NT AUTHORITY\NETWORK SERVICE
+	service-account							WORLDWIDE\WWIT-SVC-TopGear
+	staging-database-name					TopGearStaging
+	staging-database-name-au				TopGearAUStaging
+	create-websites					true
+	behind-CDN						false
+	is-primary-node							true
+	au.cmsconsumer.website.port				1001
+	website.hostheader				topgear-ui-systest
+	au.website.hostheader			topgearau-ui-systest
+	root.website.hostheader			topgearroot-ui-systest
+	cms.website.hostheader		topgearcms-ui-systest
+	cs.website.hostheader			topgearcs-uk-ui-systest	
+	aucs.website.hostheader			topgearcs-au-ui-systest	
+	preview.website.hostheader    					topgearpreview-ui-systest
+	au.cmsconsumer.website.hostheader    	topgearcms-ui-systest
+
+SYSTEST-SHORT-TERM-BRANCH
+	project.name							TopGearShortTermBranch
+	deploy.servers							pc-41233
+	deploy.unc.path							\\${deploy.servers}\c$\Install\${project.name}\
+	deploy.local.path						c:\Install\${project.name}\
+	DeploymentDirectory						C:\Projects\${project.name}
+	CmsDeploymentDirectory					C:\Projects\${project.name}
+	VechicleDataImportDeploymentDirectory	C:\Projects\${project.name}\
+	environment.for.cms.overlay				SYSTEST
+	database.file.path						C:\Databases
+	database.log.path						C:\TransactionLogs	
+	database-server							PC-41233
+	database-name							TopGearShortTermBranch
+	topgear-au-database-name				TopGearShortTermBranchAU
+	topgear-preview-database-name			TopGearShortTermBranchPreview
+	topgear-au-preview-database-name		TopGearShortTermBranchAUPreview
+	cms-auth-database-name					TopGearShortTermBranch.Cms.Auth
+	network-service-account1				NT AUTHORITY\NETWORK SERVICE
+	network-service-account2				NT AUTHORITY\NETWORK SERVICE
+	service-account							WORLDWIDE\WWIT-SVC-TopGear
+	staging-database-name					TopGearShortTermBranchStaging
+	staging-database-name-au				TopGearShortTermBranchAUStaging
+	create-websites										true
+	behind-CDN											false
+	is-primary-node										true
+	website.port											3000
+    au.website.port										3000
+    root.website.port										3000
+	cms.website.port									3000
+	cs.website.port										3000
+	aucs.website.port									3000
+	preview.website.port								3000
+	au.cmsconsumer.website.port				3001
+	website.hostheader				topgear-ui-systest
+	au.website.hostheader			topgearau-ui-systest
+	root.website.hostheader			topgearroot-ui-systest
+	cms.website.hostheader		topgearcms-ui-systest
+	cs.website.hostheader			topgearcs-uk-ui-systest	
+	aucs.website.hostheader			topgearcs-au-ui-systest	
+	preview.website.hostheader    					topgearpreview-ui-systest
+	au.cmsconsumer.website.hostheader    	topgearcms-ui-systest
+	scheduled-task-timing-offset			2
+	cms.assets.vdir.folder						C:\Projects\TopGear\assets\published\cms
+	au.cms.assets.vdir.folder					C:\Projects\TopGearau\assets\published\cms
+	cs.assets.vdir.folder						C:\Projects\TopGear\assets\upload\contentserver\TopGear\VideoAsset\File
+	au.cs.assets.vdir.folder					C:\Projects\TopGearau\assets\upload\contentserver\TopGear\VideoAsset\File
+	
+SYSTEST-BRANCH
+	project.name							TopGearBranch
+	deploy.servers							pc-41233
+	deploy.unc.path							\\${deploy.servers}\c$\Install\${project.name}\
+	deploy.local.path						c:\Install\${project.name}\
+	DeploymentDirectory						C:\Projects\${project.name}
+	CmsDeploymentDirectory					C:\Projects\${project.name}
+	VechicleDataImportDeploymentDirectory	C:\Projects\${project.name}\
+	environment.for.cms.overlay				SYSTEST
+	database.file.path						C:\Databases
+	database.log.path						C:\TransactionLogs	
+	database-server							PC-41233
+	database-name							TopGearBranch
+	topgear-au-database-name				TopGearBranchAU
+	topgear-preview-database-name			TopGearBranchPreview
+	topgear-au-preview-database-name		TopGearBranchAUPreview
+	cms-auth-database-name					TopGearBranch.Cms.Auth
+	network-service-account1				NT AUTHORITY\NETWORK SERVICE
+	network-service-account2				NT AUTHORITY\NETWORK SERVICE
+	service-account							WORLDWIDE\WWIT-SVC-TopGear
+	staging-database-name					TopGearBranchStaging
+	staging-database-name-au				TopGearBranchAUStaging
+	create-websites							true
+	behind-CDN								false
+	is-primary-node							true
+	website.port						2000
+    au.website.port					2000
+    root.website.port					2000
+	cms.website.port				2000
+	cs.website.port					2000
+	aucs.website.port				2000
+	preview.website.port			2000
+	au.cmsconsumer.website.port		2001
+	website.hostheader				topgear-ui-systest
+	au.website.hostheader			topgearau-ui-systest
+	root.website.hostheader			topgearroot-ui-systest
+	cms.website.hostheader		topgearcms-ui-systest
+	cs.website.hostheader			topgearcs-uk-ui-systest	
+	aucs.website.hostheader			topgearcs-au-ui-systest	
+	preview.website.hostheader    					topgearpreview-ui-systest
+	au.cmsconsumer.website.hostheader    	topgearcms-ui-systest
+	scheduled-task-timing-offset			4
+	cms.assets.vdir.folder						C:\Projects\TopGear\assets\published\cms
+	au.cms.assets.vdir.folder					C:\Projects\TopGearau\assets\published\cms
+	cs.assets.vdir.folder						C:\Projects\TopGear\assets\upload\contentserver\TopGear\VideoAsset\File
+	au.cs.assets.vdir.folder					C:\Projects\TopGearau\assets\upload\contentserver\TopGear\VideoAsset\File
+
+	
+LOADTEST
+	deploy.servers							pc-40766
+	deploy.unc.path							\\${deploy.servers}\c$\Install\${project.name}\
+	deploy.local.path						c:\Install\${project.name}\
+	DeploymentDirectory						C:\Projects\topgear
+	CmsDeploymentDirectory					C:\Projects\topgear
+	VechicleDataImportDeploymentDirectory	C:\Projects\topgear\
+	environment.for.cms.overlay				SYSTEST
+	database.file.path						C:\Databases
+	database.log.path						C:\TransactionLogs	
+	database-server							pc-40766
+	database-name							TopGear
+	topgear-au-database-name				TopGearAU
+	topgear-preview-database-name			TopGearPreview
+	topgear-au-preview-database-name		TopGearAuPreview
+	cms-auth-database-name					TopGear.Cms.Auth
+	network-service-account1				NT AUTHORITY\NETWORK SERVICE
+	network-service-account2				NT AUTHORITY\NETWORK SERVICE
+	service-account							WORLDWIDE\WWIT-SVC-TopGear
+	staging-database-name					TopGearStaging
+	staging-database-name-au				TopGearAUStaging
+	create-websites					true
+	behind-CDN						false
+	is-primary-node							true
+    au.website.port					1001
+    root.website.port				1002
+	cms.website.port				1003
+	cs.website.port					1004
+	aucs.website.port				1005
+	preview.website.port			1006
+	au.cmsconsumer.website.port		1007
+	website.hostheader				topgearload
+	au.website.hostheader			topgearload
+	root.website.hostheader			topgearload
+	cms.website.hostheader		topgearload
+	cs.website.hostheader			topgearload
+	aucs.website.hostheader			topgearload	
+	preview.website.hostheader    					topgearload
+	au.cmsconsumer.website.hostheader    	topgearload
+	
+LOADTEST-BRANCH
+	project.name							TopGearBranch
+	deploy.servers							pc-40766
+	deploy.unc.path							\\${deploy.servers}\c$\Install\${project.name}\
+	deploy.local.path						c:\Install\${project.name}\
+	DeploymentDirectory						C:\Projects\${project.name}
+	CmsDeploymentDirectory					C:\Projects\${project.name}
+	VechicleDataImportDeploymentDirectory	C:\Projects\${project.name}\
+	environment.for.cms.overlay				SYSTEST
+	database.file.path						C:\Databases
+	database.log.path						C:\TransactionLogs	
+	database-server							PC-40766
+	database-name							TopGearBranch
+	topgear-au-database-name				TopGearBranchAU
+	topgear-preview-database-name			TopGearPreview
+	topgear-au-preview-database-name		TopGearAUPreview
+	cms-auth-database-name					TopGear.Cms.Auth
+	network-service-account1				NT AUTHORITY\NETWORK SERVICE
+	network-service-account2				NT AUTHORITY\NETWORK SERVICE
+	service-account							WORLDWIDE\WWIT-SVC-TopGear
+	staging-database-name					TopGearBranchStaging
+	staging-database-name-au				TopGearBranchAUStaging
+	create-websites					true
+	behind-CDN						false
+	is-primary-node							true
+    au.website.port					2001
+    root.website.port				2002
+	cms.website.port				2003
+	cs.website.port					2004
+	aucs.website.port				2005
+	preview.website.port			2006
+	au.cmsconsumer.website.port		2007
+	website.hostheader				topgearload
+	au.website.hostheader			topgearload
+	root.website.hostheader			topgearload
+	cms.website.hostheader		topgearload
+	cs.website.hostheader			topgearload
+	aucs.website.hostheader			topgearload	
+	preview.website.hostheader    					topgearload
+	au.cmsconsumer.website.hostheader    	topgearload
+	
+UAT
+	deploy.servers							126807-WWTIS01.lon.intensive.int
+	deploy.unc.path							\\${deploy.servers}\e$\Install\${project.name}\
+	deploy.local.path						E:\Install\${project.name}\
+	DeploymentDirectory						E:\Projects\topgear
+	CmsDeploymentDirectory					E:\Projects\topgear
+	VechicleDataImportDeploymentDirectory	E:\Projects\topgear\
+	environment.for.cms.overlay				UAT
+	database.file.path						E:\Databases
+	database.log.path						E:\TransactionLogs	
+	database-server							126798-WWTDBMS1
+	database-name							TopGear
+	topgear-au-database-name				TopGearAU
+	topgear-preview-database-name			TopGearPreview
+	topgear-au-preview-database-name		TopGearAuPreview
+	cms-auth-database-name					TopGear.Cms.Auth
+	network-service-account1				LON\126807-WWTIS01$
+	network-service-account2				LON\126807-WWTIS01$
+	service-account							LON\228053-gensvcacc_uat
+	staging-database-name					TopGearStaging
+	staging-database-name-au				TopGearAUStaging
+	create-websites							false
+	behind-CDN								true
+	is-primary-node							true
+	load-balanced											false
+	database-backup-require						false
+	website.ipAddress						192.168.100.197
+	website.hostheader					origin-uk-uat.beta.topgear.com
+	au.website.ipAddress					192.168.100.197
+	au.website.hostheader				origin-au-uat.beta.topgear.com
+	root.website.ipAddress				192.168.100.197
+	root.website.hostheader				origin-uat.topgear.com
+	cms.website.ipAddress				192.168.100.197
+	cms.website.hostheader			cms.uat.topgear.com
+	cs.website.ipAddress					192.168.100.197
+	cs.website.hostheader				uk.cs.uat.topgear.com
+	aucs.website.ipAddress				192.168.100.197
+	aucs.website.hostheader			au.cs.uat.topgear.com
+	preview.website.ipAddress			192.168.100.197
+	preview.website.hostheader    					preview.uat.topgear.com
+	au.cmsconsumer.website.port					2008
+	au.cmsconsumer.website.ipAddress		192.168.100.197
+	au.cmsconsumer.website.hostheader    	
+	secure.website.ipAddress									192.168.100.173
+	secure.website.port											80
+	secure.website.hostheader								secure-uat.topgear.com
+	secure.website.origin.hostheader						
+
+LIVENODE1	
+	deploy.servers							166453-WWPIS03.lon.intensive.int
+	deploy.unc.path							\\${deploy.servers}\e$\Install\${project.name}\
+	deploy.local.path							E:\Install\${project.name}\
+	DeploymentDirectory									E:\Projects\topgear
+	CmsDeploymentDirectory							E:\Projects\topgear
+	VechicleDataImportDeploymentDirectory	E:\Projects\topgear\
+	environment.for.cms.overlay						LIVE
+	database.file.path						G:\Databases
+	database.log.path						I:\TransactionLogs	
+	database-server							128566-WWPDBCS1
+	database-name							TopGear
+	topgear-au-database-name					TopGearAU
+	topgear-preview-database-name			TopGearPreview
+	topgear-au-preview-database-name		TopGearAuPreview
+	cms-auth-database-name						TopGear.Cms.Auth
+	network-service-account1				LON\166453-WWPIS03$
+	network-service-account2				LON\166469-WWPIS04$
+	service-account								LON\228053-gensvcacc
+	staging-database-name					TopGearStaging
+	staging-database-name-au			TopGearAUStaging
+	create-websites							true
+	behind-CDN								true
+	is-primary-node							true
+	load-balanced											true
+	database-backup-require						true
+	website.ipAddress						192.168.100.88
+	website.hostheader					uk.node1.topgear.com
+	website.origin.hostheader			origin-uk.topgear.com
+	au.website.ipAddress					192.168.100.88
+	au.website.hostheader				au.node1.topgear.com
+	au.website.origin.hostheader		origin-au.topgear.com
+	root.website.ipAddress				192.168.100.88
+	root.website.hostheader				topgear.com
+	root.website.origin.hostheader	origin.topgear.com
+	cms.website.ipAddress				192.168.100.88
+	cms.website.hostheader			cms.beta.topgear.com
+	cms.website.origin.hostheader	cms.topgear.bbcmagazines.com
+	cs.website.ipAddress					192.168.100.88
+	cs.website.hostheader				uk.cs.topgear.com
+	cs.website.origin.hostheader		uk.cs.topgear.bbcmagazines.com
+	aucs.website.ipAddress								192.168.100.88
+	aucs.website.hostheader							au.cs.topgear.com
+	aucs.website.origin.hostheader					au.cs.topgear.bbcmagazines.com
+	preview.website.ipAddress							192.168.100.88
+	preview.website.hostheader    					preview.topgear.com
+	preview.website.origin.hostheader				preview.beta.topgear.com
+	au.cmsconsumer.website.port							2008
+	au.cmsconsumer.website.ipAddress				192.168.100.88
+	au.cmsconsumer.website.hostheader 
+	au.cmsconsumer.website.origin.hostheader		
+	secure.website.ipAddress									192.168.100.171
+	secure.website.port											80
+	secure.website.hostheader								secure-node1.topgear.com
+	secure.website.origin.hostheader						secure.topgear.com
+	
+LIVE	
+	deploy.servers							166453-WWPIS03.lon.intensive.int
+	deploy.unc.path							\\${deploy.servers}\e$\Install\${project.name}\
+	deploy.local.path						E:\Install\${project.name}\
+	DeploymentDirectory						E:\Projects\topgear
+	CmsDeploymentDirectory					E:\Projects\topgear
+	VechicleDataImportDeploymentDirectory	E:\Projects\topgear\
+	environment.for.cms.overlay				LIVE
+	database.file.path						G:\Databases
+	database.log.path						I:\TransactionLogs	
+	database-server							128566-WWPDBCS1
+	database-name							TopGear
+	topgear-au-database-name				TopGearAU
+	topgear-preview-database-name			TopGearPreview
+	topgear-au-preview-database-name		TopGearAuPreview
+	cms-auth-database-name					TopGear.Cms.Auth
+	network-service-account1				LON\166453-WWPIS03$
+	network-service-account2				LON\166469-WWPIS04$
+	service-account							LON\228053-gensvcacc
+	staging-database-name					TopGearStaging
+	staging-database-name-au				TopGearAUStaging
+	create-websites					false
+	behind-CDN						true
+	is-primary-node							true

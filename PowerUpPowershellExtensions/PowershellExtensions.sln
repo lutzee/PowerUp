@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowershellExtensions", "PowershellExtensions\PowershellExtensions.csproj", "{43EF3D43-907F-4BBB-9184-3A382B453451}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{65B515C2-3910-4BBE-8B29-37B99524EC83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{714500DF-F6E5-4C29-B2E7-F45E6B0FF2D2}"
+	ProjectSection(SolutionItems) = preProject
+		PowershellExtensions\PowershellExtensions.vsmdi = PowershellExtensions\PowershellExtensions.vsmdi
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{21FDECFE-CDDF-4605-BF9B-FF8C20F77E52}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\AWSSDK.dll = Lib\AWSSDK.dll
+		Lib\Id.DatabaseMigration.dll = Lib\Id.DatabaseMigration.dll
+		Lib\Id.DatabaseMigration.pdb = Lib\Id.DatabaseMigration.pdb
+		Lib\Migrator.dll = Lib\Migrator.dll
+		Lib\Migrator.Framework.dll = Lib\Migrator.Framework.dll
+		Lib\Migrator.Framework.pdb = Lib\Migrator.Framework.pdb
+		Lib\Migrator.pdb = Lib\Migrator.pdb
+		Lib\Migrator.Providers.dll = Lib\Migrator.Providers.dll
+		Lib\Migrator.Providers.pdb = Lib\Migrator.Providers.pdb
+		Lib\SystemWrapper.dll = Lib\SystemWrapper.dll
+		Lib\SystemWrapper.pdb = Lib\SystemWrapper.pdb
+		Lib\SystemWrapper.XML = Lib\SystemWrapper.XML
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontInstaller", "FontInstaller\FontInstaller.csproj", "{40A38473-8F20-427B-B248-8F529B8F6FCF}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = PowershellExtensions\PowershellExtensions.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43EF3D43-907F-4BBB-9184-3A382B453451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43EF3D43-907F-4BBB-9184-3A382B453451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43EF3D43-907F-4BBB-9184-3A382B453451}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{43EF3D43-907F-4BBB-9184-3A382B453451}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{43EF3D43-907F-4BBB-9184-3A382B453451}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{43EF3D43-907F-4BBB-9184-3A382B453451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43EF3D43-907F-4BBB-9184-3A382B453451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43EF3D43-907F-4BBB-9184-3A382B453451}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{43EF3D43-907F-4BBB-9184-3A382B453451}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{43EF3D43-907F-4BBB-9184-3A382B453451}.Release|x86.ActiveCfg = Release|Any CPU
+		{65B515C2-3910-4BBE-8B29-37B99524EC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B515C2-3910-4BBE-8B29-37B99524EC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B515C2-3910-4BBE-8B29-37B99524EC83}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{65B515C2-3910-4BBE-8B29-37B99524EC83}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{65B515C2-3910-4BBE-8B29-37B99524EC83}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{65B515C2-3910-4BBE-8B29-37B99524EC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B515C2-3910-4BBE-8B29-37B99524EC83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B515C2-3910-4BBE-8B29-37B99524EC83}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{65B515C2-3910-4BBE-8B29-37B99524EC83}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{65B515C2-3910-4BBE-8B29-37B99524EC83}.Release|x86.ActiveCfg = Release|Any CPU
+		{40A38473-8F20-427B-B248-8F529B8F6FCF}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{40A38473-8F20-427B-B248-8F529B8F6FCF}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{40A38473-8F20-427B-B248-8F529B8F6FCF}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{40A38473-8F20-427B-B248-8F529B8F6FCF}.Debug|x86.ActiveCfg = Debug|x86
+		{40A38473-8F20-427B-B248-8F529B8F6FCF}.Debug|x86.Build.0 = Debug|x86
+		{40A38473-8F20-427B-B248-8F529B8F6FCF}.Release|Any CPU.ActiveCfg = Release|x86
+		{40A38473-8F20-427B-B248-8F529B8F6FCF}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{40A38473-8F20-427B-B248-8F529B8F6FCF}.Release|Mixed Platforms.Build.0 = Release|x86
+		{40A38473-8F20-427B-B248-8F529B8F6FCF}.Release|x86.ActiveCfg = Release|x86
+		{40A38473-8F20-427B-B248-8F529B8F6FCF}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

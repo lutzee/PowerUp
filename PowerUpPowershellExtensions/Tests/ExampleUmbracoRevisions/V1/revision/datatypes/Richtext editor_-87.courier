@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Richtext editor_-87</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>ca90c950-0aff-4e72-b976-a30b1ac57dad</Id>
+    <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Richtext editor</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <Assembly>umbraco.editorControls</Assembly>
+  <DataBaseDataType>Ntext</DataBaseDataType>
+  <DataEditorId>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</DataEditorId>
+  <NodeId>-87</NodeId>
+  <Prevalues>
+    <DataTypePrevalue>
+      <Alias />
+      <SortOrder>0</SortOrder>
+      <Value>,code,undo,redo,cut,copy,mcepasteword,stylepicker,bold,italic,bullist,numlist,outdent,indent,mcelink,unlink,mceinsertanchor,mceimage,umbracomacro,mceinserttable,mcecharmap,|1|1,2,3,|0|500,400|1049,|</Value>
+      <Id>3</Id>
+    </DataTypePrevalue>
+  </Prevalues>
+  <Type>umbraco.editorControls.tinyMCE3.tinyMCE3dataType</Type>
+  <UniqueID>ca90c950-0aff-4e72-b976-a30b1ac57dad</UniqueID>
+</DataType>

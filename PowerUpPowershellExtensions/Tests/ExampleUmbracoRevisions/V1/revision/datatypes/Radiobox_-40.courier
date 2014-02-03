@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Radiobox_-40</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>bb5f57c9-ce2b-4bb9-b697-4caca783a805</Id>
+    <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Radiobox</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <Assembly>umbraco.editorControls</Assembly>
+  <DataBaseDataType>Nvarchar</DataBaseDataType>
+  <DataEditorId>a52c7c1c-c330-476e-8605-d63d3b84b6a6</DataEditorId>
+  <NodeId>-40</NodeId>
+  <Prevalues />
+  <Type>umbraco.editorControls.radiobuttonlist.RadioButtonListDataType</Type>
+  <UniqueID>bb5f57c9-ce2b-4bb9-b697-4caca783a805</UniqueID>
+</DataType>

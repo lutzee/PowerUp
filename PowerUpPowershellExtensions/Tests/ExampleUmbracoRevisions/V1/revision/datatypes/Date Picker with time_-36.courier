@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Date Picker with time_-36</CourierFileName>
+  <Dependencies />
+  <ItemId>
+    <Id>e4d66c0f-b935-4200-81f0-025f7256b89a</Id>
+    <ProviderId>e0472592-e73b-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Date Picker with time</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <Assembly>umbraco.editorControls</Assembly>
+  <DataBaseDataType>Date</DataBaseDataType>
+  <DataEditorId>b6fb1622-afa5-4bbf-a3cc-d9672a442222</DataEditorId>
+  <NodeId>-36</NodeId>
+  <Prevalues />
+  <Type>umbraco.editorControls.datefieldmultiple.DataTypeDatefieldMultiple</Type>
+  <UniqueID>e4d66c0f-b935-4200-81f0-025f7256b89a</UniqueID>
+</DataType>

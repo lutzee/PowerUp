@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CourierFileName>Finance department news_1066</CourierFileName>
+  <Dependencies>
+    <Dependency>
+      <IsChild>true</IsChild>
+      <ItemId>
+        <Id>c77cc90c-a4ba-46ab-9a0b-74963e7a19c5</Id>
+        <ProviderId>e0472594-e73b-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document Property data</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>umbNewsArticle</Id>
+        <ProviderId>d8e6ad84-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Document type: umbNewsArticle</Name>
+    </Dependency>
+    <Dependency>
+      <IsChild>false</IsChild>
+      <ItemId>
+        <Id>501c614a-050a-4530-b900-74d138537e4e</Id>
+        <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+      </ItemId>
+      <Name>Parent Document: 501c614a-050a-4530-b900-74d138537e4e</Name>
+    </Dependency>
+  </Dependencies>
+  <ItemId>
+    <Id>c77cc90c-a4ba-46ab-9a0b-74963e7a19c5</Id>
+    <ProviderId>d8e6ad83-e73a-11df-9492-0800200c9a66</ProviderId>
+  </ItemId>
+  <Name>Finance department news</Name>
+  <ItemType>Item</ItemType>
+  <Resources />
+  <DocumentTypeAlias>umbNewsArticle</DocumentTypeAlias>
+  <Id>1066</Id>
+  <ParentId>1064</ParentId>
+  <ParentUniqueId>501c614a-050a-4530-b900-74d138537e4e</ParentUniqueId>
+  <UniqueId>c77cc90c-a4ba-46ab-9a0b-74963e7a19c5</UniqueId>
+  <SortOrder>2</SortOrder>
+  <Level>3</Level>
+  <Template>umbNewsArticle</Template>
+  <Published>true</Published>
+  <CreateDate>2010-09-07T13:22:35</CreateDate>
+  <ExpireDate>0001-01-01T00:00:00</ExpireDate>
+  <ReleaseDate>0001-01-01T00:00:00</ReleaseDate>
+  <UpdateDate>2011-07-05T16:01:45</UpdateDate>
+  <PublishDate>2011-07-05T16:01:45</PublishDate>
+</Document>

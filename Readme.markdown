@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 PowerUp is a build and deployment framework, written on top of Powershell and Psake.  
 

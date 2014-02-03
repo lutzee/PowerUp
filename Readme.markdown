@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 PowerUp is a build and deployment framework, written on top of Powershell and Psake.  
 
@@ -14,15 +14,18 @@ It also bundles convenient  tools to enable the configuration of Windows servers
 # Status
 
 PowerUp is regularly used by Wynyard Group, Affinity ID, BBC Worldwide and Universal Music to release projects through to production. 
-This includes file deployment, website creation (with SSL), IIS managment, windows features, App Fabric, Windows Services, scheduled tasks, MSMQ, Amazon Web Services, database migrations, fonts and Umbraco Courier revision publications.  
+This includes file deployment, website creation (with SSL), IIS managment, windows features, App Fabric, Windows Services, scheduled tasks, MSMQ, Amazon Web Services, database migrations, fonts and Umbraco Courier revision publications. Using InstallShield as a wrapper is also known to work (contact for details, if interested!)
 
 Andrew, the main contributor, works at Wynyard Group.
 
-The basic framework should now be fairly stable.
-Different deployment cmdlets are being actively developed all the time. Coming up are:  
-- Database admin, such as backing up/restoring  
-- "Side by side" no-downtime website deployments, in the style of capistrano 
-- InstallShield integration
+# Getting started
+
+PowerUp is available as a NuGet package at https://www.nuget.org/packages/PowerUp
+
+Although other modes are supported, the easiest way to start is to add PowerUp as a package to your solution.
+Once this is done, you need to add a few other files to the root folder of your solution root. These consist of files that script your build and others that script and set up configuration for your deployments.
+
+Please look at https://github.com/PowerUpDeploy/PowerUpSamples for a very simple example of this.
 
 # Disclaimer of Background Influences
 

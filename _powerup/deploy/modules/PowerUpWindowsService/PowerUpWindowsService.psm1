@@ -4,7 +4,7 @@ function Set-ServiceCredentials
     (
         [string] $Name = $(throw 'Must provide a service name'),
         [string] $Username = $(throw "Must provide a username"),
-        [string] $Password = $(throw "Must provide a password")
+        [string] $Password
     ) 
     
 	if (!($Username.Contains("\")))
@@ -17,9 +17,12 @@ function Set-ServiceCredentials
 	{
         $params = $service.psbase.getMethodParameters("Change");
         $params["StartName"] = $Username
-        $params["StartPassword"] = $Password
-    
-        $service.invokeMethod("Change", $params, $null)
+		
+		if($Password) {
+			$params["StartPassword"] = $Password
+		}
+		
+        $service.invokeMethod("Change", $params, $null) | out-null
 
 		Write-Output "Credentials changed for service '$Name'"
 	}
@@ -42,7 +45,7 @@ function Set-ServiceStartMode
 	{
         $params = $service.psbase.getMethodParameters("Change");
         $params["StartMode"] = $Mode
-        $service.invokeMethod("Change", $params, $null)
+        $service.invokeMethod("Change", $params, $null) | out-null
 
 		Write-Output "Start mode change to '$Mode' for service '$Name'"
 	}
@@ -51,7 +54,6 @@ function Set-ServiceStartMode
 		throw "Could not find service '$Name' for which to change start mode"
 	}
 }
-
 
 function Set-ServiceFailureOptions
 {
@@ -81,30 +83,38 @@ function Get-SpecificService
     )
 	
 	return Get-Service | Where-Object {$_.Name -eq $Name}
-}
-	
-	
+}	
 	
 function Stop-MaybeNonExistingService
 {
 	param
     (
-        [string] $Name = $(throw 'Must provide a service name')
+        [string] $Name = $(throw 'Must provide a service name'),
+		[bool] $force = $false
     ) 
 
 	$serviceExists = !((Get-Service | Where-Object {$_.Name -eq $Name}) -eq $null)
 	
-	if ($serviceExists) {
-		Write-Host "$Name Service is installed"
-		
-		Write-Host "Stopping $Name"
-		Stop-Service $Name		
+	if ($serviceExists) {	
+		Write-Host "Stopping service $Name"
+		$ServiceNamePID  = Get-Service -Name $Name				
+		$ServicePID = (get-wmiobject win32_Service | Where { $_.Name -eq $ServiceNamePID.Name }).ProcessId		
+			
+		if ($force) {
+			Stop-Service $Name -Force
+		} else {
+			Stop-Service $Name
+		}
+
+		#Back-up "nuclear option" - attempt to kill the process.  This removes anything that might be locking the parent folder etc
+		if ($ServicePID -gt 0) {
+			Stop-Process $ServicePID -force -ErrorAction SilentlyContinue
+		}
 	}
 	else
 	{
 		Write-Host "$Name Service is not installed, so cannot be stopped"
 	}
-
 }
 
 function Start-MaybeNonExistingService
@@ -116,39 +126,55 @@ function Start-MaybeNonExistingService
 
 	$serviceExists = !((Get-Service | Where-Object {$_.Name -eq $Name}) -eq $null)
 	
-	if ($serviceExists) {
-		Write-Host "$Name Service is installed"
-		
-		Write-Host "Starting $Name"
-		Start-Service $Name		
+	if ($serviceExists) {	
+		Write-Host "Starting service $Name"
+		Start-Service $Name
 	}
 	else
 	{
 		Write-Host "$Name Service is not installed, so cannot be started"
 	}
-
 }
 
-function Uninstall-Service 
+function Remove-MaybeNonExistingService
 {
 	param
 	(
-		[string] $Name = $(throw 'Must provide a service name')
+		[string] $Name = $(throw 'Must provide a service name')		
+	)
+
+	$serviceExists = !((Get-Service | Where-Object {$_.Name -eq $Name}) -eq $null)
+	
+	if ($serviceExists) {			
+		Remove-Service $Name		
+	}
+	else
+	{
+		Write-Host "$Name Service is not installed, so cannot be removed"
+	}	
+}
+
+function Remove-Service 
+{
+	param
+	(
+		[string] $Name = $(throw 'Must provide a service name')		
 	) 
 
-	$service = get-wmiobject -query "select * from win32_service where name='$Name'"
+	$serviceExists = !((Get-Service | Where-Object {$_.Name -eq $Name}) -eq $null)
 		
-	if ($service) {
-		Write-Host "$Name Service is installed"
-		
+	if ($serviceExists) {
 		Write-Host "Uninstalling $Name"
 
-		try{
-			$output = & "$PSScriptRoot\InstallUtil.exe" $service.pathname /u /LogToConsole=true
+		Stop-MaybeNonExistingService $Name			
+		$output = & sc.exe delete "$Name" 
+		
+		if ($lastexitcode -ne 0)
+		{
+			write-error $output[0]
+			throw "Unable to remove service $Name"
 		}
-		catch{
-			throw "Could not uninstall $Name Service"
-		}		
+			
 	}
 }
 
@@ -156,18 +182,35 @@ function Set-Service
 {
 	param
     (
-        [string] $Name = $(throw 'Must provide a service name'),
-		[string] $InstallPath = $(throw 'Must provide a service name'),
-		[string] $ExeFileName = $(throw 'Must provide a service name')
+        [string] $Name = $(throw 'Must provide a service name'),		
+		[string] $InstallPath = $(throw 'Must provide an install path'),
+		[string] $ExeFileName = $(throw 'Must provide an exe file name'),
+		[string] $DisplayName = $null,
+		[string] $Description = $null,
+		[string] $StartupType = "auto",
+		[string] $Dependencies = $null
     ) 
 
-	uninstall-service $Name $InstallPath $ExeFileName
+	Remove-Service $Name
 		
-	try{
-		& "$PSScriptRoot\InstallUtil.exe" "$InstallPath\$ExeFileName" /LogToConsole=true
-	}
-	catch{
-		throw "Could not uninstall $Name Service"
+	Write-Host "Installing service $Name"
+	$binPath = "$InstallPath\$ExeFileName"
+	if ($DisplayName) {
+		$output = & sc.exe create "$Name" binPath= "$binPath" start= $StartupType DisplayName= "$DisplayName"
+	} else {
+		$output = & sc.exe create "$Name" binPath= "$binPath" start= $StartupType
 	}
 	
+	if ($Description) {
+		$output += & sc.exe description "$Name" "$Description"
+	}
+	
+	if ($Dependencies) {
+		$output += & sc.exe config "$Name" depend= "$Dependencies"
+	}
+}
+
+function Set-ServiceDependencies([string]$Name, [string]$Dependencies)
+{
+	$output = & sc.exe config "$Name" depend= "$Dependencies"
 }

@@ -780,4 +780,5 @@ $psake.build_script_dir = "" # contains a string with fully-qualified path to cu
 
 LoadConfiguration
 
-export-modulemember -function invoke-psake, invoke-task, task, properties, include, formattaskname, tasksetup, taskteardown, framework, assert, exec -variable psake
+
+export-modulemember -function invoke-psake, invoke-task, task, properties, include, formattaskname, tasksetup, taskteardown, framework, assert, exec -variable psake,msgs

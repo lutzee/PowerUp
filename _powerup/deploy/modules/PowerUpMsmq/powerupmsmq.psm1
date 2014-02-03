@@ -16,18 +16,18 @@ function Has-MsmqQueueWithName([string]$name)
 	return $found
 }
 
-function set-msmqqueue($computerName, $queuename, $private, $user, $permission, $transactional)
+function set-msmqqueue($computerName, $queuename, $private, $user, $permission, $transactional, $authenticated=$false, $journalEnabled=$false, $journalSize=0)
 {
 	if (!(Has-MsmqQueueWithName $queuename))
 	{
 		Write-Host "Creating Queue $queuename"
-		Create-MsmqQueue $computerName $queuename $private $user $permission $transactional
+		Create-MsmqQueue $computerName $queuename $private $user $permission $transactional $authenticated $journalEnabled $journalSize
 	}
 }
 
-function Create-MsmqQueue($computerName, $queuename, $private, $user, $permission, $transactional)
+function Create-MsmqQueue($computerName, $queuename, $private, $user, $permission, $transactional, $authenticated, $journalEnabled, $journalSize)
 {
-	[Reflection.Assembly]::LoadWithPartialName("System.Messaging")
+	[Reflection.Assembly]::LoadWithPartialName("System.Messaging") | out-null
 	$createQueuename = ""
 	
 	if ($computerName.ToLower() -eq "localhost")
@@ -53,6 +53,16 @@ function Create-MsmqQueue($computerName, $queuename, $private, $user, $permissio
 	}
 	
 	$qb.label = $queuename
+	
+	$qb.Authenticate = $authenticated
+	if ($journalEnabled)
+	{
+		$qb.UseJournalQueue = $true
+	}
+	if ($journalSize -gt 0)
+	{
+		$qb.MaximumJournalSize = $journalSize
+	}
 		   
 	if ($permission -ieq "all")
 	{

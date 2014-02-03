@@ -73,4 +73,34 @@ function Set-Permissions
     Set-Acl $Path $currentAcl
 }
 
-export-modulemember -function set-permissions
+function set-right($right, $user=$null)
+{
+
+	if($user) {
+		write-host "Granting $user the $right right"
+		$output = & "$PSScriptRoot\ntrights.exe" +r $right -u $user
+	}
+	else {
+		write-host "Granting current user the $right right"
+		$output = & "$PSScriptRoot\ntrights.exe" +r $right
+	}
+	
+	if ($lastexitcode -ne 0)
+	{
+		write-error $output[0]
+		throw "Set of right $right failed"
+	}	
+
+}
+
+function Test-CurrentUserInAdministratorRole {
+    try {
+        $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+        $principal = New-Object Security.Principal.WindowsPrincipal -ArgumentList $identity
+        return $principal.IsInRole( [Security.Principal.WindowsBuiltInRole]::Administrator )
+    } catch {
+        throw "Failed to determine if the current user has elevated privileges. The error was: '{0}'." -f $_
+	}
+}
+
+export-modulemember -function set-permissions, Test-CurrentUserInAdministratorRole, set-right

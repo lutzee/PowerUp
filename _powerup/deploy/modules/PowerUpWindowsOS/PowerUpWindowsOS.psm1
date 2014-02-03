@@ -289,8 +289,9 @@ function Add-ClientFeature
 	{	
 		try
 		{
+			$osgen = Get-OSGeneration
 			
-			if ($operatingsystem -eq "8") {
+			if ($osgen -eq "8") {
 				$dism = "DISM /Online /Enable-Feature /All /FeatureName:$Name"
 			}
 			else {
@@ -305,19 +306,21 @@ function Add-ClientFeature
 				Write-Verbose "CLI: $dism"
 				if($Quiet)
 				{
-					$null = Invoke-Expression $dism
+					$output = Invoke-Expression $dism
 					if($LASTEXITCODE -eq 0)
 					{
 						$true
 					}
 					else
 					{
-						$false	
+						Write-Host $output
+						Write-Error "Enabling feature $Name failed"
+						$false
 					}
 				}
 				else
 				{
-					Invoke-Expression $dism	
+					Invoke-Expression $dism
 				}
 			}
 		}
@@ -363,7 +366,7 @@ function set-windowsfeature ([string] $featurename){
 	
 	if ($state -like $False) {
 		write-host "Enabling feature $featurename"
-		Add-ClientFeature $featurename -Force
+		Add-ClientFeature $featurename -Quiet -Force
 						
 		$timeout = new-timespan -Minutes 3
 		$sw = [diagnostics.stopwatch]::StartNew()
@@ -407,9 +410,12 @@ function Get-OSGeneration {
 		}	
 	}
 	else {
-		$script:operatingsystem = "unknown";		
+		return "unknown";		
 	}
 }
 
+function Get-OSVersion {
+	return [environment]::osversion.Version;		
+}
 
-Export-ModuleMember -function set-windowsfeature, Get-OSGeneration
+Export-ModuleMember -function set-windowsfeature, Get-OSGeneration, Get-OSVersion

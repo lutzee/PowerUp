@@ -1,28 +1,24 @@
 
 
-function getPlainTextServerSettings($serverName)
+function getFileBasedServerSettings($serverName)
 {
-	getPlainTextSettings $serverName servers.txt
+	getFileBasedSettings $serverName "servers*.*"
 }
 
-function getPlainTextDeploymentProfileSettings($deploymentProfile)
+function getFileBasedDeploymentProfileSettings($deploymentProfile, $overrideSettings)
 {
-	getPlainTextSettings $deploymentProfile settings.txt
+	getFileBasedSettings $deploymentProfile $deploymentSettingsFiles $overrideSettings
 }
 
-function getPlainTextSettings($parameter, $fileName)
+function getFileBasedSettings($parameter, $fileName, $overrideSettings = $null)
 {
 	$currentPath = Get-Location
 	$fullFilePath = "$currentPath\$fileName"
 	
 	import-module AffinityId\Id.PowershellExtensions.dll
-	
-	if (!(test-path $fullFilePath))
-	{
-		return @()
-	}
+		
 	Write-Host "Processing settings file at $fullFilePath with the following parameter: $parameter"
-	get-parsedsettings $fullFilePath $parameter
+	get-parsedsettings -filePattern $fileName -section $parameter -overrideSettings $overrideSettings
 }
 
 function run($task, $servers, $remoteWorkingSubFolder = $null)
@@ -57,6 +53,7 @@ tasksetup {
 	copyDeploymentProfileSpecificFiles
 	mergePackageInformation
 	mergeSettings
+	& $taskSetupExtensionScriptBlock
 }
 
 function touchPackageIdFile()
@@ -68,7 +65,7 @@ function touchPackageIdFile()
 function mergePackageInformation()
 {
 	import-module powerupsettings
-	$packageInformation = getPlainTextSettings "PackageInformation" "package.id"
+	$packageInformation = getFileBasedSettings "PackageInformation" "package.id"
 	
 	if ($packageInformation)
 	{
@@ -86,7 +83,7 @@ function mergeSettings()
 {
 	import-module powerupsettings
 
-	$deploymentProfileSettings = &$deploymentProfileSettingsScriptBlock ${deployment.profile}
+	$deploymentProfileSettings = getDeploymentProfileSettings ${deployment.profile} ${deployment.parameters}
 
 	if ($deploymentProfileSettings)
 	{
@@ -101,8 +98,8 @@ function processTemplates()
 
 	
 	#This is the second time we are reading the settings file. Should probably be using the settings from the merge process.
-	$deploymentProfileSettings = &$deploymentProfileSettingsScriptBlock ${deployment.profile}
-	$packageInformation = getPlainTextSettings "PackageInformation" "package.id"
+	$deploymentProfileSettings = getDeploymentProfileSettings ${deployment.profile} ${deployment.parameters}
+	$packageInformation = getFileBasedSettings "PackageInformation" "package.id"
 	
 	if (!$deploymentProfileSettings)
 	{
@@ -116,16 +113,31 @@ function processTemplates()
 			$deploymentProfileSettings.Add($item.Key, $item.Value)
 		}
 	}
-
+	
 	Write-Host "Package settings for this profile are:"
 	$deploymentProfileSettings | Format-Table -property *
 
 	Write-Host "Substituting and copying templated files"
-	merge-templates $deploymentProfileSettings ${deployment.profile}
+	merge-templates $deploymentProfileSettings ${deployment.profile} $deploymentTemplateDirectory $deploymentProfileTemplateDirectory $deploymentTemplateOutputDirectory
 	
 }
 
-$deploymentProfileSettingsScriptBlock = $function:getPlainTextDeploymentProfileSettings
-$serverSettingsScriptBlock = $function:getPlainTextServerSettings
-$processTemplatesScriptBlock = $function:processTemplates
+function getDeploymentProfileSettings($deploymentProfile, $overrideSettings)
+{
+	return &$deploymentProfileSettingsScriptBlock $deploymentProfile $overrideSettings
+}
 
+function taskSetupDefaultExtension()
+{
+	# We allow extending the per-task setup, set to an empty function by default
+}
+
+$deploymentProfileSettingsScriptBlock = $function:getFileBasedDeploymentProfileSettings
+$serverSettingsScriptBlock = $function:getFileBasedServerSettings
+$processTemplatesScriptBlock = $function:processTemplates
+$taskSetupExtensionScriptBlock = $function:taskSetupDefaultExtension
+#defaults for settings and template paths - override in the deploy script properties if necessary
+$deploymentSettingsFiles = "settings*.*"
+$deploymentTemplateDirectory = "_templates"
+$deploymentTemplateOutputDirectory = "_templatesoutput"
+$deploymentProfileTemplateDirectory = "_profiletemplates"

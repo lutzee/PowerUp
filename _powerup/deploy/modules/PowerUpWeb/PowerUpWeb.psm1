@@ -230,7 +230,7 @@ function StartWebItem($itemPath, $itemName)
 
 function WebItemExists($rootPath, $itemName)
 {
-	return ((dir $rootPath | ForEach-Object {$_.Name}) -eq $itemName)	
+	return (Test-Path $rootPath\$itemName)
 }
 
 function ChildWebItemsExist($rootPath, $itemName)
@@ -339,6 +339,29 @@ function New-WebSiteBindingNonHttp($websiteName, $protocol, $bindingInformation)
 {
 	write-host "Binding website $websiteName to binding information $bindingInformation over $protocol"
 	New-ItemProperty $sitesPath\$websiteName –name bindings –value @{protocol="$protocol";bindingInformation="$bindingInformation"} | out-null
+}
+
+function Get-WebSitePhysicalPath($websiteName)
+{
+	if (WebItemExists $sitesPath $websiteName)
+	{
+		$path = Get-ItemProperty "IIS:\Sites\${website.name}" -name physicalPath;
+		return [System.Environment]::ExpandEnvironmentVariables($path);
+	}
+	
+	return $null
+}
+
+
+function Set-WebSiteBindingNonHttp($websiteName, $protocol, $bindingInformation)
+{
+	$existingBinding = (get-ItemProperty -Path $sitesPath\$websiteName -Name bindings).Collection | ? {($_.Protocol -eq $protocol) -and ($_.BindingInformation -eq $bindingInformation)}
+	
+	if(!$existingBinding)
+	{
+		New-WebSiteBindingNonHttp $websiteName $protocol $bindingInformation
+	}
+
 }
 
 function Set-SslBinding($certName, $ip, $port)
@@ -579,4 +602,4 @@ function Close-WebChangeTransaction()
 	return End-WebCommitDelay
 }
 
-export-modulemember -function enable-featuredelegation, set-anonymousauthentication, set-windowsauthentication, enable-aspnet, protect-webconfig, enable-aspnetisapi, set-requiressl, set-webapppool32bitcompatibility, set-apppoolidentitytouser, set-apppoolidentityType, set-apppoolstartMode, set-apppoolloaduserprofile, set-apppoolidletimeout, new-webapplication, set-webapplication, remove-webapplication-safe, new-virtualdirectory, set-virtualdirectory, remove-virtualdirectory-safe, start-apppoolandsite, start-apppool, start-site, stop-apppool, stop-apppoolandsite, set-website, remove-website-safe, set-webapppool, remove-webapppool-safe, set-websitebinding, New-WebSiteBinding, New-WebSiteBindingNonHttp, set-SelfSignedSslCertificate, set-sslbinding, Set-WebsiteForSsl, set-property, set-webproperty, open-WebChangeTransaction, close-WebChangeTransaction, get-websitehaschilditems, get-apppoolhaschilditems, get-webapppool, add-websitetoapppool, Test-SslBindingExists, Test-WebsiteHasSslBinding
+export-modulemember -function enable-featuredelegation, set-anonymousauthentication, set-windowsauthentication, enable-aspnet, protect-webconfig, enable-aspnetisapi, set-requiressl, set-webapppool32bitcompatibility, set-apppoolidentitytouser, set-apppoolidentityType, set-apppoolstartMode, set-apppoolloaduserprofile, set-apppoolidletimeout, new-webapplication, set-webapplication, remove-webapplication-safe, new-virtualdirectory, set-virtualdirectory, remove-virtualdirectory-safe, start-apppoolandsite, start-apppool, start-site, stop-apppool, stop-apppoolandsite, set-website, remove-website-safe, set-webapppool, remove-webapppool-safe, set-websitebinding, New-WebSiteBinding, New-WebSiteBindingNonHttp, set-SelfSignedSslCertificate, set-sslbinding, Set-WebsiteForSsl, set-property, set-webproperty, open-WebChangeTransaction, close-WebChangeTransaction, get-websitehaschilditems, get-apppoolhaschilditems, get-webapppool, add-websitetoapppool, Test-SslBindingExists, Test-WebsiteHasSslBinding, Set-WebSiteBindingNonHttp, Get-WebSitePhysicalPath

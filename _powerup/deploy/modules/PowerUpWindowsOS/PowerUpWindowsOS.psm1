@@ -291,7 +291,7 @@ function Add-ClientFeature
 		{
 			$osgen = Get-OSGeneration
 			
-			if ($osgen -eq "8") {
+			if ($osgen -ge "8") {
 				$dism = "DISM /Online /Enable-Feature /All /FeatureName:$Name"
 			}
 			else {
@@ -407,6 +407,9 @@ function Get-OSGeneration {
 		}
 		elseif([environment]::osversion.Version.Minor -eq "2") {
 			return "8";
+		}	
+		elseif([environment]::osversion.Version.Minor -eq "3") {
+			return "8.1";
 		}	
 	}
 	else {

@@ -41,10 +41,34 @@
 			<arg value="/target:Rebuild"/>
 		</msbuild>
 	</target>
-
-	<target name="compile-solution-silverlight-nooutdir">
+	
+	<target name="compile-solution-nooutdir">
+		<property name="msbuild.target" value="${solution.dir}\${solution.name}.${solution.extension}"/>
 		<exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe">
-    		<arg line='"${solution.dir}\${solution.name}.${solution.extension}"' />
+    		<arg line='"${msbuild.target}"' />
+    		<arg line="/property:Configuration=${build.configuration}"/>
+			<arg value="/property:Platform=${build.platform}"/>
+    		<arg value="/target:Rebuild"/>
+    		<arg value="/verbosity:${build.verbosity}"/>
+    		<arg value="/nologo"/>
+    	</exec>
+	</target>
+	
+	<target name="compile-solution-silverlight-nooutdir">
+		<property name="msbuild.target" value="${solution.dir}\${solution.name}.${solution.extension}"/>
+		<exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe">
+    		<arg line='"${msbuild.target}"' />
+    		<arg line="/property:Configuration=${build.configuration}"/>			
+
+    		<arg value="/target:Rebuild"/>
+    		<arg value="/verbosity:${build.verbosity}"/>
+    		<arg value="/nologo"/>
+    	</exec>
+	</target>
+	
+	<target name="compile-csproj-nooutdir">
+		<exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe">
+    		<arg line='"${msbuild.target}"' />
     		<arg line="/property:Configuration=${build.configuration}"/>
     		<arg value="/target:Rebuild"/>
     		<arg value="/verbosity:${build.verbosity}"/>
@@ -53,9 +77,11 @@
 	</target>
 	
 	<target name="compile-solution-silverlight">
+		<property name="msbuild.target" value="${solution.dir}\${solution.name}.${solution.extension}"/>
 		<exec program="C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe">
-    		<arg line='"${solution.dir}\${solution.name}.${solution.extension}"' />
+    		<arg line='"${msbuild.target}"' />
     		<arg line="/property:Configuration=${build.configuration}"/>			
+			
     		<arg line="/property:OutDir=${build.out.dir}"/>			
     		<arg value="/target:Rebuild"/>
     		<arg value="/verbosity:${build.verbosity}"/>

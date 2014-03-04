@@ -1,6 +1,8 @@
 # Introduction
 
-PowerUp is a build and deployment framework, written on top of Powershell and Psake.  
+PowerUp is a build and deployment framework, written on top of Powershell and Psake.
+
+PowerUp was originally sponsored by AffinityID, but is now supported also by Wynyard Group, BBC and Universal Music. This repository is a fork of the AffinityID code base at https://github.com/AffinityID/PowerUp.
 
 PowerUp prefers to be simple, low obligation and assumes very little. 
 There is nothing to be installed, with the only dependency being Powershell. 

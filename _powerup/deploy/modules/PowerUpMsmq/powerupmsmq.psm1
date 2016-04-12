@@ -20,7 +20,7 @@ function set-msmqqueue($computerName, $queuename, $private, $user, $permission, 
 {
 	if (!(Has-MsmqQueueWithName $queuename))
 	{
-		Write-Host "Creating Queue $queuename"
+		Write-Output "Creating Queue $queuename"
 		Create-MsmqQueue $computerName $queuename $private $user $permission $transactional $authenticated $journalEnabled $journalSize
 	}
 }
@@ -44,7 +44,7 @@ function Create-MsmqQueue($computerName, $queuename, $private, $user, $permissio
 		$createQueuename = $computerName + "\" + $queuename.ToLower()
 	}
 	
-	write-host "Creating queue $createQueuename"
+	Write-Output "Creating queue $createQueuename"
 	$qb = [System.Messaging.MessageQueue]::Create($createQueuename, $transactional) 
 	
 	if($qb -eq $null)
@@ -66,12 +66,12 @@ function Create-MsmqQueue($computerName, $queuename, $private, $user, $permissio
 		   
 	if ($permission -ieq "all")
 	{
-		Write-Host "Granting all permissions to " $user
+		Write-Output "Granting all permissions to " $user
 		$qb.SetPermissions($user, [System.Messaging.MessageQueueAccessRights]::FullControl, [System.Messaging.AccessControlEntryType]::Allow) 
 	}
 	else
 	{
-		Write-Host "Restricted Control for user: "  $user
+		Write-Output "Restricted Control for user: "  $user
 		$qb.SetPermissions($user, [System.Messaging.MessageQueueAccessRights]::DeleteMessage, [System.Messaging.AccessControlEntryType]::Set) 
 		$qb.SetPermissions($user, [System.Messaging.MessageQueueAccessRights]::GenericWrite, [System.Messaging.AccessControlEntryType]::Allow) 
 		$qb.SetPermissions($user, [System.Messaging.MessageQueueAccessRights]::PeekMessage, [System.Messaging.AccessControlEntryType]::Allow) 

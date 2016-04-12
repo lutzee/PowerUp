@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using CliverSoft;
 
 namespace FontInstaller
 {
@@ -15,7 +13,6 @@ namespace FontInstaller
         static void Main()
         {
             //All of this craziness courtesy of http://www.codeproject.com/Articles/24066/Intercept-and-Manage-Windows-Originated-by-Third-p
-
             Application.EnableVisualStyles();
             string[] args = Environment.GetCommandLineArgs();
 
@@ -50,12 +47,12 @@ namespace FontInstaller
         static void ClickYesButton(IntPtr hwnd)
         {
             //looking for button "Yes" within the intercepted window
-            IntPtr h = (IntPtr)Win32.Functions.FindWindowEx(hwnd, IntPtr.Zero, "Button", "&Yes");
+            IntPtr h = (IntPtr)Functions.FindWindowEx(hwnd, IntPtr.Zero, "Button", "&Yes");
             if (h != IntPtr.Zero)
             {
                 //clicking the found button
-                Win32.Functions.PostMessage((IntPtr)h, (uint)Win32.Messages.WM_LBUTTONDOWN, 0, 0);
-                Win32.Functions.PostMessage((IntPtr)h, (uint)Win32.Messages.WM_LBUTTONUP, 0, 0);
+                Functions.PostMessage((IntPtr)h, (uint)Messages.WM_LBUTTONDOWN, 0, 0);
+                Functions.PostMessage((IntPtr)h, (uint)Messages.WM_LBUTTONUP, 0, 0);
             }
         }
     }

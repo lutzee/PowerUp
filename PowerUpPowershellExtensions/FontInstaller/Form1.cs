@@ -18,7 +18,7 @@ namespace FontInstaller
 
         public void InstallFont(string fontFilePath)
         {
-            FontInstall.FontInstaller.CopyFontToWindowsFontFolder(fontFilePath);
+            FontInstaller.CopyFontToWindowsFontFolder(fontFilePath);
         }
     }
 }

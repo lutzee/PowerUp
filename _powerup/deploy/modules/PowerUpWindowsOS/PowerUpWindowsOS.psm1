@@ -75,7 +75,7 @@ function Get-ClientFeature
 	{
 		try
 		{
-			$dism = DISM /Online /Get-Features /Format:List | Where-Object {$_}		
+			$dism = DISM /Online /English /Get-Features /Format:List | Where-Object {$_}		
 
 			if($LASTEXITCODE -ne 0)
 			{
@@ -313,7 +313,7 @@ function Add-ClientFeature
 					}
 					else
 					{
-						Write-Host $output
+						Write-Output $output
 						Write-Error "Enabling feature $Name failed"
 						$false
 					}
@@ -352,7 +352,7 @@ function getwindowsfeaturestate ([string] $featurename) {
 
 	}
 	else {
-		write-host "$featurename is not available on this system" 
+		Write-Output "$featurename is not available on this system" 
 		$installedvalue = "notapplicable";
 	}	
 
@@ -362,10 +362,10 @@ function getwindowsfeaturestate ([string] $featurename) {
 function set-windowsfeature ([string] $featurename){
 	$state = getwindowsfeaturestate -featurename $featurename;
 	
-	write-host "Ensuring that the feature $featurename is enabled on this system"
+	Write-Output "Ensuring that the feature $featurename is enabled on this system"
 	
 	if ($state -like $False) {
-		write-host "Enabling feature $featurename"
+		Write-Output "Enabling feature $featurename"
 		Add-ClientFeature $featurename -Quiet -Force
 						
 		$timeout = new-timespan -Minutes 3
@@ -375,11 +375,11 @@ function set-windowsfeature ([string] $featurename){
 			$newstate = getwindowsfeaturestate -featurename $featurename;
 			
 			if ($newstate -like $True){
-				write-host "Feature $featurename is now enabled"
+				Write-Output "Feature $featurename is now enabled"
 				return
 			}
 			else {
-				write-host ".";
+				Write-Output ".";
 			}	
 	 
 			start-sleep -seconds 5
@@ -391,7 +391,7 @@ function set-windowsfeature ([string] $featurename){
 		return 
 	}
 	elseif ($state -like $True) {
-		write-host "$featurename is already enabled"
+		Write-Output "$featurename is already enabled"
 		return
 	}
 	else {
@@ -421,4 +421,4 @@ function Get-OSVersion {
 	return [environment]::osversion.Version;		
 }
 
-Export-ModuleMember -function set-windowsfeature, Get-OSGeneration, Get-OSVersion
+Export-ModuleMember -function set-windowsfeature, Get-OSGeneration, Get-OSVersion, getwindowsfeaturestate

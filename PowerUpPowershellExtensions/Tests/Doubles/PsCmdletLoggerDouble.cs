@@ -1,6 +1,6 @@
 ﻿using Id.PowershellExtensions;
 
-namespace Tests
+namespace Tests.Doubles
 {
     public class PsCmdletLoggerDouble : IPsCmdletLogger
     {

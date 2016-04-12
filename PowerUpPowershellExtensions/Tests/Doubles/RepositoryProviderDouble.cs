@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml;
 using Umbraco.Courier.Core;
 using Umbraco.Courier.Core.Interfaces;
 
-namespace Tests
+namespace Tests.Doubles
 {
     public class RepositoryProviderDouble : RepositoryProvider, IExtractionTarget
     {

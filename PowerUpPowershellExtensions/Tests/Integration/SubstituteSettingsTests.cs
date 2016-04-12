@@ -1,18 +1,15 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using href.Utils;
 using Id.PowershellExtensions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Tests.Integration
 {
     [TestFixture]
     public class SubstituteSettingsTests
     {
-
         private string file1 = @"Integration\_environments\Test\sample.txt";
         private string file2 = @"Integration\_environments\Test\subfolder\sample2.txt";
         private string file3 = @"Integration\_environments\Test\sample3.txt";

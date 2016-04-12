@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.InteropServices;
 
-namespace FontInstall
+namespace FontInstaller
 {
     public class FontInstaller
     {       
@@ -14,7 +13,6 @@ namespace FontInstall
 
             var windowsFontFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Fonts);
             var shell = new Shell32.Shell();
-            var destinationPath = Path.Combine(windowsFontFolderPath, Path.GetFileName(fontFilePath));            
             var folder = shell.NameSpace(windowsFontFolderPath);
             folder.CopyHere(fontFilePath, 32);
 

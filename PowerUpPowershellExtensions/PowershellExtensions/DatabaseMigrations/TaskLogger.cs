@@ -1,4 +1,5 @@
-﻿using Migrator.Framework;
+﻿using Id.DatabaseMigration.Logging;
+using Migrator.Framework;
 using System.Management.Automation;
 
 namespace Id.PowershellExtensions.DatabaseMigrations

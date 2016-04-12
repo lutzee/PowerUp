@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Collections;
 using System.Management.Automation;
-using System.IO;
+using Id.DatabaseMigration;
 using Id.PowershellExtensions.DatabaseMigrations;
 using Migrator.Compile;
 using System.Reflection;
-using Migrator.Framework.Loggers;
 
 namespace Id.PowershellExtensions
 {
@@ -35,6 +32,9 @@ namespace Id.PowershellExtensions
         [Parameter(Mandatory = false, Position = 7, ValueFromPipelineByPropertyName = true)]
         public bool Trace { get; set; }
 
+        [Parameter(Mandatory = false, Position = 8, ValueFromPipelineByPropertyName = true)]
+        public Hashtable Settings { get; set; }
+
         protected override void BeginProcessing()
         {
         }
@@ -49,17 +49,25 @@ namespace Id.PowershellExtensions
 
             try
             {
-                DatabaseMigrator db = new DatabaseMigrator(new TaskLogger(this), DryRun, Provider, VersionTo, Trace);
+                var db = new DatabaseMigrator(new TaskLogger(this), DryRun, Provider, VersionTo, Trace);
 
                 if (!string.IsNullOrEmpty(this.Directory))
                 {
-                    ScriptEngine engine = new ScriptEngine(this.Language, null);
+                    var engine = new ScriptEngine(this.Language, null);
                     db.Execute(engine.Compile(this.Directory));
                 }
-                if (null != this.MigrationsAssemblyPath)
+
+                if (this.MigrationsAssemblyPath != null)
                 {
                     Assembly asm = Assembly.LoadFrom(this.MigrationsAssemblyPath);
-                    db.Execute(asm);
+                    if (Settings == null)
+                    {
+                        db.Execute(asm);
+                    }
+                    else
+                    {
+                        db.Execute(Settings.ToDictionary(), asm);
+                    }
                 }
             }
             catch (Exception e)

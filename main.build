@@ -1,86 +1,124 @@
 <project default="build-package">
-	<property name="package.name" value="PowerUp" />
-	<property name="run.tests" value="true" unless="${property::exists('run.tests')}" />	
-	<property name="exclude.test.categories" value="None" unless="${property::exists('exclude.test.categories')}" />	
-	<include buildfile="_powerup\build\nant\common.build" />	
-  	
-	<target name="build-package" depends="clean compile-solutions run-tests package-project copy-build-files-custom create-package-info zip-package" />	
-	
-	<target name="set-assembly-version" description="generates the version number">
-		<echo message="Setting the build version to ${version.major}.0.0.${version.minor}..." />
-		<attrib file="CommonAssemblyInfo.cs" readonly="false" />
-		<asminfo output="CommonAssemblyInfo.cs" language="CSharp">
-			<imports>
-				<import namespace="System" />
-				<import namespace="System.Reflection" />
-			</imports>
-			<attributes>
-				<attribute type="AssemblyVersionAttribute" value="${version.major}.0.0.${version.minor}" />
-				<attribute type="AssemblyFileVersionAttribute" value="${version.major}.0.0.${version.minor}" />
-			</attributes>
-		</asminfo>
-		<attrib file="CommonAssemblyInfo.cs" readonly="true" />
-	</target>
-	
-	<target name="compile-solutions" depends="set-assembly-version">	
-		<property name="solution.dir" value="${root.dir}\PowerUpPowershellExtensions\"/>
-		<property name="solution.name" value="PowershellExtensions"/>
-		<call target="compile-solution"/>							
-	</target>	
+    <property name="package.name" value="PowerUp" />
+    <property name="build.environment" value="Local" unless="${property::exists('build.environment')}" />
+    <property name="run.tests" value="true" unless="${property::exists('run.tests')}" />
+    <property name="exclude.test.categories" value="None" unless="${property::exists('exclude.test.categories')}" />
+    <include buildfile="_powerup\build\nant\common.build" />
+    <property name="nuspec.name" value="" />
 
-	<target name="clean-test-output">
-		<delete dir="${root.dir}\_testoutput" />
-		<mkdir dir="${root.dir}\_testoutput" />
-	</target>     
+    <target name="build-package" depends="clean compile-solutions run-tests package-project copy-build-files-custom create-nupkg-files" />
 
-	<target name="run-tests" description="builds and runs all unit tests" depends="clean-test-output" if="${run.tests}">		
-	  <echo message="Root dir is ${root.dir}" />
-	  <exec workingdir="${root.dir}" program="${root.dir}\_powerup\build\nunit\nunit-2.6.2\bin\nunit-console.exe">
-		<arg value="${root.dir}\PowerUpPowershellExtensions\Tests\bin\${build.configuration}\Tests.dll" />        
-		<arg value="/xml=${root.dir}\_testoutput\Test-Results.xml" />
-		<arg value="/noshadow" />
-		<arg value="/framework:net-4.0" />
-		<arg value="/exclude:${exclude.test.categories}" />
-	  </exec>		
-	</target>	
-	
-	<target name="package-project">		
-		<copy todir="${package.dir}" overwrite="true" flatten="false" includeemptydirs="true">
-			<fileset basedir="${root.dir}">
-				<include name="_powerup\**\*.*"/>
-			</fileset>
-		</copy>	
-	
-		<copy todir="${package.dir}\_powerup\deploy\modules\AffinityId" overwrite="true" flatten="false" includeemptydirs="true">
-			<fileset basedir="${project::get-base-directory()}\PowerUpPowershellExtensions\PowershellExtensions\bin\${build.configuration}">	
-				<include name="**\*.*"/>
-				<exclude name="**\*.pdb"/>
-			</fileset>
-		</copy>
-		
-		<copy todir="${package.dir}" overwrite="true" flatten="false" includeemptydirs="true">
-			<fileset basedir="${project::get-base-directory()}\NugetPackage">	
-				<include name="**\*.*"/>				
-			</fileset>
-		</copy>		
-	</target>
-	
-	<target name="copy-build-files-custom">
-		<copy todir="${package.dir}" overwrite="true" flatten="false" includeemptydirs="true">
-			<fileset basedir="${root.dir}">				
-				<include name="_profilefiles\**"/>
-				<include name="_templates\**"/>
-				<include name="deploy.ps1"/>
-				<include name="settings*.*"/>
-				<include name="servers*.*"/>
-			</fileset>
-		</copy>
+    <target name="set-assembly-version" description="generates the version number">
+        <echo message="Setting the build version to ${version.major}.0.0.${version.minor}..." />
+        <attrib file="CommonAssemblyInfo.cs" readonly="false" />
+        <asminfo output="CommonAssemblyInfo.cs" language="CSharp">
+            <imports>
+                <import namespace="System" />
+                <import namespace="System.Reflection" />
+            </imports>
+            <attributes>
+                <attribute type="AssemblyVersionAttribute" value="${version.major}.1.0.${version.minor}" />
+                <attribute type="AssemblyFileVersionAttribute" value="${version.major}.1.0.${version.minor}" />
+            </attributes>
+        </asminfo>
+        <attrib file="CommonAssemblyInfo.cs" readonly="true" />
+    </target>
 
-		<copy todir="${package.dir}" overwrite="true">
-			<fileset basedir="${package.dir}\_powerup\deploy\core">
-				<include name="deploy.bat"/>
-			</fileset>
-		</copy>
-	</target>	
+    <target name="compile-solutions" depends="set-assembly-version">
+        <property name="solution.dir" value="${root.dir}\PowerUpPowershellExtensions\"/>
+        <property name="solution.name" value="PowershellExtensions"/>
+        <call target="compile-solution"/>
+    </target>
+
+    <target name="clean-test-output">
+        <delete dir="${root.dir}\_testoutput" />
+        <mkdir dir="${root.dir}\_testoutput" />
+    </target>
+
+    <target name="run-tests" description="builds and runs all unit tests" depends="clean-test-output" if="${run.tests}">
+      <echo message="Root dir is ${root.dir}" />
+      <exec workingdir="${root.dir}" program="${root.dir}\packages\NUnit.Runners.2.6.4\tools\nunit-console.exe">
+        <arg value="${root.dir}\PowerUpPowershellExtensions\Tests\bin\${build.configuration}\Tests.dll" />
+        <arg value="/xml=${root.dir}\_testoutput\Test-Results.xml" />
+        <arg value="/noshadow" />
+        <arg value="/framework:net-4.0" />
+        <arg value="/exclude:${exclude.test.categories}" />
+      </exec>
+    </target>
+
+    <target name="clean-nupkg-output">
+        <delete dir="${root.dir}\_nupkg" />
+        <mkdir dir="${root.dir}\_nupkg" />
+    </target>
+
+    <target name="create-nupkg-files" depends="clean-nupkg-output">
+      <if test="${string::to-lower(build.environment) != 'jenkins'}">
+        <exec workingdir="${root.dir}" program="${root.dir}\.nuget\nuget.exe">
+            <arg value="update" />
+            <arg value="-self" />
+        </exec>
+      </if>
+
+      <property name="nuspec.name" value="PowerUp.nuspec" />
+      <call target="create-nupkg-file" />
+      
+      <property name="nuspec.name" value="PowerUp-Build.nuspec" />
+      <call target="create-nupkg-file" />
+      
+      <property name="nuspec.name" value="PowerUp-Deploy.nuspec" />
+      <call target="create-nupkg-file" />
+
+    </target>
+
+    <target name="create-nupkg-file">
+      <exec workingdir="${package.dir}" program="${root.dir}\.nuget\nuget.exe">
+        <arg value="pack" />
+        <arg value="${package.dir}\${nuspec.name}" />
+        <arg value="-version" />
+        <arg value="${version.major}.1.${version.minor}" />
+        <arg value="-outputdirectory" />
+        <arg value="${root.dir}\_nupkg" />
+        <arg value="-NoPackageAnalysis" />
+        <arg value="-NonInteractive" />
+      </exec>
+    </target>
+
+    <target name="package-project">
+        <copy todir="${package.dir}" overwrite="true" flatten="false" includeemptydirs="true">
+            <fileset basedir="${root.dir}">
+                <include name="_powerup\**\*.*"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${package.dir}\_powerup\deploy\modules\AffinityId" overwrite="true" flatten="false" includeemptydirs="true">
+            <fileset basedir="${project::get-base-directory()}\PowerUpPowershellExtensions\PowershellExtensions\bin\${build.configuration}">
+                <include name="**\*.*"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${package.dir}" overwrite="true" flatten="false" includeemptydirs="true">
+            <fileset basedir="${project::get-base-directory()}\NugetPackage">
+                <include name="**\*.*"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="copy-build-files-custom">
+        <copy todir="${package.dir}" overwrite="true" flatten="false" includeemptydirs="true">
+            <fileset basedir="${root.dir}">
+                <include name="_profilefiles\**"/>
+                <include name="_templates\**"/>
+                <include name="deploy.ps1"/>
+                <include name="settings*.*"/>
+                <include name="servers*.*"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${package.dir}" overwrite="true">
+            <fileset basedir="${package.dir}\_powerup\deploy\core">
+                <include name="deploy.bat"/>
+            </fileset>
+        </copy>
+    </target>
 </project>
 

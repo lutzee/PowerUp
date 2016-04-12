@@ -1,0 +1,13 @@
+﻿Default
+	A	1
+	B	2
+
+Section1	
+	B	20
+	A	10
+
+Section2 : Section1
+	B	2
+
+Section3 : Section2
+	A	1

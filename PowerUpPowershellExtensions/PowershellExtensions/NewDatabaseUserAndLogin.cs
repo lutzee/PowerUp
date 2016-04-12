@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Management.Automation;
 using Id.PowershellExtensions.DatabaseMigrations;
 using Migrator.Compile;
@@ -27,6 +29,9 @@ namespace Id.PowershellExtensions
         [Parameter(Mandatory = false, Position = 6, ValueFromPipelineByPropertyName = true)]
         public string Provider { get; set; }
 
+        [Parameter(Mandatory = false, Position = 7, ValueFromPipelineByPropertyName = true)]
+        public Hashtable Settings { get; set; }
+
         protected override void BeginProcessing()
         {
         }
@@ -41,17 +46,23 @@ namespace Id.PowershellExtensions
 
             try
             {
-                var newUserAndLogin = new NewUserAndLogin(new TaskLogger(this), Provider, UserName, Password);
+                var newUserAndLogin = new NewUserAndLogin(new TaskLogger(this), UserName, Password);
 
                 if (!string.IsNullOrEmpty(this.Directory))
                 {
                     ScriptEngine engine = new ScriptEngine(this.Language, null);
                     newUserAndLogin.Execute(engine.Compile(this.Directory));
                 }
-                if (null != this.MigrationsAssemblyPath)
+                
+                if (MigrationsAssemblyPath != null)
                 {
                     Assembly asm = Assembly.LoadFrom(this.MigrationsAssemblyPath);
                     newUserAndLogin.Execute(asm);
+                    
+                }
+                else if (Settings != null)
+                {
+                    newUserAndLogin.Execute(Settings.ToDictionary());
                 }
             }
             catch (Exception e)

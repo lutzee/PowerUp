@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using Id.PowershellExtensions.DatabaseMigrations;
+using Id.DatabaseMigration;
+using Id.DatabaseMigration.Logging;
 using NUnit.Framework;
 using System.IO;
 using System.Reflection;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Tests
 {
@@ -17,16 +18,21 @@ namespace Tests
         private StringBuilder Log;
         private StringLogger Logger;
         private DatabaseMigrator DatabaseMigrator;
+        private Dictionary<string, string> Settings;
 
         [SetUp]
         public void SetUp()
         {
             string folder = Path.GetDirectoryName(Assembly.GetAssembly(typeof(DatabaseMigratorTests)).CodeBase);
-            MigrationsAssembly = Assembly.LoadFrom(new Uri(Path.Combine(folder,
-                                         "ExampleMigrationAssemblies\\Id.VisaDebitMicrositeAU.DatabaseMigrations.dll")).LocalPath);
+            MigrationsAssembly = Assembly.LoadFrom(new Uri(Path.Combine(folder, "SampleDbMigrations.dll")).LocalPath);
+            Settings = new Dictionary<string, string>
+            {
+                { "Server", "." },
+                { "Database", "TestDb" }
+            };
             Log = new StringBuilder();
             Logger = new StringLogger(Log);
-            DatabaseMigrator = new DatabaseMigrator(Logger, true, "SqlServer", -1, true) {TestMode = true};
+            DatabaseMigrator = new DatabaseMigrator(Logger, true, "SqlServer", -1, true);
         }
 
         [TearDown]
@@ -41,7 +47,7 @@ namespace Tests
         [Test]
         public void DatabaseMigrator_Execute_DryRunLogsActions()
         {
-            DatabaseMigrator.Execute(MigrationsAssembly);
+            DatabaseMigrator.Execute(Settings, MigrationsAssembly);
 
             Assert.That(Log.ToString(), Is.Not.Empty);
             Trace.WriteLine(Log.ToString());
@@ -52,7 +58,7 @@ namespace Tests
         public void DatabaseMigrator_Execute_ExecutesActions()
         {
             DatabaseMigrator.DryRun = false;
-            DatabaseMigrator.Execute(MigrationsAssembly);
+            DatabaseMigrator.Execute(Settings, MigrationsAssembly);
 
             Assert.That(Log.ToString(), Is.Not.Empty);
             Trace.WriteLine(Log.ToString());

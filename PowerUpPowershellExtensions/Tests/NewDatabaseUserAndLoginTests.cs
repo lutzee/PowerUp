@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Id.DatabaseMigration;
+using Id.DatabaseMigration.Logging;
 using Id.PowershellExtensions.DatabaseMigrations;
 using NUnit.Framework;
 using System.IO;
 using System.Reflection;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Tests
 {
@@ -18,18 +20,22 @@ namespace Tests
         private StringLogger Logger;
         private DatabaseMigrator DatabaseMigrator;
         private NewUserAndLogin NewUserAndLogin;
+        private Dictionary<string, string> Settings;
 
         [SetUp]
         public void SetUp()
         {
             string folder = Path.GetDirectoryName(Assembly.GetAssembly(typeof(DatabaseMigratorTests)).CodeBase);
-            MigrationsAssembly = Assembly.LoadFrom(new Uri(Path.Combine(folder,
-                                         "ExampleMigrationAssemblies\\Id.VisaDebitMicrositeAU.DatabaseMigrations.dll")).LocalPath);
+            MigrationsAssembly = Assembly.LoadFrom(new Uri(Path.Combine(folder, "SampleDbMigrations.dll")).LocalPath);
             Log = new StringBuilder();
             Logger = new StringLogger(Log);
-            DatabaseMigrator = new DatabaseMigrator(Logger, false, "SqlServer", -1, true/*trace*/);            
-
-            DatabaseMigrator.Execute(MigrationsAssembly);
+            Settings = new Dictionary<string, string>()
+            {
+                { "Server", "." },
+                { "Database", "TestDb" }
+            };
+            DatabaseMigrator = new DatabaseMigrator(Logger, false, "SqlServer", -1, true/*trace*/);
+            DatabaseMigrator.Execute(Settings, MigrationsAssembly);
         }
 
         [TearDown]
@@ -45,8 +51,8 @@ namespace Tests
         [Test]
         public void NewDatabaseUserAndLogin_Execute_CreatesUserAndLogin()
         {
-            NewUserAndLogin = new NewUserAndLogin(Logger, "SqlServer", @"Id-TestUser", "Password");
-            NewUserAndLogin.Execute(MigrationsAssembly);
+            NewUserAndLogin = new NewUserAndLogin(Logger, @"Id-TestUser", "Password");
+            NewUserAndLogin.Execute(Settings);
 
             Assert.That(Log.ToString(), Is.Not.Empty);
             Trace.WriteLine(Log.ToString());

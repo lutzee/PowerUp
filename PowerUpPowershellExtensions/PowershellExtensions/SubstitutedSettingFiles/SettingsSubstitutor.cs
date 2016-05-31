@@ -4,17 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using href.Utils;
 
 namespace Id.PowershellExtensions.SubstitutedSettingFiles
 {
     public class SettingsSubstitutor : ISettingsSubstitutor
     {
-        private class EncodedFile
-        {
-            public string Contents { get; set; }
-            public Encoding Encoding { get; set; }
-        }
+        private static readonly Regex SubfileRegex = new Regex(@"\+{(?<KEY>[^>]*?)}", RegexOptions.IgnoreCase);
+        private static readonly Regex KeyRegex = new Regex(@"(?<!`)\${([^}]*)}", RegexOptions.IgnoreCase);
 
         public void CreateSubstitutedDirectory(string templatesDirectory, string targetDirectory, string environment, IDictionary<string, string[]> settings)
         {
@@ -23,7 +19,6 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             CopyDirectoryRecursively(templatesDirectory, fullEnvironmentFolder);
             SubstituteDirectory(fullEnvironmentFolder, settings);
         }
-        
 
         private static void SubstituteDirectory(string environmentFolder, IDictionary<string, string[]> settings)
         {
@@ -32,6 +27,31 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             if (settings.Count == 0)
                 return;
 
+            ProcessDirectoryHierarchy(SubstituteFile, settings, environmentFolder, unreplacedSettings);
+            ProcessDirectoryHierarchy(SubstituteFilesInFiles, settings, environmentFolder, unreplacedSettings);
+
+            if (unreplacedSettings.Count > 0)
+            {
+                var builder = new StringBuilder();
+                builder.AppendLine("The following settings could not be resolved:");
+                foreach (var file in unreplacedSettings)
+                {
+                    builder.AppendLine(file.Key + ":");
+                    builder.Append(file.Value.Aggregate("", (current, setting) => current + (setting + Environment.NewLine)));
+                    builder.AppendLine();
+                }
+
+                throw new Exception(builder.ToString());
+            }
+        }
+
+        private static void ProcessDirectoryHierarchy(
+            Func<string, IEnumerable<KeyValuePair<string, string[]>>, IList<string>> fileAction,
+            IDictionary<string, string[]> settings,
+            string environmentFolder,
+            Dictionary<string, IList<string>> unreplacedSettings
+        )
+        {
             var dirStack = new Stack<string>();
             dirStack.Push(environmentFolder);
 
@@ -41,7 +61,7 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
 
                 foreach (var file in GetVisibleFiles(dir))
                 {
-                    var unreplaced = SubstituteFile(file.FullName, settings);
+                    var unreplaced = fileAction(file.FullName, settings);
 
                     if (unreplaced.Count > 0)
                         unreplacedSettings.Add(file.FullName, unreplaced);
@@ -52,22 +72,8 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
                     dirStack.Push(dn.FullName);
                 }
             }
-
-            if (unreplacedSettings.Count >0)
-            {
-                StringBuilder builder = new StringBuilder();
-                builder.AppendLine("The following settings could not be resolved:");
-                foreach(var file in unreplacedSettings)
-                {
-                    builder.AppendLine(file.Key + ":" );
-                    builder.Append(file.Value.Aggregate("", (current, setting) => current + (setting + Environment.NewLine)));
-                    builder.AppendLine();
-                }
-
-                throw new Exception(builder.ToString());
-            }
         }
-        
+
         private static IEnumerable<FileInfo> GetVisibleFiles(DirectoryInfo directoryInfo)
         {
             return directoryInfo.GetFiles().Where(x => !IsResourceHidden(x));
@@ -95,11 +101,10 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
 
         private static IList<string> SubstituteFile(string file, IEnumerable<KeyValuePair<string, string[]>> settings)
         {
-            var encodedFile = GetFileWithEncoding(file);
+            var encodedFile = Helpers.GetFileWithEncoding(file);
             var content = encodedFile.Contents;
 
             content = SubstituteString(settings, content);
-
 
             var unsubstitutedSettings = GetUnsubstitutedSettings(content);
 
@@ -109,6 +114,18 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             return unsubstitutedSettings;
         }
 
+        private static IList<string> SubstituteFilesInFiles(string file, IEnumerable<KeyValuePair<string, string[]>> settings)
+        {
+            var encodedFile = Helpers.GetFileWithEncoding(file);
+            var content = SubstituteFiles(encodedFile);
+
+            var unsubstitutedFiles = GetUnsubstitutedSubFiles(content);
+
+            File.WriteAllText(file, content, encodedFile.Encoding);
+
+            return unsubstitutedFiles;
+        }
+
         private static string ResolveEscapedSubstitutions(string content)
         {
             return content.Replace("`${", "${");
@@ -116,17 +133,23 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
 
         private static IList<string> GetUnsubstitutedSettings(string content)
         {
-            var matches = new Regex(@"(?<!`)\${([^}]*)}").Matches(content);
+            var matches = KeyRegex.Matches(content);
+            return (matches.Cast<object>().Select(match => match.ToString())).ToList();
+        }
+
+        private static IList<string> GetUnsubstitutedSubFiles(string content)
+        {
+            var matches = SubfileRegex.Matches(content);
             return (matches.Cast<object>().Select(match => match.ToString())).ToList();
         }
 
         private static string SubstituteString(string content, string find, string replace, char escapeCharacter)
         {
-            var nextPosition = content.IndexOf(find, 0, System.StringComparison.Ordinal);
+            var nextPosition = content.IndexOf(find, 0, StringComparison.Ordinal);
 
             while (nextPosition != -1)
             {
-                bool toReplace = true;
+                var toReplace = true;
                 if (nextPosition > 0)
                 {
                     if (content[nextPosition - 1] == escapeCharacter)
@@ -139,7 +162,7 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
                     content = content.Insert(nextPosition, replace);
                 }
 
-                nextPosition = content.IndexOf(find, nextPosition + 1, System.StringComparison.Ordinal);
+                nextPosition = content.IndexOf(find, nextPosition + 1, StringComparison.Ordinal);
             }
 
             return content;
@@ -151,28 +174,46 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             {
                 if (keyValuePair.Value.Length == 1)
                 {
-                    content = SubstituteString(content, "${" + keyValuePair.Key + "}", keyValuePair.Value[0], '`');                    
+                    content = SubstituteString(content, "${" + keyValuePair.Key + "}", keyValuePair.Value[0], '`');
                 }
                 else
                 {
-                    for (var i = 0; i < keyValuePair.Value.Length; i++ )
+                    for (var i = 0; i < keyValuePair.Value.Length; i++)
                     {
-                        content = SubstituteString(content,"${" + keyValuePair.Key + "}[" + i + "]", keyValuePair.Value[i], '`');
+                        content = SubstituteString(content, "${" + keyValuePair.Key + "}[" + i + "]", keyValuePair.Value[i], '`');
                     }
                 }
             }
             return content;
         }
 
-        private static EncodedFile GetFileWithEncoding(string file)
+        private static string SubstituteFiles(EncodedFile file)
         {
-            using (Stream fs = File.Open(file, FileMode.Open))
+            var matches = SubfileRegex.Matches(file.Contents).Cast<Match>();
+
+            if (!matches.Any())
+                return file.Contents;
+
+            var content = file.Contents;
+
+            foreach (var match in matches)
             {
-                var rawData = new byte[fs.Length];
-                fs.Read(rawData, 0, (int)fs.Length);
-                var encoding = EncodingTools.DetectInputCodepage(rawData);
-                return new EncodedFile { Contents = encoding.GetString(rawData), Encoding = encoding };
+                var filename = match.Groups["KEY"].Value;
+                var fullSubFilePath = Path.Combine(file.Directory.FullName, filename);
+
+                if (!File.Exists(fullSubFilePath))
+                {
+                    throw new Exception(string.Format("Sub-file \"{0}\" not found when substituting \"{1}\"", fullSubFilePath, file.File.FullName));
+                }
+
+                var subFile = Helpers.GetFileWithEncodingNoBom(fullSubFilePath);
+
+                //TODO: Check for differing encodings
+
+                content = SubstituteString(content, "+{" + filename + "}", subFile.Contents, '`');
             }
+
+            return content;
         }
 
         private static void CopyDirectoryRecursively(string source, string destination)
@@ -191,8 +232,5 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
                 CopyDirectoryRecursively(sourceSubDirectory.FullName, destinationSubDirectory.FullName);
             }
         }
-
-
-       
     }
 }

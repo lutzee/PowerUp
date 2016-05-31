@@ -1,9 +1,6 @@
-﻿using System;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Reflection;
-using System.IO;
 using Migrator.Framework;
-using Migrator.Framework.Loggers;
 using Id.DatabaseMigration.SqlServer;
 using Id.DatabaseMigration;
 
@@ -12,23 +9,43 @@ namespace Id.PowershellExtensions.DatabaseMigrations
     public class NewWindowsLogin
     {
         public ILogger Logger { get; set; }
-        public string Provider { get; set; }
         public string UserName { get; set; }
 
         private ISqlServerSettings Settings;
         private SqlServerAdministrator SqlServerAdministrator;
 
-        public NewWindowsLogin(ILogger logger, string provider, string userName)
+        public NewWindowsLogin(ILogger logger, string userName)
         {
             Logger = logger;
-            Provider = provider;
             UserName = userName;
         }
 
         public void Execute(Assembly asm)
         {
-            Settings = new XmlSettingsParser(asm);
-            SqlServerAdministrator = new SqlServerAdministrator(AmbientSettings.Settings  ??  Settings);
+            Settings = new XmlSettings(asm);
+
+            ExecuteCore();
+        }
+
+        public void Execute(IDictionary<string, string> settings)
+        {
+            Settings = settings != null
+                ? new DictionarySettings(settings)
+                : AmbientSettings.Settings;
+
+            ExecuteCore();
+        }
+
+        public void Execute(ISqlServerSettings serverSettings)
+        {
+            Settings = serverSettings ?? AmbientSettings.Settings;
+
+            ExecuteCore();
+        }
+
+        public void ExecuteCore()
+        {
+            SqlServerAdministrator = new SqlServerAdministrator(AmbientSettings.Settings ?? Settings);
 
             if (!string.IsNullOrEmpty(UserName))
             {

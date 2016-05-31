@@ -1,7 +1,6 @@
-﻿using System;
-using Id.PowershellExtensions.UmbracoResources;
+﻿using Id.PowershellExtensions.UmbracoResources;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
+using Tests.Doubles;
 using Umbraco.Courier.RepositoryProviders;
 
 namespace Tests

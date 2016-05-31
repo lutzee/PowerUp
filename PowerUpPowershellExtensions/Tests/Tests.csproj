@@ -47,33 +47,41 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\EncodingTools.dll</HintPath>
     </Reference>
-    <Reference Include="Id.DatabaseMigration">
-      <HintPath>..\Lib\Id.DatabaseMigration.dll</HintPath>
-    </Reference>
     <Reference Include="interfaces">
       <HintPath>..\Lib\interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="Migrator">
-      <HintPath>..\Lib\Migrator.dll</HintPath>
+    <Reference Include="Ionic.Zip, Version=1.9.6.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.9.6\lib\net20\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Migrator.Framework">
-      <HintPath>..\Lib\Migrator.Framework.dll</HintPath>
+    <Reference Include="Migrator, Version=0.9.0.28138, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MigratorDotNet.0.9.0.28138\lib\Net40\Migrator.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Migrator.Providers">
-      <HintPath>..\Lib\Migrator.Providers.dll</HintPath>
+    <Reference Include="Migrator.Framework, Version=0.9.0.26940, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MigratorDotNet.0.9.0.28138\lib\Net40\Migrator.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Migrator.Providers, Version=0.9.0.26941, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MigratorDotNet.0.9.0.28138\lib\Net40\Migrator.Providers.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Moq">
       <HintPath>lib\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>lib\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Management.Automation" />
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Management.Automation.6.1.7601.17515\lib\net40\System.Management.Automation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="SystemWrapper">
       <HintPath>..\Lib\SystemWrapper.dll</HintPath>
@@ -109,20 +117,31 @@
     <Compile Include="Helpers\ResourceHelpers.cs" />
     <Compile Include="Integration\PublishUmbracoResourcesTests.cs" />
     <Compile Include="Integration\SubstituteSettingsTests.cs" />
+    <Compile Include="RemoteAgent\RemoteAgentFixture.cs" />
     <Compile Include="S3\S3FileSystemTests.cs" />
     <Compile Include="OverrideSettingsReaderTests.cs" />
+    <Compile Include="SettingsSubstitutorTests.cs" />
     <Compile Include="UmbracoResourcePublisherTests.cs" />
     <Compile Include="SettingsFileReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsParserTests.cs" />
+    <Compile Include="ZipFileAugmentorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ExampleSettingsFiles\Settings.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Id.DatabaseMigration\Id.DatabaseMigration.csproj">
+      <Project>{fcb9816c-37d9-464a-a0e3-1c5508ecd56a}</Project>
+      <Name>Id.DatabaseMigration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PowershellExtensions\PowershellExtensions.csproj">
       <Project>{43EF3D43-907F-4BBB-9184-3A382B453451}</Project>
       <Name>PowershellExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleDbMigrations\SampleDbMigrations.csproj">
+      <Project>{0878940a-e668-4bb7-b87e-60038ca0af1c}</Project>
+      <Name>SampleDbMigrations</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -133,9 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="ExampleMigrationAssemblies\Id.VisaDebitMicrositeAU.DatabaseMigrations.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <EmbeddedResource Include="ExampleSettingsFiles\Servers.txt" />
     <EmbeddedResource Include="ExampleSettingsFiles\MultipleSettings.txt" />
     <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithInheritance.txt" />
@@ -143,6 +159,14 @@
     <EmbeddedResource Include="ExampleSettingsFiles\AdvancedSettings.xml" />
     <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithInheritance.xml" />
     <EmbeddedResource Include="ExampleSettingsFiles\RepeatSectionSettings.txt" />
+    <EmbeddedResource Include="ExampleSettingsFiles\AdvancedSettingsSpaceDelimited.txt" />
+    <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithInheritanceAndRepetitionWarnings.txt" />
+    <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithInheritanceAndRevertedValueWarnings.txt" />
+    <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithInheritanceSeparateFile.txt" />
+    <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithReservedKey.txt" />
+    <EmbeddedResource Include="ExampleTemplates\Subfile1.txt" />
+    <EmbeddedResource Include="ExampleTemplates\Subfile2.txt" />
+    <EmbeddedResource Include="ExampleTemplates\TemplateWithSubfile.txt" />
     <Content Include="ExampleUmbracoRevisions\V1\manifest.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -210,19 +234,13 @@
     </Content>
     <EmbeddedResource Include="ExampleSettingsFiles\TGSettings.txt" />
     <EmbeddedResource Include="ExampleSettingsFiles\VisaSettings.txt" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\Archive.zip" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="exampleDosFormatConfig.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="ExampleMigrationAssemblies\migrations.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ExampleMigrationAssemblies\migrations.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Content Include="ExampleUmbracoRevisions\V1\revision\799c37b65f0960c11b7a175a70e1f42b.md5">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

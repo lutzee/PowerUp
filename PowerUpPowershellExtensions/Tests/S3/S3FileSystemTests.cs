@@ -87,7 +87,7 @@ namespace Tests.S3
         private void SaveResourceAsFile(string resourceName, string filename)
         {
             var fullPath = Path.Combine(BasePath, filename);
-            var resourceBytes = ResourceHelpers.GetFileBytesFromResource(GetType(), resourceName);
+            var resourceBytes = ResourceHelpers.GetFileBytesFromResource(resourceName);
             var info = new FileInfoWrap(fullPath);
 
             if (!info.Directory.Exists)

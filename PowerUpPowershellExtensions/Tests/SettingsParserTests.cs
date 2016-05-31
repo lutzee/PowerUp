@@ -1,67 +1,45 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Id.PowershellExtensions.ParsedSettings;
 using NUnit.Framework;
-using System.IO;
-using Id.PowershellExtensions;
 
 namespace Tests
 {
     [TestFixture]
     public class SettingsParserTests
     {
-        SettingsFileReader _basicSettings;
-        SettingsFileReader _advancedSettings;
-        SettingsFileReader _advancedXmlSettings;
-        SettingsFileReader _invalidSettings;
-        SettingsFileReader _tgSettings;
-        SettingsFileReader _visaSettings;
-        SettingsFileReader _serverSettings;
-        SettingsFileReader _multipleSettings;
-        SettingsFileReader _inheritanceSettings;
-        SettingsFileReader _inheritanceXmlSettings;
-        SettingsFileReader _repeatSectionSettings;
+        private const string Basic = "Tests.ExampleSettingsFiles.Settings.txt";
+        private const string AdvancedSettings = "Tests.ExampleSettingsFiles.AdvancedSettings.txt";
+        private const string AdvancedSettingsWhitespaceDelimited = "Tests.ExampleSettingsFiles.AdvancedSettingsSpaceDelimited.txt";
+        private const string AdvancedSettingsXml = "Tests.ExampleSettingsFiles.AdvancedSettings.xml";
+        private const string MultipleSettings = "Tests.ExampleSettingsFiles.MultipleSettings.txt";
+        private const string InvalidSettings = "Tests.ExampleSettingsFiles.InvalidSettings.txt";
+        private const string TGSettings = "Tests.ExampleSettingsFiles.TGSettings.txt";
+        private const string VisaSettings = "Tests.ExampleSettingsFiles.VisaSettings.txt";
+        private const string Servers = "Tests.ExampleSettingsFiles.Servers.txt";
+        private const string SettingsWithInheritance = "Tests.ExampleSettingsFiles.SettingsWithInheritance.txt";
+        private const string SettingsWithInheritanceAndRepetitionWarnings = "Tests.ExampleSettingsFiles.SettingsWithInheritanceAndRepetitionWarnings.txt";
+        private const string SettingsWithInheritanceAndRevertedValueWarnings = "Tests.ExampleSettingsFiles.SettingsWithInheritanceAndRevertedValueWarnings.txt";
+        private const string SettingsWithInheritanceSeparateFile = "Tests.ExampleSettingsFiles.SettingsWithInheritanceSeparateFile.txt";
+        private const string SettingsWithInheritanceXml = "Tests.ExampleSettingsFiles.SettingsWithInheritance.xml";
+        private const string RepeatSectionSettings = "Tests.ExampleSettingsFiles.RepeatSectionSettings.txt";
+        private const string SettingsWithReservedKey = "Tests.ExampleSettingsFiles.SettingsWithReservedKey.txt";
 
-        [SetUp]
-        public void SetUp()
+        private static SettingsFileReader GetSettingsFileReader(string resourceName)
         {
-            _basicSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.Settings.txt"));
-            _advancedSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.AdvancedSettings.txt"));
-            _advancedXmlSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.AdvancedSettings.xml"));
-            _multipleSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.MultipleSettings.txt"));
-            _invalidSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.InvalidSettings.txt"));
-            _tgSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.TGSettings.txt"));
-            _visaSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.VisaSettings.txt"));
-            _serverSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.Servers.txt"));
-            _inheritanceSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.SettingsWithInheritance.txt"));
-            _inheritanceXmlSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.SettingsWithInheritance.xml"));
-            _repeatSectionSettings = new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource("Tests.ExampleSettingsFiles.RepeatSectionSettings.txt"));
+            return new SettingsFileReader(Helpers.ResourceHelpers.GetStreamFromResource(resourceName));
         }
-
-        [TearDown]
-        public void TearDown()
-        {
-            _basicSettings = null;
-            _advancedSettings = null;
-            _invalidSettings = null;
-            _tgSettings = null;
-            _visaSettings = null;
-            _serverSettings = null;
-            _multipleSettings = null;
-            _inheritanceSettings = null;
-        }
-
 
         [Test]
         public void SettingsParser_Parse_BasicSettings_ReturnsExpectedResult()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_basicSettings.ReadSettings(), "Dev", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(Basic);
+            var settings = sp.Parse(reader.ReadSettings(), "Dev", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(3, settings.Keys.Count);
+            Assert.AreEqual(4, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("other", settings.Keys.ElementAt(2));
@@ -70,42 +48,91 @@ namespace Tests
             Assert.AreEqual("4", settings["other"][0]);
         }
 
+        [Test]
+        [ExpectedException(typeof(Exception), ExpectedMessage = "Could not find section \"AAAA\"")]
+        public void SettingsParser_Parse_with_invalid_section_throws_exception()
+        {
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(Basic);
+            sp.Parse(reader.ReadSettings(), "AAAA", '|');
+        }
 
         [Test]
-        public void SettingsParser_Parse_AdvancedSettings_ReturnsExpectedResult()
+        [ExpectedException(typeof(Exception), ExpectedMessage = "Could not find section \"AAAA\"")]
+        public void SettingsParser_Parse_settings_with_inheritance_with_invalid_section_throws_exception()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_advancedSettings.ReadSettings(), "Dev", '|');
+            var sp = new SettingsParser {AppendReservedSettings = true};
+            var reader1 = GetSettingsFileReader(SettingsWithInheritance);
+            var reader2 = GetSettingsFileReader(SettingsWithInheritanceSeparateFile);
+            var lines = reader1.ReadSettings().Concat(reader2.ReadSettings());
+            var overrides = new[]
+            {
+                "AAAA",
+                "\tpackage.name	",
+                "\tpackage.build	1",
+                "\tpackage.date	20150709-0948"
+            };
+
+            sp.Parse(lines, overrides, "AAAA", '|');
+        }
+
+        [Test]
+        public void SettingsParser_Parse_settings_with_inheritance_with_valid_section_parses_settings()
+        {
+            var sp = new SettingsParser { AppendReservedSettings = true };
+            var reader1 = GetSettingsFileReader(SettingsWithInheritance);
+            var reader2 = GetSettingsFileReader(SettingsWithInheritanceSeparateFile);
+            var lines = reader1.ReadSettings().Concat(reader2.ReadSettings());
+            var overrides = new[]
+            {
+                "Dev",
+                "\tpackage.name	",
+                "\tpackage.build	1",
+                "\tpackage.date	20150709-0948"
+            };
+
+            sp.Parse(lines, overrides, "Dev", '|');
+        }
+
+        [Test]
+        [TestCase(AdvancedSettings)]
+        [TestCase(AdvancedSettingsWhitespaceDelimited)]
+        public void SettingsParser_Parse_AdvancedSettings_ReturnsExpectedResult(string settingsFileName)
+        {
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(settingsFileName);
+            var settings = sp.Parse(reader.ReadSettings(), new String[0], "Dev", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(3, settings.Keys.Count);
+            Assert.AreEqual(5, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("Other", settings.Keys.ElementAt(2));
-            Assert.AreEqual("3 4 5", settings["Wotsit"][0]);
-            Assert.AreEqual("3 4", settings["Thing"][0]);
+            Assert.AreEqual("3  4 5", settings["Wotsit"][0]);
+            Assert.AreEqual("3  4", settings["Thing"][0]);
             Assert.AreEqual("4", settings["Other"][0]);
         }
 
         [Test]
-        public void SettingsParser_Parse_RepearSettings_ReturnsExpectedResult()
+        public void SettingsParser_Parse_RepeatSettings_ReturnsExpectedResult()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_repeatSectionSettings.ReadSettings(), "Live", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(RepeatSectionSettings);
+            var settings = sp.Parse(reader.ReadSettings(), "Live", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(4, settings.Keys.Count);
-           
+            Assert.AreEqual(5, settings.Keys.Count);
         }
 
         [Test]
         public void SettingsParser_Parse_XmlAdvancedSettings_ReturnsExpectedResult()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_advancedXmlSettings.ReadSettings(), "Dev", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(AdvancedSettingsXml);
+            var settings = sp.Parse(reader.ReadSettings(), "Dev", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(3, settings.Keys.Count);
+            Assert.AreEqual(4, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("Other", settings.Keys.ElementAt(2));
@@ -117,8 +144,9 @@ namespace Tests
         [Test]
         public void SettingsParser_Parse_TGSettings_ReturnsExpectedResult()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_tgSettings.ReadSettings(), "DEV", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(TGSettings);
+            var settings = sp.Parse(reader.ReadSettings(), "DEV", '|');
 
             Assert.IsNotNull(settings);
         }
@@ -126,11 +154,12 @@ namespace Tests
         [Test]
         public void SettingsParser_Parse_VisaSettings_ReturnsExpectedResult()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_visaSettings.ReadSettings(), "Test", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(VisaSettings);
+            var settings = sp.Parse(reader.ReadSettings(), "Test", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(9, settings.Keys.Count);
+            Assert.AreEqual(10, settings.Keys.Count);
             Assert.AreEqual(@"VisaDebitMicroSiteAU", settings["ProjectName"][0]);
             Assert.AreEqual(@"\\reliant", settings["DeployServer"][0]);
             Assert.AreEqual(@"e:\temp", settings["DeploymentPath"][0]);
@@ -145,11 +174,12 @@ namespace Tests
         [Test]
         public void SettingsParser_Parse_DelimitedReturnsMultipleValues()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_multipleSettings.ReadSettings(), "Live", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(MultipleSettings);
+            var settings = sp.Parse(reader.ReadSettings(), "Live", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(4, settings.Keys.Count);
+            Assert.AreEqual(5, settings.Keys.Count);
             Assert.AreEqual("Other", settings.Keys.ElementAt(1));
             Assert.AreEqual("2", settings["Other"][0]);
             Assert.AreEqual("3", settings["Other"][1]);
@@ -158,21 +188,32 @@ namespace Tests
         }
 
         [Test]
-        [ExpectedException(typeof(Exception), "Circular dependency detected")]
+        [ExpectedException(typeof(Exception), ExpectedMessage = "Circular dependency detected")]
         public void SettingsParser_Parse_InvalidSettings_ReturnsExpectedResult()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_invalidSettings.ReadSettings(), "Dev", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(InvalidSettings);
+            var settings = sp.Parse(reader.ReadSettings(), "Dev", '|');
+        }
+
+        [Test]
+        [ExpectedException(typeof(Exception), ExpectedMessage = "Reserved key \"environment.profile\" found")]
+        public void SettingsParser_Parse_SettingsWithReservedKey_ReturnsExpectedResult()
+        {
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(SettingsWithReservedKey);
+            sp.Parse(reader.ReadSettings(), "Dev", '|');
         }
 
         [Test]
         public void SettingsParser_Parse_Servers_ReturnsExpectedResult()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_serverSettings.ReadSettings(), "icevm069", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(Servers);
+            var settings = sp.Parse(reader.ReadSettings(), "icevm069", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(5, settings.Keys.Count);
+            Assert.AreEqual(6, settings.Keys.Count);
             Assert.AreEqual(@"icevm069", settings["server.name"][0]);
             Assert.AreEqual(@"d", settings["local.root.drive.letter"][0]);
             Assert.AreEqual(@"_releasetemp", settings["deployment.working.folder"][0]);
@@ -181,13 +222,54 @@ namespace Tests
         }
 
         [Test]
-        public void SettingsParser_Parse_SettingsWithInheritanceAt2Levels_ReturnsExpectedResult()
+        [TestCase("dev")]
+        [TestCase("live")]
+        public void SettingsParser_Parse_AdvancedSettings_for_environment_profile_ReturnsExpectedResult(string section)
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_inheritanceSettings.ReadSettings(), "Live", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(AdvancedSettings);
+            var settings = sp.Parse(reader.ReadSettings(), section, '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(3, settings.Keys.Count);
+            Assert.AreEqual(section, settings["environment.profile"][0]);
+            Assert.AreEqual(section, settings["Profile"][0]);
+        }
+
+        [Test]
+        [TestCase("dev", true)]
+        [TestCase("dev", false)]
+        [TestCase("live", true)]
+        [TestCase("live", false)]
+        public void SettingsParser_Parse_includes_environment_profile(string section, bool include)
+        {
+            var sp = new SettingsParser
+            {
+                AppendReservedSettings = include
+            };
+            var reader = GetSettingsFileReader(Basic);
+            var settings = sp.Parse(reader.ReadSettings(), section, '|');
+
+            Assert.IsNotNull(settings);
+
+            if (include)
+            {
+                Assert.AreEqual(section, settings["environment.profile"][0]);
+            }
+            else
+            {
+                Assert.IsFalse(settings.ContainsKey("environment.profile"));
+            }
+        }
+
+        [Test]
+        public void SettingsParser_Parse_SettingsWithInheritanceAt2Levels_ReturnsExpectedResult()
+        {
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(SettingsWithInheritance);
+            var settings = sp.Parse(reader.ReadSettings(), "Live", '|');
+
+            Assert.IsNotNull(settings);
+            Assert.AreEqual(4, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("Other", settings.Keys.ElementAt(2));
@@ -199,11 +281,12 @@ namespace Tests
         [Test]
         public void SettingsParser_Parse_SettingsWithInheritanceAt3Levels_ReturnsExpectedResult()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_inheritanceSettings.ReadSettings(), "Prod", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(SettingsWithInheritance);
+            var settings = sp.Parse(reader.ReadSettings(), "Prod", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(3, settings.Keys.Count);
+            Assert.AreEqual(4, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("Other", settings.Keys.ElementAt(2));
@@ -215,11 +298,12 @@ namespace Tests
         [Test]
         public void SettingsParser_Parse_SettingsXmlWithInheritanceAt3Levels_ReturnsExpectedResult()
         {
-            SettingsParser sp = new SettingsParser();
-            var settings = sp.Parse(_inheritanceXmlSettings.ReadSettings(), "Prod", '|');
+            var sp = new SettingsParser();
+            var reader = GetSettingsFileReader(SettingsWithInheritanceXml);
+            var settings = sp.Parse(reader.ReadSettings(), "Prod", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(3, settings.Keys.Count);
+            Assert.AreEqual(4, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("Other", settings.Keys.ElementAt(2));
@@ -229,11 +313,80 @@ namespace Tests
         }
 
         [Test]
-        public void URI()
+        [TestCase("Section2a", 1)]
+        [TestCase("Section2b", 4)]
+        [TestCase("Section3", 1)]
+        public void SettingsParser_Parse_Should_Raise_Repetition_Warnings(
+            string section,
+            int expectedWarnings
+        )
         {
-            var uri = new Uri("http://cms.milkbooks.com/umbraco/umbraco.aspx?sdsd=12");
+            var warnings = new HashSet<string>();
+            var sp = new SettingsParser
+            {
+                WriteWarning = s => warnings.Add(s)
+            };
 
-            Assert.AreEqual("cms.milkbooks.com", uri.Host);
+            var reader = GetSettingsFileReader(SettingsWithInheritanceAndRepetitionWarnings);
+            var settings = sp.Parse(reader.ReadSettings(), section, '|');
+
+            Assert.IsNotNull(settings);
+            CollectionAssert.IsNotEmpty(warnings);
+            Assert.AreEqual(expectedWarnings, warnings.Count);
+        }
+
+        [Test]
+        public void SettingsParser_Validate_Should_Raise_Repetition_Warnings()
+        {
+            var warnings = new HashSet<string>();
+            var sp = new SettingsParser
+            {
+                WriteWarning = s => warnings.Add(s)
+            };
+
+            var reader = GetSettingsFileReader(SettingsWithInheritanceAndRepetitionWarnings);
+            sp.Validate(reader.ReadSettings());
+
+            CollectionAssert.IsNotEmpty(warnings);
+            Assert.AreEqual(7, warnings.Count);
+        }
+
+        [Test]
+        [TestCase("Section2", 1)]
+        [TestCase("Section3", 2)]
+        public void SettingsParser_Parse_Should_Raise_RevertedValue_Warnings(
+            string section,
+            int expectedWarnings
+        )
+        {
+            var warnings = new HashSet<string>();
+            var sp = new SettingsParser
+            {
+                WriteWarning = s => warnings.Add(s)
+            };
+
+            var reader = GetSettingsFileReader(SettingsWithInheritanceAndRevertedValueWarnings);
+            var settings = sp.Parse(reader.ReadSettings(), section, '|');
+
+            Assert.IsNotNull(settings);
+            CollectionAssert.IsNotEmpty(warnings);
+            Assert.AreEqual(expectedWarnings, warnings.Count);
+        }
+
+        [Test]
+        public void SettingsParser_Validate_Should_Raise_RevertedValue_Warnings()
+        {
+            var warnings = new HashSet<string>();
+            var sp = new SettingsParser
+            {
+                WriteWarning = s => warnings.Add(s)
+            };
+
+            var reader = GetSettingsFileReader(SettingsWithInheritanceAndRevertedValueWarnings);
+            sp.Validate(reader.ReadSettings());
+
+            CollectionAssert.IsNotEmpty(warnings);
+            Assert.AreEqual(2, warnings.Count);
         }
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>PowerUp-Deploy</id>
+    <version>1.0.0</version>
+    <authors>Paul Suart, Andrew Revell</authors>
+    <owners>Wynyward Group</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>PowerUp! (Just the Deploy bits)</description>    
+    <copyright>Copyright 2016</copyright>
+  </metadata>
+  <files>
+      <file src="_powerup\**\*.*" exclude="_powerup\build\**" target="_powerup" />
+      <file src="_packageupdate\**\*.*" target="_packageupdate" />
+      <file src="_bootstrapper\**\*.*" target="_bootstrapper" />
+      <file src="Tools\**\*.*" target="Tools" />
+      <file src="runonce.bat" target="\" />
+  </files>
+</package>

@@ -1,8 +1,10 @@
 ﻿Live
 	Thing	1 ${Other}
 	Other	2
+	Profile	${environment.profile}
 
 Dev
 	Wotsit	${Thing} 5 
-	Thing	3 ${Other}
+	Thing	3  ${Other}
 	Other	4
+	Profile	${environment.profile}

@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using Id.PowershellExtensions;
+﻿using Id.PowershellExtensions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Tests.Integration
 {

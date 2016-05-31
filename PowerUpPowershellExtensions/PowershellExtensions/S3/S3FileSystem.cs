@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using SystemWrapper.IO;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -111,7 +109,7 @@ namespace Id.PowershellExtensions.S3
                     lastKnownPercentage = e.PercentDone;
                 };
                 
-                TransferUtility.Upload(uploadRequest);                
+                TransferUtility.Upload(uploadRequest);
             }
             catch (Exception exception)
             {

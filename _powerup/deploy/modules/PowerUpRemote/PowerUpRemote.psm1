@@ -43,7 +43,7 @@ function invoke-remotetaskswithremoting( $tasks, $serverNames, $deploymentEnviro
 function invoke-remotetaskwithpsexec( $tasks, $server, $deploymentEnvironment, $packageName )
 {
 	$serverName = $server['server.name'][0]
-	write-host "===== Beginning execution of tasks $tasks on server $serverName ====="
+	Write-Output "===== Beginning execution of tasks $tasks on server $serverName ====="
 
 	$fullLocalReleaseWorkingFolder = $server['local.temp.working.folder'][0] + '\' + $packageName
 	$batchFile = $fullLocalReleaseWorkingFolder + '\' + 'deploy.bat'
@@ -57,7 +57,7 @@ function invoke-remotetaskwithpsexec( $tasks, $server, $deploymentEnvironment, $
 		cmd /c cscript.exe $PSScriptRoot\cmd.js $PSScriptRoot\psexec.exe \\$serverName /accepteula -w $fullLocalReleaseWorkingFolder $batchFile $deploymentEnvironment $tasks		
 	}
 		
-	write-host "====== Finished execution of tasks $tasks on server $serverName ====="
+	Write-Output "====== Finished execution of tasks $tasks on server $serverName ====="
 
 	if ($lastexitcode -ne 0)
 	{
@@ -69,14 +69,14 @@ function invoke-remotetaskwithpsexec( $tasks, $server, $deploymentEnvironment, $
 function invoke-remotetaskwithremoting( $tasks, $server, $deploymentEnvironment, $packageName )
 {	
 	$serverName = $server['server.name'][0]
-	write-host "===== Beginning execution of tasks $tasks on server $serverName ====="
+	Write-Output "===== Beginning execution of tasks $tasks on server $serverName ====="
 
 	$fullLocalReleaseWorkingFolder = $server['local.temp.working.folder'][0] + '\' + $packageName
 
 	$command = ".$psakeFile -buildFile $deployFile -deploymentEnvironment $deploymentEnvironment -tasks $tasks"		
 	Invoke-Command -scriptblock { param($workingFolder, $env, $tasks) set-location $workingFolder; .\_powerup\deploy\core\deploy_with_psake.ps1 -buildFile .\deploy.ps1 -deploymentEnvironment $env -tasks $tasks } -computername $serverName -ArgumentList $fullLocalReleaseWorkingFolder, $deploymentEnvironment, $tasks 
 	
-	write-host "========= Finished execution of tasks $tasks on server $serverName ====="
+	Write-Output "========= Finished execution of tasks $tasks on server $serverName ====="
 }
 
 function copy-package($servers, $packageName)
@@ -109,7 +109,7 @@ function copy-package($servers, $packageName)
 		
 		if ($packageCopyRequired)
 		{	
-			write-host "Copying deployment package to $remotePath"
+			Write-Output "Copying deployment package to $remotePath"
 			Copy-MirroredDirectory $currentLocation $remotePath
 		}
 	}

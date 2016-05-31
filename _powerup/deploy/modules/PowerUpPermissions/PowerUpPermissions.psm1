@@ -50,7 +50,7 @@ function Set-Permissions
         $rights = $rights -bor $right
     }
     
-    Write-Host "Granting $Identity $Permissions on $Path."
+    Write-Output "Granting $Identity $Permissions on $Path."
 	
     # We don't use Get-Acl because it returns the whole security descriptor, which includes owner information.
     # When passed to Set-Acl, this causes intermittent errors.  So, we just grab the ACL portion of the security descriptor.
@@ -77,11 +77,11 @@ function set-right($right, $user=$null)
 {
 
 	if($user) {
-		write-host "Granting $user the $right right"
+		Write-Output "Granting $user the $right right"
 		$output = & "$PSScriptRoot\ntrights.exe" +r $right -u $user
 	}
 	else {
-		write-host "Granting current user the $right right"
+		Write-Output "Granting current user the $right right"
 		$output = & "$PSScriptRoot\ntrights.exe" +r $right
 	}
 	

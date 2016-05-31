@@ -2,10 +2,10 @@ function Expand-Templates($settingsFile, $deploymentProfile, $templatePath, $out
 	import-module -disablenamechecking AffinityId\Id.PowershellExtensions.dll
 	
 	Write-Output "Reading settings"
-	$settings = get-parsedsettings $settingsFile $deploymentProfile 
+	$settings = get-parsedsettings $settingsFile $deploymentProfile -appendReservedSettings $true
 	
-	Write-Output "Template settings for the $deploymentProfile environment are:"
-	$settings | Format-Table -property *
+	Write-Output "Template settings for the $deploymentProfile environment are:"	
+	$settings.GetEnumerator() | Sort Key | Format-Table -property "Key","Value"
 	
 	copy-substitutedsettingfiles -templatesDirectory $templatePath -targetDirectory $outputPath -deploymentEnvironment $deploymentProfile -settings $settings
 }

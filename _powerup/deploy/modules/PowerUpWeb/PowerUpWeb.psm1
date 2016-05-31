@@ -128,15 +128,33 @@ function CreateWebsite($websiteName, $appPoolName, $fullPath, $protocol, $ip, $p
 	}
 	else
 	{
-		New-Item $sitesPath\$websiteName -physicalPath $fullPath -applicationPool $appPoolName -bindings @{protocol="$protocol";bindingInformation="${ip}:${port}:${hostHeader}"} | out-null
+		if (NoExistingWebsites) {
+			New-Item $sitesPath\$websiteName -id 1 -physicalPath $fullPath -applicationPool $appPoolName -bindings @{protocol="$protocol";bindingInformation="${ip}:${port}:${hostHeader}"} | out-null
+		}
+		else {
+			New-Item $sitesPath\$websiteName -physicalPath $fullPath -applicationPool $appPoolName -bindings @{protocol="$protocol";bindingInformation="${ip}:${port}:${hostHeader}"} | out-null
+		}
+		
 	}
+}
+
+function NoExistingWebsites {
+
+	$websites=Get-Website;
+	If($websites -eq $Null){
+		return $True;
+	}
+	else {
+		return $False;
+	}
+		
 }
 
 function Set-WebsiteForSsl($useSelfSignedCert, $websiteName, $certificateName, $ipAddress, $port, $url)
 {
 	if ([System.Convert]::ToBoolean($useSelfSignedCert))
 	{
-		write-host "set-selfsignedsslcertificate ${certificateName}"
+		Write-Output "set-selfsignedsslcertificate ${certificateName}"
 		set-selfsignedsslcertificate ${certificateName}
 	}
 		
@@ -173,6 +191,15 @@ function CreateSslBinding($certificate, $ip, $port)
 	set-location $bindingsPath
 	
 	$certificate | new-item "${ip}!${port}" | out-null
+	set-location $existingPath
+}
+
+function UpdateSslBinding($certificate, $ip, $port)
+{
+	$existingPath = get-location
+	set-location $bindingsPath
+	
+	$certificate | Set-item "${ip}!${port}" | out-null
 	set-location $existingPath
 }
 
@@ -246,16 +273,16 @@ function ChildAppPoolItemsExist($rootPath, $itemName)
 function Remove-WebAppPool-Safe($appPoolName, $nondestructive=$false)
 {
 	if (-not $nondestructive) {
-		write-host "Removing apppool $appPoolName"
+		Write-Output "Removing apppool $appPoolName"
 		DeleteAppPool $appPoolName
 	} else {
-		write-host "Preserving apppool $appPoolName"
+		Write-Output "Preserving apppool $appPoolName"
 	}
 }
 
 function set-WebAppPool($appPoolName, $pipelineMode, $runtimeVersion, $nondestructive=$false)
 {
-	write-host "Ensuring apppool $appPoolName with pipeline mode $pipelineMode and .Net version $runtimeVersion"
+	Write-Output "Ensuring apppool $appPoolName with pipeline mode $pipelineMode and .Net version $runtimeVersion"
 	if (WebItemExists $appPoolsPath $appPoolName -and $nondestructive)
 	{
 		DeleteAppPool $appPoolName
@@ -269,16 +296,16 @@ function Remove-WebSite-Safe($websiteName, $nondestructive=$false)
 {
 	if(!$nondestructive)
 	{
-		write-host "Removing website $websiteName"
+		Write-Output "Removing website $websiteName"
 		DeleteWebsite $websiteName
 	} else {
-		write-host "Preserving website $websiteName"
+		Write-Output "Preserving website $websiteName"
 	}
 }
 
 function set-WebSite($websiteName, $appPoolName, $fullPath, $hostHeader, $protocol="http", $ip="*", $port="80", $nondestructive=$false)
 {
-	write-host "Ensuring there is website $websiteName with path $fullPath, app pool $apppoolname, bound to to host header $hostHeader with IP $ip, port $port over $protocol"
+	Write-Output "Ensuring there is website $websiteName with path $fullPath, app pool $apppoolname, bound to to host header $hostHeader with IP $ip, port $port over $protocol"
 	if(!$nondestructive)
 	{
 		DeleteWebsite $websiteName
@@ -304,10 +331,10 @@ function get-apppoolhaschilditems($appPoolName)
 
 function set-SelfSignedSslCertificate($certName)
 {	
-	write-host "Ensuring existance of self signed ssl certificate $certName"
+	Write-Output "Ensuring existance of self signed ssl certificate $certName"
 	if(!(GetSslCertificate $certName))
 	{
-		write-host "Creating self signed ssl certificate $certName"
+		Write-Output "Creating self signed ssl certificate $certName"
 		$output = & "$PSScriptRoot\makecert.exe" -r -pe -n "CN=${certName}" -b 07/01/2008 -e 07/01/2020 -eku 1.3.6.1.5.5.7.3.1 -ss my -sr localMachine -sky exchange -sp "Microsoft RSA SChannel Cryptographic Provider" -sy 12
 	}
 }
@@ -331,13 +358,13 @@ function Set-WebSiteBinding($websiteName, $hostHeader, $protocol="http", $ip="*"
 
 function New-WebSiteBinding($websiteName, $hostHeader, $protocol="http", $ip="*", $port="80")
 {
-	write-host "Binding website $websiteName to host header $hostHeader with IP $ip, port $port over $protocol"
+	Write-Output "Binding website $websiteName to host header $hostHeader with IP $ip, port $port over $protocol"
 	New-WebBinding -Name $websiteName -IP $ip -Port $port -Protocol $protocol -HostHeader $hostHeader
 }
 
 function New-WebSiteBindingNonHttp($websiteName, $protocol, $bindingInformation)
 {
-	write-host "Binding website $websiteName to binding information $bindingInformation over $protocol"
+	Write-Output "Binding website $websiteName to binding information $bindingInformation over $protocol"
 	New-ItemProperty $sitesPath\$websiteName –name bindings –value @{protocol="$protocol";bindingInformation="$bindingInformation"} | out-null
 }
 
@@ -366,7 +393,7 @@ function Set-WebSiteBindingNonHttp($websiteName, $protocol, $bindingInformation)
 
 function Set-SslBinding($certName, $ip, $port)
 {
-	write-host "Binding certifcate $certName to IP $ip, port $port"
+	Write-Output "Binding certifcate $certName to IP $ip, port $port"
 	$certificate = GetSslCertificate $certName
 	
 	if (!$certificate) {throw "Certificate for site $certName not in current store"}
@@ -377,11 +404,15 @@ function Set-SslBinding($certName, $ip, $port)
 	{
 		CreateSslBinding $certificate $ip $port
 	}
+	else
+	{
+		UpdateSslBinding $certificate $ip $port
+	}
 }
 
 function new-virtualdirectory($websiteName, $subPath, $physicalPath)
 {
-	write-host "Adding virtual directory $subPath to web site $websiteName pointing to $physicalPath"
+	Write-Output "Adding virtual directory $subPath to web site $websiteName pointing to $physicalPath"
 	New-Item $sitesPath\$websiteName\$subPath -physicalPath $physicalPath -type VirtualDirectory | out-null
 }
 
@@ -389,7 +420,8 @@ function set-virtualdirectory($websiteName, $subPath, $physicalPath)
 {
 	if (WebItemExists $sitesPath\$websiteName $subPath)
 	{
-		remove-webvirtualdirectory -Name $subPath -Site $websiteName
+
+		remove-webapplication -Name $subPath -Site $websiteName 
 	}
 
 	new-virtualdirectory $websiteName $subPath $physicalPath
@@ -399,13 +431,13 @@ function remove-virtualdirectory-safe($websiteName, $subPath, $physicalPath)
 {
 	if (WebItemExists $sitesPath\$websiteName $subPath)
 	{
-		remove-webvirtualdirectory -Name $subPath -Site $websiteName
+		remove-webapplication -Name $subPath -Site $websiteName
 	}
 }
 
 function new-webapplication($websiteName, $appPoolName, $subPath, $physicalPath)
 {
-	write-host "Adding application $subPath to web site $websiteName pointing to $physicalPath running under app pool  $appPoolName"
+	Write-Output "Adding application $subPath to web site $websiteName pointing to $physicalPath running under app pool  $appPoolName"
 	New-Item $sitesPath\$websiteName\$subPath -physicalPath $physicalPath -applicationPool $appPoolName -type Application | out-null
 }
 
@@ -429,33 +461,33 @@ function remove-webapplication-safe($websiteName, $appPoolName, $subPath, $physi
 
 function Stop-AppPool($appPoolName)
 {
-	write-host "Stopping app pool $appPoolName"
+	Write-Output "Stopping app pool $appPoolName"
 	StopAppPool($appPoolName)	
 }
 
 function Stop-AppPoolAndSite($appPoolName, $siteName)
 {
-	write-host "Stopping app pool $appPoolName and site $siteName"
+	Write-Output "Stopping app pool $appPoolName and site $siteName"
 	StopAppPool($appPoolName)
 	StopSite($siteName)
 }
 
 function Start-AppPool($appPoolName)
 {
-	write-host "Starting app pool $appPoolName"
+	Write-Output "Starting app pool $appPoolName"
 	StartAppPool($appPoolName)
 }
 
 function Start-AppPoolAndSite($appPoolName, $siteName)
 {
-	write-host "Starting app pool $appPoolName and site $siteName"
+	Write-Output "Starting app pool $appPoolName and site $siteName"
 	StartSite($siteName)
 	StartAppPool($appPoolName)
 }
 
 function set-apppoolidentitytouser($appPoolName, $userName, $password)
 {
-	write-host "Setting $appPoolName to be run under the identity $userName"
+	Write-Output "Setting $appPoolName to be run under the identity $userName"
 	$appPool = Get-Item $appPoolsPath\$appPoolName
 	$appPool.processModel.username =  $userName
 	$appPool.processModel.password = $password
@@ -465,7 +497,7 @@ function set-apppoolidentitytouser($appPoolName, $userName, $password)
 
 function set-apppoolidentityType($appPoolName, [int]$identityType)
 {
-	write-host "Setting $appPoolName to be run under the identityType $identityType"
+	Write-Output "Setting $appPoolName to be run under the identityType $identityType"
 	$appPool = Get-Item $appPoolsPath\$appPoolName
 	$appPool.processModel.identityType = $identityType
 	$appPool | set-item| out-null
@@ -473,7 +505,7 @@ function set-apppoolidentityType($appPoolName, [int]$identityType)
 
 function set-apppoolstartMode($appPoolName, [int]$startMode)
 {
-	write-host "Setting $appPoolName to be run with startMode $startMode"
+	Write-Output "Setting $appPoolName to be run with startMode $startMode"
 	$appPool = Get-Item $appPoolsPath\$appPoolName
 	$appPool.startMode = $startMode
 	$appPool | set-item| out-null
@@ -481,7 +513,7 @@ function set-apppoolstartMode($appPoolName, [int]$startMode)
 
 function set-apppoolloaduserprofile($appPoolName, [bool]$loadUserProfile)
 {
-	write-host "Setting $appPoolName LoadUserProfile to $loadUserProfile"
+	Write-Output "Setting $appPoolName LoadUserProfile to $loadUserProfile"
 	$appPool = Get-Item $appPoolsPath\$appPoolName
 	$appPool.processModel.loadUserProfile = $loadUserProfile
 	$appPool | set-item| out-null
@@ -489,7 +521,7 @@ function set-apppoolloaduserprofile($appPoolName, [bool]$loadUserProfile)
 
 function set-apppoolidletimeout($appPoolName, [int]$idleTimeoutMinutes)
 {
-	write-host "Setting $appPoolName idle timeout to $idleTimeoutMinutes"
+	Write-Output "Setting $appPoolName idle timeout to $idleTimeoutMinutes"
 	$appPool = Get-Item $appPoolsPath\$appPoolName
 	$appPool.processModel.idleTimeout = [TimeSpan]::FromMinutes($idleTimeoutMinutes)
 	$appPool | set-item| out-null
@@ -505,18 +537,21 @@ function set-webproperty($websiteName, $propertyPath, $property, $value)
 	Set-WebConfigurationProperty -filter $propertyPath -name $property -value $value -location $websiteName
 }
 
-function enable-aspnetisapi($isapiPath){  
+function enable-aspnetisapi($isapiPath){
+	if (!(Test-Path $isapiPath)) {
+		Write-Output "$isapiPath doesn't exist and is required"
+	}
 
-  $isapiConfiguration = get-webconfiguration "/system.webServer/security/isapiCgiRestriction/add[@path='$isapiPath']/@allowed"  
+    $isapiConfiguration = get-webconfiguration "/system.webServer/security/isapiCgiRestriction/add[@path='$isapiPath']/@allowed"  
 
-  if (!$isapiConfiguration.value){  
+	if (!$isapiConfiguration.value){  
 	   set-webconfiguration "/system.webServer/security/isapiCgiRestriction/add[@path='$isapiPath']/@allowed" -value "True" -PSPath:$iisPath   
-  }  
+	}  
  }  
 
  function enable-featuredelegation($sectionName) 
 {
-	write-host "Enabling feature delegation for $sectionName"
+	Write-Output "Enabling feature delegation for $sectionName"
 	
 	Set-WebConfiguration //System.webServer/$sectionName -metadata overrideMode -value Allow -PSPath IIS:/
 }
@@ -532,7 +567,7 @@ function set-WebConfigurationPropertyIfRequired($xpath, $propertyName, [string]$
 
 	if(($existingValue -ne $value))
 	{
-		write-host "Setting value $xpath $propertyName $value"        
+		Write-Output "Setting value $xpath $propertyName $value"        
 		Set-WebConfigurationProperty -Filter $xpath -name $propertyName -Value $value -PsPath $iisPath -Location $appPath
 	}
 }
@@ -547,18 +582,29 @@ function set-windowsauthentication($appPath, $value)
 	Set-WebConfigurationPropertyIfRequired "/system.webServer/security/authentication/windowsAuthentication" "enabled" $value  $appPath
 }
 
+function set-basicauthentication($appPath, $value) 
+{
+	Set-WebConfigurationPropertyIfRequired "/system.webServer/security/authentication/basicAuthentication" "enabled" $value  $appPath
+}
+
 function set-requiressl($appPath, $value) {
 	Set-WebConfigurationPropertyIfRequired "/system.webServer/security/access" "sslflags" $value $appPath 
+}
+
+function set-iismimetype($extension, $mimeType) {
+    if(!((Get-WebConfiguration //staticcontent).collection | ? {$_.fileextension -eq "$extension"}) ) {
+      add-webconfigurationproperty //staticContent -name collection -value @{fileExtension="$extension"; mimeType="$mimeType"}
+    }
 }
 
 function protect-webconfig($physicalWebConfigFolderPath, $configFileName="web.config")
 {
 	if($configFileName -ne "web.config") {
-		write-host "Renaming file $physicalWebConfigFolderPath\$configFileName to web.config"
+		Write-Output "Renaming file $physicalWebConfigFolderPath\$configFileName to web.config"
 		Rename-Item $physicalWebConfigFolderPath\$configFileName web.config
 	}
 	
-	write-host "Encrypting config file for path $physicalWebConfigFolderPath"
+	Write-Output "Encrypting config file for path $physicalWebConfigFolderPath"
 
 	$regiis = $env:WINDIR + "\Microsoft.NET\\Framework\\v4.0.30319\\aspnet_regiis"
 	$path = $physicalWebConfigFolderPath
@@ -566,28 +612,33 @@ function protect-webconfig($physicalWebConfigFolderPath, $configFileName="web.co
 	$output = & $regiis -pef connectionStrings $path 
 	
 	if($configFileName -ne "web.config") {
-		write-host "Renaming file $physicalWebConfigFolderPath\$configFileName back from web.config"
+		Write-Output "Renaming file $physicalWebConfigFolderPath\$configFileName back from web.config"
 		Rename-Item $physicalWebConfigFolderPath\web.config $configFileName 
 	}
 	
 	if ($lastexitcode -ne 0)
 	{
-		write-host $output
+		Write-Output $output
 		throw "Unable to encrypt web.config file contained within folder $physicalWebConfigFolderPath"
 	}
 }
 
 function enable-aspnet()
 {
-	write-host "Registering asp.net with IIS"
+	Write-Output "Registering asp.net with IIS"
 
 	$regiis = $env:WINDIR + "\Microsoft.NET\\Framework\\v4.0.30319\\aspnet_regiis"
 	
+	if (!(Test-Path $regiis)) {
+		Write-Output "$regiis does not exist"
+	}
+
+	$lastexitcode = 0
 	$output = & $regiis -iru
-	
 	if ($lastexitcode -ne 0)
 	{
-		write-host $output
+		Write-Output "Unable to register asp.net with IIS as lastexitcode is $lastexitcode"
+		Write-Output $output
 		throw "Unable to register asp.net with IIS"
 	}
 }
@@ -602,4 +653,4 @@ function Close-WebChangeTransaction()
 	return End-WebCommitDelay
 }
 
-export-modulemember -function enable-featuredelegation, set-anonymousauthentication, set-windowsauthentication, enable-aspnet, protect-webconfig, enable-aspnetisapi, set-requiressl, set-webapppool32bitcompatibility, set-apppoolidentitytouser, set-apppoolidentityType, set-apppoolstartMode, set-apppoolloaduserprofile, set-apppoolidletimeout, new-webapplication, set-webapplication, remove-webapplication-safe, new-virtualdirectory, set-virtualdirectory, remove-virtualdirectory-safe, start-apppoolandsite, start-apppool, start-site, stop-apppool, stop-apppoolandsite, set-website, remove-website-safe, set-webapppool, remove-webapppool-safe, set-websitebinding, New-WebSiteBinding, New-WebSiteBindingNonHttp, set-SelfSignedSslCertificate, set-sslbinding, Set-WebsiteForSsl, set-property, set-webproperty, open-WebChangeTransaction, close-WebChangeTransaction, get-websitehaschilditems, get-apppoolhaschilditems, get-webapppool, add-websitetoapppool, Test-SslBindingExists, Test-WebsiteHasSslBinding, Set-WebSiteBindingNonHttp, Get-WebSitePhysicalPath
+export-modulemember -function '*'

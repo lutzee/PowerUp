@@ -1,0 +1,13 @@
+﻿<!-- Unsecure config -->
+<system.serviceModel>
+<bindings>
+    <basicHttpBinding>
+        <binding name="BasicHttpBinding" openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:30:00" maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+        <security mode="${SecurityMode}" />
+    </binding>
+    </basicHttpBinding>
+</bindings>
+<client>
+    <endpoint address="http://localhost" binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding" contract="Test.TestyMcTest" name="BasicHttpBinding" />
+</client>
+</system.serviceModel>

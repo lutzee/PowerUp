@@ -1,5 +1,0 @@
-Default	
-	nuget.server.path				\\cnwchcs6\NuGetRespository\
-	nuget.nuspec.name				PowerUp
-	nuget.manual.package.version	1.0.11
-	nuget.update.exe				false

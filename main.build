@@ -75,7 +75,7 @@
         <arg value="pack" />
         <arg value="${package.dir}\${nuspec.name}" />
         <arg value="-version" />
-        <arg value="${version.major}.1.${version.minor}" />
+        <arg value="${version.major}.0.${version.minor}" />
         <arg value="-outputdirectory" />
         <arg value="${root.dir}\_nupkg" />
         <arg value="-NoPackageAnalysis" />

@@ -120,7 +120,7 @@ function ConfigureApppoolDefaultOptions($options)
             $apppool.username = $apppool.identity
         }
 
-        if (!$appool.dotnetversion)
+        if (!$apppool.dotnetversion)
         {
             $apppool.dotnetversion = "v4.0"
         }

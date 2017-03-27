@@ -97,7 +97,7 @@ function copy-package($servers, $packageName)
 		$currentLocation = get-location
 
 		$packageCopyRequired = $false
-		setWindowsCredentials -serverName $serverName -remoteDir $remoteDir -userName $server['username'][0] -password $server['password'][0]
+		set-windowscredentials -serverName $serverName -remoteDir $remoteDir -userName $server['username'][0] -password $server['password'][0]
 		if ((!(Test-Path $remotePath\package.id) -or !(Test-Path $currentLocation\package.id)))
 		{		
 			$packageCopyRequired = $true
@@ -115,15 +115,14 @@ function copy-package($servers, $packageName)
 	}
 }
 
-function setWindowsCredentials ($serverName,$remoteDir,$userName,$password)  
+function set-windowscredentials ($serverName, $remoteDir, $userName, $password)  
 {
-	Write-host "Login to $serverName as $userName"
+	write-output "Login to $serverName as $userName"
 	NET USE $remoteDir /u:$userName $password
 }
 
 function get-serverSettings($settingsFunction, $serverNames)
-{	
-		
+{		
 	$servers = @()
 	
 	foreach($serverName in $serverNames)

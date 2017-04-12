@@ -10,10 +10,10 @@
     <copyright>Copyright 2017</copyright>
   </metadata>
   <files>
-  <file src="_powerup\**\*.*" target="_powerup" />
-  <file src="_packageupdate\**\*.*" target="_packageupdate" />
-  <file src="_bootstrapper\**\*.*" target="_bootstrapper" />
-  <file src="Tools\**\*.*" target="Tools" />
-  <file src="runonce.bat" target="\" />
-</files>
+      <file src="_powerup\**\*.*" target="_powerup" />
+      <file src="_packageupdate\**\*.*" target="_packageupdate" />
+      <file src="_bootstrapper\**\*.*" target="_bootstrapper" />
+      <file src="Tools\**\*.*" target="Tools" />
+      <file src="runonce.bat" target="\" />
+    </files>
 </package>

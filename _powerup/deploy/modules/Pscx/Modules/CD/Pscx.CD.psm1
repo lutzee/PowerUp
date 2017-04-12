@@ -124,7 +124,7 @@ function Set-LocationEx
 				} 
 				elseif ($Pscx:Preferences['CD_EchoNewLocation'])
 				{
-					Write-Host $ExecutionContext.SessionState.Path.CurrentLocation
+					Write-Output $ExecutionContext.SessionState.Path.CurrentLocation
 				}
             }
         }
@@ -229,7 +229,7 @@ function Set-LocationEx
             $forestackSize = $forewardStack.Count
             if ($num -eq $backstackSize) 
             {
-                Write-Host "`n$($msgTbl.GoingToTheSameDir)`n"
+                Write-Output "`n$($msgTbl.GoingToTheSameDir)`n"
             }
             elseif ($num -lt $backstackSize) 
             {

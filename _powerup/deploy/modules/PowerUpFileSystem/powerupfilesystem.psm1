@@ -211,25 +211,41 @@ function Invoke-Executable
     param(
         [string]$exe,
         [Array]$params = $null,
-        [bool]$ignoreFailure=$false
+        [bool]$ignoreFailure = $false,
+        [bool]$grabOutput = $false
     )
 
     Write-ColoredOutput "Running $exe $params" -foregroundcolor "green"
-    $Process = Start-Process $exe -Wait -PassThru -NoNewWindow -ArgumentList $params
 
-    if ($ignoreFailure) {
-      if ($Process.ExitCode -gt 0) {
-        cmd /c
-        Write-ColoredOutput "$exe failed, but ignoring failure" -foregroundcolor "yellow"
-      }
-      return
+    $output = ""
+
+    if ($grabOutput)
+    {
+        $stdoutFile = $exe + ".stdout"
+        $stderrFile = $exe + ".stderr"
+        $proc = Start-Process $exe -Wait -PassThru -NoNewWindow -ArgumentList $params -RedirectStandardOutput $stdoutFile -RedirectStandardError $stderrFile
+        $output = Get-Content $stdoutFile | Out-String
+    }
+    else
+    {
+        $proc = Start-Process $exe -Wait -PassThru -NoNewWindow -ArgumentList $params
     }
 
-    if ($Process.ExitCode -gt 0) {
-        throw "$exe $params had non-zero exit code"
+    if ($proc.ExitCode -gt 0) {
+        $exitCode = [string]$proc.ExitCode
+        if ($ignoreFailure) {
+            cmd /c
+            Write-ColoredOutput "$exe failed with exit code $exitCode, but ignoring failure" -foregroundcolor "yellow"
+        }
+        else
+        {
+            throw "$exe $params had non-zero exit code $exitCode"
+        }
     }
+
+    return $output
 }
- 
+
 Set-Alias RobocopyDirectory Copy-Directory
 
 Export-ModuleMember -function '*'

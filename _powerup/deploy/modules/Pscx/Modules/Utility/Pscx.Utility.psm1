@@ -591,7 +591,7 @@ function Resolve-ErrorRecord
         {
             if ($global:Error.Count -eq 0)
             {
-                Write-Host "The `$Error collection is empty."
+                Write-Output "The `$Error collection is empty."
                 return
             }
             else

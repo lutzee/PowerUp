@@ -6,7 +6,7 @@ function Invoke-Combo-StandardWindowsService($options)
 
     ConfigureBasicDefaultOptions $options
 
-    Remove-Service $options.servicename $options.fulldestinationpath $options.exename $options.useinstallutil  $options.installutilcommandline $options.installutilpath
+    Remove-Service $options.servicename $options.fulldestinationpath $options.exename $options.useinstallutil  $options.installutilcommandline $options.installutilpath $options.forceStop
 
     if($options.copywithoutmirror)
     {
@@ -17,7 +17,7 @@ function Invoke-Combo-StandardWindowsService($options)
         copy-mirroreddirectory $options.fullsourcepath $options.fulldestinationpath
     }
 
-    Set-Service $options.servicename $options.fulldestinationpath $options.exename $options.displayName $options.description "auto" $null $options.useinstallutil $options.installutilcommandline $options.installutilpath
+    Set-Service $options.servicename $options.fulldestinationpath $options.exename $options.displayName $options.description "auto" $options.dependsOn $options.useinstallutil $options.installutilcommandline $options.installutilpath
 
     if ($options.serviceaccountusername)
     {

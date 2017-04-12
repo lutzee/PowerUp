@@ -150,13 +150,14 @@ function Remove-MaybeNonExistingService
 {
     param
     (
-        [string] $Name = $(throw 'Must provide a service name')
+        [string] $Name = $(throw 'Must provide a service name'),
+        [bool] $force = $false
     )
 
     $serviceExists = !((Get-Service | Where-Object {$_.Name -eq $Name}) -eq $null)
 
     if ($serviceExists) {
-        Remove-Service $Name
+        Remove-Service $Name $force
     }
     else
     {
@@ -173,7 +174,8 @@ function Remove-Service
         [string] $ExeFileName = $null,
         [bool] $UseInstallUtil = $false,
         [string] $InstallUtilCommandLine = $null,
-        [string] $InstallUtilPath = $null
+        [string] $InstallUtilPath = $null,
+        [bool] $ForceStop = $false
     )
 
     $binPath = "$InstallPath\$ExeFileName"
@@ -183,7 +185,7 @@ function Remove-Service
     if ($serviceExists) {
         Write-Output "Uninstalling $Name"
 
-        Stop-MaybeNonExistingService $Name
+        Stop-MaybeNonExistingService $Name $ForceStop
 
         if ($UseInstallUtil) {
             $lastexitcode = 0

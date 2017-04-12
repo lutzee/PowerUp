@@ -15,10 +15,10 @@ function WriteUsage([string]$msg)
 {
 	$moduleNames = $Pscx:Preferences.ModulesToImport.Keys | Sort
 
-	if ($msg) { Write-Host $msg }
+	if ($msg) { Write-Output $msg }
 	
 	$OFS = ','
-	Write-Host @"
+	Write-Output @"
  
 To load all PSCX modules using the default PSCX preferences execute: 
 
@@ -141,7 +141,7 @@ $stopWatch = new-object System.Diagnostics.StopWatch
 $keys = @($Pscx:Preferences.ModulesToImport.Keys)
 if ($Pscx:Preferences.ShowModuleLoadDetails) 
 { 
-	Write-Host "PowerShell Community Extensions $($Pscx:Version)`n"
+	Write-Output "PowerShell Community Extensions $($Pscx:Version)`n"
 	$totalModuleLoadTimeMs = 0
 	$stopWatch.Reset()
 	$stopWatch.Start()
@@ -154,7 +154,7 @@ foreach ($key in $keys)
 	{
 		$stopWatch.Reset()
 		$stopWatch.Start()
-		Write-Host " $key $(' ' * (20 - $key.length))[ " -NoNewline
+		Write-Output " $key $(' ' * (20 - $key.length))[ " -NoNewline
 	}
 	
 	if (!$Pscx:Preferences.ModulesToImport.$key) 
@@ -162,7 +162,7 @@ foreach ($key in $keys)
 		# Not selected for loading by user 
 		if ($Pscx:Preferences.ShowModuleLoadDetails) 
 		{	
-			Write-Host "Skipped" -nonew
+			Write-Output "Skipped" -nonew
 		}		
 	}
 	else 
@@ -180,7 +180,7 @@ foreach ($key in $keys)
 				# Missing/invalid module
 				if ($Pscx:Preferences.ShowModuleLoadDetails) 
 				{
-					Write-Host "Module $path is missing ]"
+					Write-Output "Module $path is missing ]"
 				} 
 				else 
 				{
@@ -201,7 +201,7 @@ foreach ($key in $keys)
 				$stopWatch.Stop()
 				$totalModuleLoadTimeMs += $stopWatch.ElapsedMilliseconds
 				$loadTimeMsg = "Loaded in {0,4} mS" -f $stopWatch.ElapsedMilliseconds
-				Write-Host $loadTimeMsg -nonew
+				Write-Output $loadTimeMsg -nonew
 			}
 		} 
 		catch 
@@ -209,7 +209,7 @@ foreach ($key in $keys)
 			# Problem in module
 			if ($Pscx:Preferences.ShowModuleLoadDetails) 
 			{
-				Write-Host "Module $key load error: $_" -nonew 
+				Write-Output "Module $key load error: $_" -nonew 
 			} 
 			else 
 			{
@@ -220,13 +220,13 @@ foreach ($key in $keys)
 	
 	if ($Pscx:Preferences.ShowModuleLoadDetails) 
 	{ 
-		Write-Host " ]" 
+		Write-Output " ]" 
 	}
 }
 
 if ($Pscx:Preferences.ShowModuleLoadDetails) 
 { 
-	Write-Host "`nTotal module load time: $totalModuleLoadTimeMs mS"
+	Write-Output "`nTotal module load time: $totalModuleLoadTimeMs mS"
 }
 
 Remove-Item Function:\WriteUsage

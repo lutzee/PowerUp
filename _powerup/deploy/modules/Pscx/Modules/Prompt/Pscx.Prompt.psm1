@@ -116,7 +116,7 @@ function Write-Prompt($Id)
 	{
 		if ($Host.UI.RawUI.CursorPosition.X -ne 0)
 		{
-			Write-Host
+			Write-Output
 		}	
 		
 		$foreColor = $Host.UI.RawUI.ForegroundColor

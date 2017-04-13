@@ -97,7 +97,11 @@ function copy-package($servers, $packageName)
 		$currentLocation = get-location
 
 		$packageCopyRequired = $false
-		set-windowscredentials -serverName $serverName -remoteDir $remoteDir -userName $server['username'][0] -password $server['password'][0]
+
+	        if ($server['username'] -and $server['password']) {
+			set-windowscredentials -serverName $serverName -remoteDir $remoteDir -userName $server['username'][0] -password $server['password'][0]
+		}
+
 		if ((!(Test-Path $remotePath\package.id) -or !(Test-Path $currentLocation\package.id)))
 		{		
 			$packageCopyRequired = $true

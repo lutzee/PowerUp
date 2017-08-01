@@ -34,7 +34,7 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             if (settings.Count == 0)
                 return;
 
-            ProcessDirectoryHierarchy(SubstituteFile, settings, environmentFolder, unreplacedSettings);
+            ProcessDirectoryHierarchy(SubstituteFile, settings, environmentFolder, unreplacedSettings, "*.template");
             ProcessDirectoryHierarchy(SubstituteFilesInFiles, settings, environmentFolder, unreplacedSettings);
             RemoveSubstitutedSubTemplates(environmentFolder);
 
@@ -57,7 +57,8 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             Func<string, IEnumerable<KeyValuePair<string, string[]>>, IList<string>> fileAction,
             IDictionary<string, string[]> settings,
             string environmentFolder,
-            Dictionary<string, IList<string>> unreplacedSettings
+            Dictionary<string, IList<string>> unreplacedSettings,
+            string ignoredPattern = null
         )
         {
             var dirStack = new Stack<string>();
@@ -67,7 +68,7 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             {
                 var dir = dirStack.Pop();
 
-                foreach (var file in GetVisibleFiles(dir))
+                foreach (var file in GetVisibleFiles(dir, ignoredPattern))
                 {
                     var unreplaced = fileAction(file.FullName, settings);
 
@@ -104,20 +105,20 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             }
         }
 
-        private IEnumerable<FileInfo> GetVisibleFiles(DirectoryInfo directoryInfo)
+        private IEnumerable<FileInfo> GetVisibleFiles(DirectoryInfo directoryInfo, string pattern = null)
         {
-            return directoryInfo.GetFiles().Where(x => !IsResourceHidden(x) && !IsIgnoredSubTemplate(x));
+            if (string.IsNullOrWhiteSpace(pattern))
+            {
+                return directoryInfo.GetFiles().Where(x => !IsResourceHidden(x));
+            }
+
+            var excluded = directoryInfo.GetFiles(pattern).Select(x => x.FullName);
+            return directoryInfo.GetFiles().Where(x => !excluded.Contains(x.FullName)).Where(x => !IsResourceHidden(x));
         }
 
-        private bool IsIgnoredSubTemplate(FileSystemInfo info)
+        private IEnumerable<FileInfo> GetVisibleFiles(string directory, string pattern)
         {
-            var extensionForEnvironment = string.Format(".{0}.template", _environment);        
-            return info.Extension.Equals(".template") && !info.FullName.EndsWith(extensionForEnvironment);
-        }
-
-        private IEnumerable<FileInfo> GetVisibleFiles(string directory)
-        {
-            return GetVisibleFiles(new DirectoryInfo(directory));
+            return GetVisibleFiles(new DirectoryInfo(directory), pattern);
         }
 
         private static IEnumerable<DirectoryInfo> GetVisibleDirectories(string directory)
@@ -153,7 +154,7 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
         private static IList<string> SubstituteFilesInFiles(string file, IEnumerable<KeyValuePair<string, string[]>> settings)
         {
             var encodedFile = Helpers.GetFileWithEncoding(file);
-            var content = SubstituteFiles(encodedFile);
+            var content = SubstituteFiles(encodedFile, settings);
 
             var unsubstitutedFiles = GetUnsubstitutedSubFiles(content);
 
@@ -223,7 +224,7 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             return content;
         }
 
-        private static string SubstituteFiles(EncodedFile file)
+        private static string SubstituteFiles(EncodedFile file, IEnumerable<KeyValuePair<string, string[]>> settings)
         {
             var matches = SubfileRegex.Matches(file.Contents).Cast<Match>();
 
@@ -241,6 +242,8 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
                 {
                     throw new Exception(string.Format("Sub-file \"{0}\" not found when substituting \"{1}\"", fullSubFilePath, file.File.FullName));
                 }
+
+                SubstituteFile(fullSubFilePath, settings);
 
                 var subFile = Helpers.GetFileWithEncodingNoBom(fullSubFilePath);
 

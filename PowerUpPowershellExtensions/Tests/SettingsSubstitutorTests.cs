@@ -23,6 +23,7 @@ namespace Tests
             ResourceHelpers.SaveResourceToDisk(_templatesFolder, "Tests.ExampleTemplates.TemplateWithSubfile.txt");
             ResourceHelpers.SaveResourceToDisk(_templatesFolder, "Tests.ExampleTemplates.Subfile.environment1.template");
             ResourceHelpers.SaveResourceToDisk(_templatesFolder, "Tests.ExampleTemplates.Subfile.environment2.template");
+            ResourceHelpers.SaveResourceToDisk(_templatesFolder, "Tests.ExampleTemplates.Subfile.test.template");
         }
 
         [SetUp]
@@ -55,9 +56,10 @@ namespace Tests
         }
 
         [Test]
-        [TestCase("environment1")]
-        [TestCase("environment2")]
-        public void Should_replace_subfiles_in_template(string environment)
+        [TestCase("environment1", "environment1")]
+        [TestCase("environment2", "environment2")]
+        [TestCase("environment1", "test")]
+        public void Should_replace_subfiles_in_template(string environment, string setting)
         {
             _settingsSubstitutor = new SettingsSubstitutor(environment);
 
@@ -66,7 +68,7 @@ namespace Tests
             {
                 { "StandardSetting1", new [] { "AAA" } },
                 { "StandardSetting2", new [] { "BBB" } },
-                { "SubFileFileName", new [] { "Tests.ExampleTemplates.Subfile." + environment +  ".template" } }
+                { "SubFileFileName", new [] { "Tests.ExampleTemplates.Subfile." + setting +  ".template" } }
             };
 
             // Only add the 3rd setting when testing environment2 - this demonstrates that missing settings don't matter

@@ -234,6 +234,7 @@
     </Content>
     <EmbeddedResource Include="ExampleSettingsFiles\TGSettings.txt" />
     <EmbeddedResource Include="ExampleSettingsFiles\VisaSettings.txt" />
+    <EmbeddedResource Include="ExampleTemplates\Subfile.test.template" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\Archive.zip" />
   </ItemGroup>

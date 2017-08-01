@@ -164,8 +164,8 @@
     <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithInheritanceAndRevertedValueWarnings.txt" />
     <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithInheritanceSeparateFile.txt" />
     <EmbeddedResource Include="ExampleSettingsFiles\SettingsWithReservedKey.txt" />
-    <EmbeddedResource Include="ExampleTemplates\Subfile1.txt" />
-    <EmbeddedResource Include="ExampleTemplates\Subfile2.txt" />
+    <EmbeddedResource Include="ExampleTemplates\Subfile.environment1.template" />
+    <EmbeddedResource Include="ExampleTemplates\Subfile.environment2.template" />
     <EmbeddedResource Include="ExampleTemplates\TemplateWithSubfile.txt" />
     <Content Include="ExampleUmbracoRevisions\V1\manifest.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

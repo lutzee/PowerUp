@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Management.Automation;
-using System.IO;
 using System.Collections;
 using Id.PowershellExtensions.SubstitutedSettingFiles;
 
@@ -39,10 +36,10 @@ namespace Id.PowershellExtensions
         {
             try
             {
-                var substitutor = new SettingsSubstitutor();
+                var substitutor = new SettingsSubstitutor(DeploymentEnvironment);
 
                 var settingsDictionary = Settings.Keys.Cast<string>().ToDictionary(key => key, key => (string [])Settings[key]);
-                substitutor.CreateSubstitutedDirectory(TemplatesDirectory, TargetDirectory, DeploymentEnvironment, settingsDictionary);
+                substitutor.CreateSubstitutedDirectory(TemplatesDirectory, TargetDirectory, settingsDictionary);
             }
             catch (Exception e)
             {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Id.PowershellExtensions.SubstitutedSettingFiles;
 using NUnit.Framework;
@@ -20,15 +21,14 @@ namespace Tests
             Directory.CreateDirectory(_templatesFolder);
 
             ResourceHelpers.SaveResourceToDisk(_templatesFolder, "Tests.ExampleTemplates.TemplateWithSubfile.txt");
-            ResourceHelpers.SaveResourceToDisk(_templatesFolder, "Tests.ExampleTemplates.Subfile1.txt");
-            ResourceHelpers.SaveResourceToDisk(_templatesFolder, "Tests.ExampleTemplates.Subfile2.txt");
+            ResourceHelpers.SaveResourceToDisk(_templatesFolder, "Tests.ExampleTemplates.Subfile.environment1.template");
+            ResourceHelpers.SaveResourceToDisk(_templatesFolder, "Tests.ExampleTemplates.Subfile.environment2.template");
         }
 
         [SetUp]
         public void SetUp()
         {
             _outputFolder = GetTempFolderName();
-            _settingsSubstitutor = new SettingsSubstitutor();
         }
 
         [TearDown]
@@ -55,26 +55,41 @@ namespace Tests
         }
 
         [Test]
-        public void Should_replace_subfiles_in_template()
+        [TestCase("environment1")]
+        [TestCase("environment2")]
+        public void Should_replace_subfiles_in_template(string environment)
         {
+            _settingsSubstitutor = new SettingsSubstitutor(environment);
+
             //Arrange
             var settings = new Dictionary<string, string[]>
             {
-                { "StandardSetting", new [] { "StandardSettingValue" } },
-                { "SubFileFileName", new [] { "Tests.ExampleTemplates.Subfile2.txt" } },
-                { "SecurityMode", new [] { "Transport" } }
+                { "StandardSetting1", new [] { "AAA" } },
+                { "StandardSetting2", new [] { "BBB" } },
+                { "SubFileFileName", new [] { "Tests.ExampleTemplates.Subfile." + environment +  ".template" } }
             };
 
+            // Only add the 3rd setting when testing environment2 - this demonstrates that missing settings don't matter
+            // when doing sub-template substitutions as only the sub-templates for the current environment are handled.
+            if (environment.Equals("environment2", StringComparison.OrdinalIgnoreCase))
+            {
+                settings.Add("StandardSetting3", new [] { "CCC" });
+            }
+
             //Act
-            _settingsSubstitutor.CreateSubstitutedDirectory(_templatesFolder, _outputFolder, "test", settings);
+            _settingsSubstitutor.CreateSubstitutedDirectory(_templatesFolder, _outputFolder, settings);
 
             //Assert
-            var fullEnvironmentFilename = Path.Combine(_outputFolder, "test", "Tests.ExampleTemplates.TemplateWithSubfile.txt");
+            var fullEnvironmentFilename = Path.Combine(_outputFolder, environment, "Tests.ExampleTemplates.TemplateWithSubfile.txt");
             var subsituted = Id.PowershellExtensions.Helpers.GetFileWithEncoding(fullEnvironmentFilename);
 
-            Assert.That(subsituted.Contents, Is.StringContaining("<!-- Secure config -->"));
-            Assert.That(subsituted.Contents, Is.StringContaining("StandardSettingValue"));
-            Assert.That(subsituted.Contents, Is.StringContaining("Transport"));
+            Assert.That(subsituted.Contents, Is.StringContaining("StandardSetting2"));
+            Assert.That(subsituted.Contents, Is.StringContaining("BBB"));
+
+            var outputDir = Path.Combine(_outputFolder, environment);
+            var templates = Directory.GetFiles(outputDir, "*.template");
+
+            Assert.That(templates.Length, Is.EqualTo(0));
         }
     }
 }

@@ -12,15 +12,22 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
         private static readonly Regex SubfileRegex = new Regex(@"\+{(?<KEY>[^>]*?)}", RegexOptions.IgnoreCase);
         private static readonly Regex KeyRegex = new Regex(@"(?<!`)\${([^}]*)}", RegexOptions.IgnoreCase);
 
-        public void CreateSubstitutedDirectory(string templatesDirectory, string targetDirectory, string environment, IDictionary<string, string[]> settings)
+        private readonly string _environment;
+
+        public SettingsSubstitutor(string environment)
         {
-            var fullEnvironmentFolder = Path.Combine(targetDirectory, environment);
+            _environment = environment;
+        }
+
+        public void CreateSubstitutedDirectory(string templatesDirectory, string targetDirectory, IDictionary<string, string[]> settings)
+        {
+            var fullEnvironmentFolder = Path.Combine(targetDirectory, _environment);
 
             CopyDirectoryRecursively(templatesDirectory, fullEnvironmentFolder);
             SubstituteDirectory(fullEnvironmentFolder, settings);
         }
 
-        private static void SubstituteDirectory(string environmentFolder, IDictionary<string, string[]> settings)
+        private void SubstituteDirectory(string environmentFolder, IDictionary<string, string[]> settings)
         {
             var unreplacedSettings = new Dictionary<string, IList<string>>();
 
@@ -29,6 +36,7 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
 
             ProcessDirectoryHierarchy(SubstituteFile, settings, environmentFolder, unreplacedSettings);
             ProcessDirectoryHierarchy(SubstituteFilesInFiles, settings, environmentFolder, unreplacedSettings);
+            RemoveSubstitutedSubTemplates(environmentFolder);
 
             if (unreplacedSettings.Count > 0)
             {
@@ -45,7 +53,7 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             }
         }
 
-        private static void ProcessDirectoryHierarchy(
+        private void ProcessDirectoryHierarchy(
             Func<string, IEnumerable<KeyValuePair<string, string[]>>, IList<string>> fileAction,
             IDictionary<string, string[]> settings,
             string environmentFolder,
@@ -71,15 +79,43 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
                 {
                     dirStack.Push(dn.FullName);
                 }
+
             }
         }
 
-        private static IEnumerable<FileInfo> GetVisibleFiles(DirectoryInfo directoryInfo)
+        private void RemoveSubstitutedSubTemplates(string environmentFolder)
         {
-            return directoryInfo.GetFiles().Where(x => !IsResourceHidden(x));
+            var dirStack = new Stack<string>();
+            dirStack.Push(environmentFolder);
+
+            while (dirStack.Count > 0)
+            {
+                var dir = dirStack.Pop();
+
+                foreach (var file in Directory.GetFiles(dir, "*.template"))
+                {
+                    File.Delete(file);
+                }
+
+                foreach (var dn in GetVisibleDirectories(dir))
+                {
+                    dirStack.Push(dn.FullName);
+                }
+            }
         }
 
-        private static IEnumerable<FileInfo> GetVisibleFiles(string directory)
+        private IEnumerable<FileInfo> GetVisibleFiles(DirectoryInfo directoryInfo)
+        {
+            return directoryInfo.GetFiles().Where(x => !IsResourceHidden(x) && !IsIgnoredSubTemplate(x));
+        }
+
+        private bool IsIgnoredSubTemplate(FileSystemInfo info)
+        {
+            var extensionForEnvironment = string.Format(".{0}.template", _environment);        
+            return info.Extension.Equals(".template") && !info.FullName.EndsWith(extensionForEnvironment);
+        }
+
+        private IEnumerable<FileInfo> GetVisibleFiles(string directory)
         {
             return GetVisibleFiles(new DirectoryInfo(directory));
         }
@@ -216,7 +252,7 @@ namespace Id.PowershellExtensions.SubstitutedSettingFiles
             return content;
         }
 
-        private static void CopyDirectoryRecursively(string source, string destination)
+        private void CopyDirectoryRecursively(string source, string destination)
         {
             var sourceDirectoryInfo = new DirectoryInfo(source);
 

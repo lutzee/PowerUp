@@ -19,6 +19,8 @@
     <property name="include.powerup.build" value="false" unless="${property::exists('include.powerup.build')}"/>
     <property name="build.maxcpucount.value" value="/${build.maxcpucount}" if="${property::exists('build.maxcpucount')}" />
     <property name="build.maxcpucount.value" value="" unless="${property::exists('build.maxcpucount')}" />
+	<!-- Valid values are "Comunity", "Professional" and "Enterprise" -->
+    <property name="vs.edition" value="Professional" unless="${property::exists('vs.edition')}"/>
     
     <property name="max.cpus" value="1" unless="${property::exists('max.cpus')}" />
     <choose>
@@ -66,7 +68,20 @@
             <arg value="/property:OutDir=${build.out.dir}"/>
             <arg value="/nologo"/>
         </exec>
-    </target>    
+    </target> 
+
+    <target name="compile-solution-msbuild-15">
+        <exec program="C:\Program Files (x86)\Microsoft Visual Studio\2017\${vs.edition}\MSBuild\15.0\Bin\MsBuild.exe">
+            <arg line='"${solution.dir}\${solution.name}.${solution.extension}"' />
+            <arg line="/property:Configuration=${build.configuration}"/>
+            <arg value="/property:Platform=${build.platform}"/>
+            <arg value="/target:Rebuild"/>
+            <arg value="/verbosity:${build.verbosity}"/>
+            <arg value="/property:OutDir=${build.out.dir}"/>
+            <arg value="/${max.cpus.value}"/>
+            <arg value="/nologo"/>
+        </exec>
+    </target>
 
     <target name="compile-solution-nooutdir">
         <property name="msbuild.target" value="${solution.dir}\${solution.name}.${solution.extension}"/>

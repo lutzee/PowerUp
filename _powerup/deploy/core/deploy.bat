@@ -17,12 +17,12 @@ if not '%1'=='' goto RUN
 	call _powerup\deploy\core\ensure_prerequisites.bat
 	
 if not '%2'=='' goto RUNWITHTASK	
-powershell -ExecutionPolicy Bypass -inputformat none -command ".\_powerup\deploy\core\deploy_with_psake.ps1 -buildFile .\deploy.ps1 -deploymentProfile %1  | Tee-Object -file .\log-%ldt%.txt"
+powershell -ExecutionPolicy Bypass -inputformat none -command ".\_powerup\deploy\core\deploy_with_psake.ps1 -buildFile .\deploy.ps1 -deploymentProfile %1 2>&1 | Tee-Object -file .\log-%ldt%.txt"
 
 goto END
 
 :RUNWITHTASK
-powershell -ExecutionPolicy Bypass -inputformat none -command ".\_powerup\deploy\core\deploy_with_psake.ps1 -buildFile .\deploy.ps1 -deploymentProfile %1 -tasks %2  | Tee-Object -file .\log-%ldt%.txt"
+powershell -ExecutionPolicy Bypass -inputformat none -command ".\_powerup\deploy\core\deploy_with_psake.ps1 -buildFile .\deploy.ps1 -deploymentProfile %1 -tasks %2 2>&1 | Tee-Object -file .\log-%ldt%.txt"
 
 :END
 exit /B %errorlevel%

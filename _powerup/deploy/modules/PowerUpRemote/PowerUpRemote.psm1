@@ -48,13 +48,14 @@ function invoke-remotetaskwithpsexec( $tasks, $server, $deploymentEnvironment, $
 	$fullLocalReleaseWorkingFolder = $server['local.temp.working.folder'][0] + '\' + $packageName
 	$batchFile = $fullLocalReleaseWorkingFolder + '\' + 'deploy.bat'
 
+    #See https://docs.microsoft.com/en-us/sysinternals/downloads/psexec for PsExec switches
 	if ($server.ContainsKey('username'))
 	{
-		cmd /c cscript.exe $PSScriptRoot\cmd.js $PSScriptRoot\psexec.exe \\$serverName /accepteula -u $server['username'][0] -p $server['password'][0] -w $fullLocalReleaseWorkingFolder $batchFile $deploymentEnvironment $tasks
+		cmd /c cscript.exe /nologo $PSScriptRoot\cmd.js $PSScriptRoot\psexec.exe \\$serverName /accepteula -u $server['username'][0] -p $server['password'][0] -h -w $fullLocalReleaseWorkingFolder $batchFile $deploymentEnvironment $tasks
 	}
 	else
 	{
-		cmd /c cscript.exe $PSScriptRoot\cmd.js $PSScriptRoot\psexec.exe \\$serverName /accepteula -w $fullLocalReleaseWorkingFolder $batchFile $deploymentEnvironment $tasks		
+		cmd /c cscript.exe /nologo $PSScriptRoot\cmd.js $PSScriptRoot\psexec.exe \\$serverName /accepteula -h -w $fullLocalReleaseWorkingFolder $batchFile $deploymentEnvironment $tasks
 	}
 		
 	Write-Output "====== Finished execution of tasks $tasks on server $serverName ====="

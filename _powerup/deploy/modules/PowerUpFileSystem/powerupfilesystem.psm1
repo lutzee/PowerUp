@@ -76,15 +76,15 @@ function copy-directory([string]$sourceDirectory, [string]$destinationDirectory,
 
     if ($preserveExisting)
     {
-        $output = & "$robocopyExe" $sourceDirectory $destinationDirectory /E /np /njh /nfl /ns /nc /xo /xn /xc /xf $excludeFileMask
+        $output = & "$robocopyExe" $sourceDirectory $destinationDirectory /E /np /njh /nfl /ns /nc /xo /xn /xc /xf /R:0 $excludeFileMask
     }
     elseif ($onlyNewer)
     {
-        $output = & "$robocopyExe" $sourceDirectory $destinationDirectory /E /np /njh /nfl /ns /nc /xo /xf $excludeFileMask
+        $output = & "$robocopyExe" $sourceDirectory $destinationDirectory /E /np /njh /nfl /ns /nc /xo /xf /R:0 $excludeFileMask
     }
     else
     {
-        $output = & "$robocopyExe" $sourceDirectory $destinationDirectory /E /np /njh /nfl /ns /nc /xf $excludeFileMask
+        $output = & "$robocopyExe" $sourceDirectory $destinationDirectory /E /np /njh /nfl /ns /nc /xf /R:0 $excludeFileMask
     }
 
     if ($lastexitcode -lt 8)
@@ -93,7 +93,7 @@ function copy-directory([string]$sourceDirectory, [string]$destinationDirectory,
     }
     else
     {
-        throw "Robocopy failed to mirror to $destinationDirectory. Exited with exit code $lastexitcode"
+        throw "Robocopy failed to mirror to $destinationDirectory. Exited with exit code $lastexitcode. Robocopy output was: $output"
     }
 }
 
@@ -105,11 +105,11 @@ function Copy-MirroredDirectory([string]$sourceDirectory, [string]$destinationDi
     if($excludedPaths)
     {
         $dirs = $excludedPaths -join " "
-        $output = & "$robocopyExe" $sourceDirectory $destinationDirectory /E /np /njh /nfl /ns /nc /mir /XD $dirs
+        $output = & "$robocopyExe" $sourceDirectory $destinationDirectory /E /np /njh /nfl /ns /nc /mir /XD /R:0 $dirs
     }
     else
     {
-        $output = & "$robocopyExe" $sourceDirectory $destinationDirectory  /E /np /njh /nfl /ns /nc /mir
+        $output = & "$robocopyExe" $sourceDirectory $destinationDirectory  /E /np /njh /nfl /ns /nc /mir /R:0
     }
 
     if ($lastexitcode -lt 8)
@@ -118,7 +118,7 @@ function Copy-MirroredDirectory([string]$sourceDirectory, [string]$destinationDi
     }
     else
     {
-        throw "Robocopy failed to mirror to $destinationDirectory. Exited with exit code $lastexitcode"
+        throw "Robocopy failed to mirror to $destinationDirectory. Exited with exit code $lastexitcode. Robocopy output was: $output"
     }
 }
 

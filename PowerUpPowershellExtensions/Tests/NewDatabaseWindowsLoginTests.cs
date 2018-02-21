@@ -48,7 +48,7 @@ namespace Tests
             NewWindowsLogin = null;
         }
 
-        [Test]
+        [Test, Explicit]
         public void NewDatabaseWindowsLogin_Execute_CreatesWindowsLogin()
         {
             NewWindowsLogin = new NewWindowsLogin(Logger, @"cnw\cnwar5");

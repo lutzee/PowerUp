@@ -257,6 +257,7 @@ namespace Id.PowershellExtensions.ParsedSettings
         private void AppendReservedSettingsInternal(Dictionary<string, string> output, string section)
         {
             output["environment.profile"] = section;
+            output["environment.uniqueid"] = Guid.NewGuid().ToString("N");
         }
 
         private void ValidateSettingsAreNotReserved(Dictionary<string, string> output)
@@ -264,6 +265,11 @@ namespace Id.PowershellExtensions.ParsedSettings
             if (output.Keys.Any(x => x.Equals("environment.profile", StringComparison.OrdinalIgnoreCase)))
             {
                 throw new Exception("Reserved key \"environment.profile\" found");
+            }
+
+            if (output.Keys.Any(x => x.Equals("environment.uniqueid", StringComparison.OrdinalIgnoreCase)))
+            {
+                throw new Exception("Reserved key \"environment.uniqueid\" found");
             }
         }
 

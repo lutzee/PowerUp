@@ -39,7 +39,7 @@ namespace Tests
             var settings = sp.Parse(reader.ReadSettings(), "Dev", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(4, settings.Keys.Count);
+            Assert.AreEqual(5, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("other", settings.Keys.ElementAt(2));
@@ -104,7 +104,7 @@ namespace Tests
             var settings = sp.Parse(reader.ReadSettings(), new String[0], "Dev", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(5, settings.Keys.Count);
+            Assert.AreEqual(6, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("Other", settings.Keys.ElementAt(2));
@@ -121,7 +121,7 @@ namespace Tests
             var settings = sp.Parse(reader.ReadSettings(), "Live", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(5, settings.Keys.Count);
+            Assert.AreEqual(6, settings.Keys.Count);
         }
 
         [Test]
@@ -132,7 +132,7 @@ namespace Tests
             var settings = sp.Parse(reader.ReadSettings(), "Dev", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(4, settings.Keys.Count);
+            Assert.AreEqual(5, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("Other", settings.Keys.ElementAt(2));
@@ -159,7 +159,7 @@ namespace Tests
             var settings = sp.Parse(reader.ReadSettings(), "Test", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(10, settings.Keys.Count);
+            Assert.AreEqual(11, settings.Keys.Count);
             Assert.AreEqual(@"VisaDebitMicroSiteAU", settings["ProjectName"][0]);
             Assert.AreEqual(@"\\reliant", settings["DeployServer"][0]);
             Assert.AreEqual(@"e:\temp", settings["DeploymentPath"][0]);
@@ -179,7 +179,7 @@ namespace Tests
             var settings = sp.Parse(reader.ReadSettings(), "Live", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(5, settings.Keys.Count);
+            Assert.AreEqual(6, settings.Keys.Count);
             Assert.AreEqual("Other", settings.Keys.ElementAt(1));
             Assert.AreEqual("2", settings["Other"][0]);
             Assert.AreEqual("3", settings["Other"][1]);
@@ -213,7 +213,7 @@ namespace Tests
             var settings = sp.Parse(reader.ReadSettings(), "icevm069", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(6, settings.Keys.Count);
+            Assert.AreEqual(7, settings.Keys.Count);
             Assert.AreEqual(@"icevm069", settings["server.name"][0]);
             Assert.AreEqual(@"d", settings["local.root.drive.letter"][0]);
             Assert.AreEqual(@"_releasetemp", settings["deployment.working.folder"][0]);
@@ -254,10 +254,12 @@ namespace Tests
             if (include)
             {
                 Assert.AreEqual(section, settings["environment.profile"][0]);
+                Assert.NotNull(settings["environment.uniqueid"][0]);
             }
             else
             {
                 Assert.IsFalse(settings.ContainsKey("environment.profile"));
+                Assert.IsFalse(settings.ContainsKey("environment.uniqueid"));
             }
         }
 
@@ -269,7 +271,7 @@ namespace Tests
             var settings = sp.Parse(reader.ReadSettings(), "Live", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(4, settings.Keys.Count);
+            Assert.AreEqual(5, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("Other", settings.Keys.ElementAt(2));
@@ -286,7 +288,7 @@ namespace Tests
             var settings = sp.Parse(reader.ReadSettings(), "Prod", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(4, settings.Keys.Count);
+            Assert.AreEqual(5, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("Other", settings.Keys.ElementAt(2));
@@ -303,7 +305,7 @@ namespace Tests
             var settings = sp.Parse(reader.ReadSettings(), "Prod", '|');
 
             Assert.IsNotNull(settings);
-            Assert.AreEqual(4, settings.Keys.Count);
+            Assert.AreEqual(5, settings.Keys.Count);
             Assert.AreEqual("Wotsit", settings.Keys.ElementAt(0));
             Assert.AreEqual("Thing", settings.Keys.ElementAt(1));
             Assert.AreEqual("Other", settings.Keys.ElementAt(2));

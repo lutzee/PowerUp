@@ -1,3 +1,7 @@
+if (Get-Module -ListAvailable -Name SomeModule -eq $false) {
+    Install-Module -Name Microsoft.PowerShell.SecretManagement, SecretManagement.KeePass -Scope CurrentUser
+} 
+
 function Get-KeepassSecret(
     [Parameter(Mandatory)][string]$VaultName,
     [Parameter(Mandatory)][string]$VaultPath,
@@ -56,7 +60,6 @@ function Register-KeepassVault (
         Register-SecretVault -Name $VaultName -ModuleName SecretManagement.KeePass -VaultParameters @{
             Path = $path
             UseMasterPassword = $true
-            #MasterPassword = $VaultPassword
         }
     }
 }

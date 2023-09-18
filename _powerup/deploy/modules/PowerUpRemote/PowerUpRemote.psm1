@@ -168,7 +168,7 @@ function copy-packageNonDomain($server, $packageName, $deploymentEnvironment)
 
     Import-Module PowerUpSecrets
     
-    $password = Get-KeepassSecret -VaultName $server['secret.vault.name'][0] -VaultPath $server['secret.vault.path'][0] -SecretName "${deploymentEnvironment}-password"
+    $password = Get-KeepassSecret -VaultName $server['secret.vault.name'][0] -VaultPath $server['secret.vault.path'][0] -SecretName "$($server['secret.password.name'][0])-password"
     $credential = new-object -typename System.Management.Automation.PSCredential -argumentlist $server["username"][0], $password
 
     $session = New-PSSession -ComputerName $serverName -Credential $credential -UseSSL

@@ -8,8 +8,7 @@ function Get-KeepassSecret(
     Register-KeepassVault -VaultName $VaultName -VaultPath $VaultPath
 
     # Then unlock it so we can get the value
-    $vaultPassword= ConvertTo-SecureString $env:KEEPASS_MASTER_PASSWORD -AsPlainText -Force
-
+    $vaultPassword = Get-VaultPassword
     Unlock-SecretVault -Password $vaultPassword -Name $vaultName
 
     $secret = Get-Secret -Name $secretName -Vault $vaultName
@@ -30,7 +29,8 @@ function New-KeepassSecret(
     Register-KeepassVault -VaultName $VaultName -VaultPath $VaultPath
 
     # Then unlock it so we can set the new value
-    $vaultPassword= ConvertTo-SecureString $env:KEEPASS_MASTER_PASSWORD -AsPlainText -Force
+    $vaultPassword = Get-VaultPassword
+    
     Unlock-SecretVault -Password $vaultPassword -Vault $vaultName
 
     Set-Secret -Name $name -Secret $Value -Vault $VaultName
@@ -61,4 +61,16 @@ function Register-KeepassVault (
     }
 }
 
-Export-ModuleMember -function '*'
+function Get-VaultPassword() 
+{
+    if([string]::IsNullOrEmpty($env:KEEPASS_MASTER_PASSWORD)) 
+    {
+        throw "KEEPASS_MASTER_PASSWORD environment variable not set, unable to unlock the database"
+    }
+
+    $vaultPassword= ConvertTo-SecureString $env:KEEPASS_MASTER_PASSWORD -AsPlainText -Force
+
+    return $vaultPassword
+}
+
+Export-ModuleMember -function Get-KeepassSecret, New-KeepassSecret, Register-KeepassVault

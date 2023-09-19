@@ -1,5 +1,6 @@
-if (Get-Module -ListAvailable -Name SomeModule -eq $false) {
-    Install-Module -Name Microsoft.PowerShell.SecretManagement, SecretManagement.KeePass -Scope CurrentUser
+if ($null -eq (Get-Module -ListAvailable -Name SecretManagement.KeePass)) 
+{
+    Install-Module -Name Microsoft.PowerShell.SecretManagement, SecretManagement.KeePass -Scope CurrentUser -Force
 } 
 
 function Get-KeepassSecret(

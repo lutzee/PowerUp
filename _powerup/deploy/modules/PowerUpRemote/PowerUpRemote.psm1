@@ -173,24 +173,27 @@ function copy-packageNonDomain($server, $packageName, $deploymentEnvironment)
 
     $session = New-PSSession -ComputerName $serverName -Credential $credential -UseSSL
     
-    $localLastWriteTime = (Get-Item $currentLocation\package.id).LastWriteTime
-    $localPackageIdFileExists = !(Test-Path $currentLocation\package.id)
-    $packageCopyRequired = Invoke-Command -Session $session -ScriptBlock {
+    $localLastWriteTime = (Get-Item $currentLocation\package.id).LastWriteTime.ToString("o")
+    $localPackageIdFileExists = (Test-Path $currentLocation\package.id)
+    $remotePackageIdFileExists = Invoke-Command -Session $session -ScriptBlock {
         param (
             $remotePath, 
             $localLastWriteTime, 
             $localPackageIdFileExists
         ) 
-        if ((!(Test-Path $remotePath\package.id) -or $localPackageIdFileExists))
+        if (!(Test-Path $remotePath\package.id))
         {
-            return $true
+            return $false
         }
         else
         {
-            return !((Get-Item $remotePath\package.id).LastWriteTime -eq $localLastWriteTime)
+            # Conver the localLastWriteTime back to a date time as we passed it as a string
+            return (Get-Item $remotePath\package.id).LastWriteTime -eq [DateTime]$localLastWriteTime
         }
     } -ArgumentList $remotePath, $localLastWriteTime, $localPackageIdFileExists
 
+    $packageCopyRequired = !$remotePackageIdFileExists -or !$localPackageIdFileExists
+    
     if ($packageCopyRequired)
     {
         # Only copy the zip file as its much faster than copying file-by-file
@@ -206,6 +209,11 @@ function copy-packageNonDomain($server, $packageName, $deploymentEnvironment)
                 Expand-Archive -Path $path -DestinationPath $destinationDirectory
             }
         } -ArgumentList $remotePath
+
+        # Also copy the templated configuration and package.id files
+        # We need to copy the package.id file as otherwise the timestamps from the extraction step wont match
+        Copy-Item -ToSession $session -Path '_templatesoutput' -Destination $remotePath -Recurse
+        Copy-Item -ToSession $session -Path 'package.id' -Destination $remotePath
     }
 }
 

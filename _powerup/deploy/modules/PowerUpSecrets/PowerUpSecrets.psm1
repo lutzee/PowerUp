@@ -17,6 +17,7 @@ function Get-KeepassSecret(
     Unlock-SecretVault -Password $vaultPassword -Name $vaultName
 
     $secret = Get-Secret -Name $secretName -Vault $vaultName
+
     # Always unregister the vault once used, as the vault points to a keepass file that 
     # might be in a different folder on the next deploy, we can't have the registration hanging around
     Unregister-SecretVault $vaultName
@@ -35,7 +36,7 @@ function New-KeepassSecret(
 
     # Then unlock it so we can set the new value
     $vaultPassword = Get-VaultPassword
-    
+
     Unlock-SecretVault -Password $vaultPassword -Vault $vaultName
 
     Set-Secret -Name $name -Secret $Value -Vault $VaultName
@@ -54,10 +55,17 @@ function Register-KeepassVault (
 
     try 
     {
+        # If the vaule exists, it might have been left over from a past run in a different folder, therefore unregister it
         Get-SecretVault -Name $VaultName
+        Unregister-SecretVault $vaultName
     } 
-    catch 
+    catch {
+        # no-op, we don't care about errors if the vault doesn't exist
+    }
+    finally 
     {
+        # Register the valut now we've confirmed it doesn't already exist
+        Write-Host "Registering Vault"
         Register-SecretVault -Name $VaultName -ModuleName SecretManagement.KeePass -VaultParameters @{
             Path = $path
             UseMasterPassword = $true
